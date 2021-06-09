@@ -1,0 +1,914 @@
+﻿<Window x:Class="StudentManagement.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudentManagement"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:viewAccount="clr-namespace:StudentManagement.View.Account_Manage"
+        xmlns:viewDashBoard="clr-namespace:StudentManagement.View.Dashboard"
+        xmlns:viewStudent="clr-namespace:StudentManagement.View.Student_Manage"
+        xmlns:viewTeacher="clr-namespace:StudentManagement.View.Teacher_Manage"
+        xmlns:viewClass="clr-namespace:StudentManagement.View.Class_Manage"
+        xmlns:viewRoom="clr-namespace:StudentManagement.View.Room_Manage"
+        xmlns:viewMark="clr-namespace:StudentManagement.View.Mark_Manage"
+        xmlns:viewTuition="clr-namespace:StudentManagement.View.Tuition_Manage"
+        xmlns:viewReport="clr-namespace:StudentManagement.View.Report_Manage"
+        xmlns:viewSubject="clr-namespace:StudentManagement.View.Subject_Manage"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        x:Name="MainWD"
+        DataContext="{StaticResource MainVM}"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="900" Width="1600">
+    <Window.Resources>
+        <Style x:Key="tblButtonFeature"
+               TargetType="TextBlock">
+            <Setter Property="FontFamily"
+                    Value="Consolas"></Setter>
+            <Setter Property="Foreground"
+                    Value="White"></Setter>
+            <Setter Property="FontSize"
+                    Value="15"></Setter>
+            <Setter Property="Width"
+                    Value="Auto"></Setter>
+        </Style>
+
+        <Style x:Key="ButtonFeature"
+               TargetType="Button"
+               BasedOn="{StaticResource MaterialDesignRaisedButton}">
+            <Setter Property="BorderThickness"
+                    Value="0"></Setter>
+            <Setter Property="FontWeight"
+                    Value="Normal"></Setter>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0.5,1"
+                                         MappingMode="RelativeToBoundingBox"
+                                         StartPoint="0.5,0">
+                        <GradientStop Color="#FF81D4FA"
+                                      Offset="0" />
+                        <GradientStop Color="#FF00B9FF"
+                                      Offset="1" />
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <Grid Grid.Row="0">
+            <materialDesign:ColorZone Background="#FF52B6B0"
+                                      Height="40">
+                <DockPanel>
+                    <materialDesign:PopupBox DockPanel.Dock="Right"
+                                             Foreground="White"
+                                             PopupMode="Click"
+                                             PlacementMode="BottomAndAlignRightEdges">
+                        <StackPanel Orientation="Vertical">
+                            <Border Margin="5"
+                                    Background="#FF52B6B0"
+                                    Opacity="0.8"
+                                    BorderBrush="#FF52B6B0"
+                                    BorderThickness="3"
+                                    CornerRadius="5">
+                                <Button FontSize="20"
+                                        Width="150"
+                                        Foreground="White"
+                                        Content="Quit"
+                                        VerticalContentAlignment="Center"
+                                        HorizontalContentAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"
+                                        Padding="0,1,0,0"
+                                        Command="{Binding QuitCommand}"
+                                        CommandParameter="{Binding ElementName=MainWD}">
+
+                                </Button>
+                            </Border>
+                            <Border Margin="5"
+                                    Background="#FF52B6B0"
+                                    Opacity="0.8"
+                                    BorderBrush="#FF52B6B0"
+                                    BorderThickness="3"
+                                    CornerRadius="5">
+                                <Button FontSize="20"
+                                        Width="150"
+                                        Foreground="White"
+                                        Content="Log Out"
+                                        VerticalContentAlignment="Center"
+                                        HorizontalContentAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"
+                                        Padding="0,1,0,0"
+                                        Command="{Binding LogOutCommand}"
+                                        CommandParameter="{Binding ElementName=MainWD}">
+
+                                </Button>
+                            </Border>
+                        </StackPanel>
+                    </materialDesign:PopupBox>
+                    <StackPanel  Orientation="Horizontal"
+                                 HorizontalAlignment="Right">
+                        <TextBlock VerticalAlignment="Center"
+                                   Height="auto"
+                                   Style="{StaticResource tblButtonFeature}"
+                                   FontSize="25"
+                                   Text=" STUDENT MANAGEMENT">
+                        </TextBlock>
+                    </StackPanel>
+                </DockPanel>
+            </materialDesign:ColorZone>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <!--CỘT 1 CHỨA CÁC BUTTON CHUYỂN ĐỔI CHỨC NĂNG-->
+            <Border Grid.Column="0"
+                    Margin="5"
+                    BorderBrush="#FF52B6B0"
+                    BorderThickness="3"
+                    CornerRadius="5">
+
+                <StackPanel Orientation="Vertical">
+                    <!--Btn Dashboard-->
+                    <Button Height="auto"
+                            Width="auto"
+                            materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                            Command="{Binding BtnDashBoardCommand}">
+                        <StackPanel Orientation="Horizontal"
+                                    Width="230">
+                            <!--Icon để tại đây-->
+                            <Image Source="Photo/dashboard.png"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Height="40"
+                                   Width="40" />
+                            <!--Content-->
+                            <TextBlock Text="Dashboard"
+                                       Margin="20,0,0,0"
+                                       FontSize="20"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ChucNang}"
+                                                         Value="0">
+                                                <Setter Property="FontWeight"
+                                                        Value="Bold"></Setter>
+                                                <Setter Property="Foreground"
+                                                        Value="White"></Setter>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </StackPanel>
+                        <Button.Style>
+                            <Style TargetType="Button"
+                                   BasedOn="{StaticResource MaterialDesignRaisedButton}">
+                                <Setter Property="BorderThickness"
+                                        Value="0"></Setter>
+                                <Setter Property="FontWeight"
+                                        Value="Normal"></Setter>
+                                <Setter Property="Background"
+                                        Value="White"></Setter>
+                                <Setter Property="Foreground"
+                                        Value="#FF52B6B0"></Setter>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ChucNang}"
+                                                 Value="0">
+                                        <Setter Property="FontWeight"
+                                                Value="Bold"></Setter>
+                                        <Setter Property="Foreground"
+                                                Value="White"></Setter>
+                                        <Setter Property="Background"
+                                                Value="#FF52B6B0"></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <!--Btn STUDENT-->
+                    <Button Height="auto"
+                            Width="auto"
+                            materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                            Command="{Binding BtnManageStudentCommand}">
+                        <StackPanel Orientation="Horizontal"
+                                    Width="230">
+                            <!--Icon để tại đây-->
+                            <Image Source="Photo/student.png"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Height="40"
+                                   Width="40" />
+                            <!--Content-->
+                            <TextBlock Text="Học sinh"
+                                       Margin="20,0,0,0"
+                                       FontSize="20"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ChucNang}"
+                                                         Value="1">
+                                                <Setter Property="FontWeight"
+                                                        Value="Bold"></Setter>
+                                                <Setter Property="Foreground"
+                                                        Value="White"></Setter>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </StackPanel>
+                        <Button.Style>
+                            <Style TargetType="Button"
+                                   BasedOn="{StaticResource MaterialDesignRaisedButton}">
+                                <Setter Property="BorderThickness"
+                                        Value="0"></Setter>
+                                <Setter Property="FontWeight"
+                                        Value="Normal"></Setter>
+                                <Setter Property="Background"
+                                        Value="White"></Setter>
+                                <Setter Property="Foreground"
+                                        Value="#FF52B6B0"></Setter>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ChucNang}"
+                                                 Value="1">
+                                        <Setter Property="FontWeight"
+                                                Value="Bold"></Setter>
+                                        <Setter Property="Foreground"
+                                                Value="White"></Setter>
+                                        <Setter Property="Background"
+                                                Value="#FF52B6B0"></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <!--Btn TEACHER-->
+                    <Button Height="auto"
+                            Width="auto"
+                            materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                            Command="{Binding BtnManageTeacherCommand}">
+                        <StackPanel Orientation="Horizontal"
+                                    Width="230">
+                            <!--Icon để tại đây-->
+                            <Image Source="Photo/teacher.png"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Height="40"
+                                   Width="40" />
+                            <!--Content-->
+                            <TextBlock Text="Giáo viên"
+                                       Margin="20,0,0,0"
+                                       FontSize="20"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ChucNang}"
+                                                         Value="2">
+                                                <Setter Property="FontWeight"
+                                                        Value="Bold"></Setter>
+                                                <Setter Property="Foreground"
+                                                        Value="White"></Setter>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </StackPanel>
+                        <Button.Style>
+                            <Style TargetType="Button"
+                                   BasedOn="{StaticResource MaterialDesignRaisedButton}">
+                                <Setter Property="BorderThickness"
+                                        Value="0"></Setter>
+                                <Setter Property="FontWeight"
+                                        Value="Normal"></Setter>
+                                <Setter Property="Background"
+                                        Value="White"></Setter>
+                                <Setter Property="Foreground"
+                                        Value="#FF52B6B0"></Setter>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ChucNang}"
+                                                 Value="2">
+                                        <Setter Property="FontWeight"
+                                                Value="Bold"></Setter>
+                                        <Setter Property="Foreground"
+                                                Value="White"></Setter>
+                                        <Setter Property="Background"
+                                                Value="#FF52B6B0"></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <!--Btn SUBJECT-->
+                    <Button Height="auto"
+                            Width="auto"
+                            materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                            Command="{Binding BtnManageSubjectCommand}">
+                        <StackPanel Orientation="Horizontal"
+                                    Width="230">
+                            <!--Icon để tại đây-->
+                            <Image Source="Photo/subject.png"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Height="40"
+                                   Width="40" />
+                            <!--Content-->
+                            <TextBlock Text="Môn học"
+                                       Margin="20,0,0,0"
+                                       FontSize="20"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ChucNang}"
+                                                         Value="3">
+                                                <Setter Property="FontWeight"
+                                                        Value="Bold"></Setter>
+                                                <Setter Property="Foreground"
+                                                        Value="White"></Setter>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </StackPanel>
+                        <Button.Style>
+                            <Style TargetType="Button"
+                                   BasedOn="{StaticResource MaterialDesignRaisedButton}">
+                                <Setter Property="BorderThickness"
+                                        Value="0"></Setter>
+                                <Setter Property="FontWeight"
+                                        Value="Normal"></Setter>
+                                <Setter Property="Background"
+                                        Value="White"></Setter>
+                                <Setter Property="Foreground"
+                                        Value="#FF52B6B0"></Setter>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ChucNang}"
+                                                 Value="3">
+                                        <Setter Property="FontWeight"
+                                                Value="Bold"></Setter>
+                                        <Setter Property="Foreground"
+                                                Value="White"></Setter>
+                                        <Setter Property="Background"
+                                                Value="#FF52B6B0"></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <!--Btn MARK-->
+                    <Button Height="auto"
+                            Width="auto"
+                            materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                            Command="{Binding BtnManageMarkCommand}">
+                        <StackPanel Orientation="Horizontal"
+                                    Width="230">
+                            <!--Icon để tại đây-->
+                            <Image Source="Photo/score.png"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Height="40"
+                                   Width="40" />
+                            <!--Content-->
+                            <TextBlock Text="Điểm"
+                                       Margin="20,0,0,0"
+                                       FontSize="20"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ChucNang}"
+                                                         Value="4">
+                                                <Setter Property="FontWeight"
+                                                        Value="Bold"></Setter>
+                                                <Setter Property="Foreground"
+                                                        Value="White"></Setter>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </StackPanel>
+                        <Button.Style>
+                            <Style TargetType="Button"
+                                   BasedOn="{StaticResource MaterialDesignRaisedButton}">
+                                <Setter Property="BorderThickness"
+                                        Value="0"></Setter>
+                                <Setter Property="FontWeight"
+                                        Value="Normal"></Setter>
+                                <Setter Property="Background"
+                                        Value="White"></Setter>
+                                <Setter Property="Foreground"
+                                        Value="#FF52B6B0"></Setter>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ChucNang}"
+                                                 Value="4">
+                                        <Setter Property="FontWeight"
+                                                Value="Bold"></Setter>
+                                        <Setter Property="Foreground"
+                                                Value="White"></Setter>
+                                        <Setter Property="Background"
+                                                Value="#FF52B6B0"></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <!--Btn CLASS-->
+                    <Button Height="auto"
+                            Width="auto"
+                            materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                            Command="{Binding BtnManageClassCommand}">
+                        <StackPanel Orientation="Horizontal"
+                                    Width="230">
+                            <!--Icon để tại đây-->
+                            <Image Source="Photo/class.png"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Height="40"
+                                   Width="40" />
+                            <!--Content-->
+                            <TextBlock Text="Lớp"
+                                       Margin="20,0,0,0"
+                                       FontSize="20"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ChucNang}"
+                                                         Value="5">
+                                                <Setter Property="FontWeight"
+                                                        Value="Bold"></Setter>
+                                                <Setter Property="Foreground"
+                                                        Value="White"></Setter>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </StackPanel>
+                        <Button.Style>
+                            <Style TargetType="Button"
+                                   BasedOn="{StaticResource MaterialDesignRaisedButton}">
+                                <Setter Property="BorderThickness"
+                                        Value="0"></Setter>
+                                <Setter Property="FontWeight"
+                                        Value="Normal"></Setter>
+                                <Setter Property="Background"
+                                        Value="White"></Setter>
+                                <Setter Property="Foreground"
+                                        Value="#FF52B6B0"></Setter>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ChucNang}"
+                                                 Value="5">
+                                        <Setter Property="FontWeight"
+                                                Value="Bold"></Setter>
+                                        <Setter Property="Foreground"
+                                                Value="White"></Setter>
+                                        <Setter Property="Background"
+                                                Value="#FF52B6B0"></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <!--Btn CLASSROOM-->
+                    <Button Height="auto"
+                            Width="auto"
+                            materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                            Command="{Binding BtnManageRoomCommand}">
+                        <StackPanel Orientation="Horizontal"
+                                    Width="230">
+                            <!--Icon để tại đây-->
+                            <Image Source="Photo/classroom.png"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Height="40"
+                                   Width="40" />
+                            <!--Content-->
+                            <TextBlock Text="Phòng học"
+                                       Margin="20,0,0,0"
+                                       FontSize="20"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ChucNang}"
+                                                         Value="6">
+                                                <Setter Property="FontWeight"
+                                                        Value="Bold"></Setter>
+                                                <Setter Property="Foreground"
+                                                        Value="White"></Setter>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </StackPanel>
+                        <Button.Style>
+                            <Style TargetType="Button"
+                                   BasedOn="{StaticResource MaterialDesignRaisedButton}">
+                                <Setter Property="BorderThickness"
+                                        Value="0"></Setter>
+                                <Setter Property="FontWeight"
+                                        Value="Normal"></Setter>
+                                <Setter Property="Background"
+                                        Value="White"></Setter>
+                                <Setter Property="Foreground"
+                                        Value="#FF52B6B0"></Setter>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ChucNang}"
+                                                 Value="6">
+                                        <Setter Property="FontWeight"
+                                                Value="Bold"></Setter>
+                                        <Setter Property="Foreground"
+                                                Value="White"></Setter>
+                                        <Setter Property="Background"
+                                                Value="#FF52B6B0"></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <!--Btn FEE-->
+                    <Button Height="auto"
+                            Width="auto"
+                            materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                            Command="{Binding BtnManageFeeCommand}">
+                        <StackPanel Orientation="Horizontal"
+                                    Width="230">
+                            <!--Icon để tại đây-->
+                            <Image Source="Photo/fees.png"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Height="40"
+                                   Width="40" />
+                            <!--Content-->
+                            <TextBlock Text="Học phí"
+                                       Margin="20,0,0,0"
+                                       FontSize="20"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ChucNang}"
+                                                         Value="7">
+                                                <Setter Property="FontWeight"
+                                                        Value="Bold"></Setter>
+                                                <Setter Property="Foreground"
+                                                        Value="White"></Setter>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </StackPanel>
+                        <Button.Style>
+                            <Style TargetType="Button"
+                                   BasedOn="{StaticResource MaterialDesignRaisedButton}">
+                                <Setter Property="BorderThickness"
+                                        Value="0"></Setter>
+                                <Setter Property="FontWeight"
+                                        Value="Normal"></Setter>
+                                <Setter Property="Background"
+                                        Value="White"></Setter>
+                                <Setter Property="Foreground"
+                                        Value="#FF52B6B0"></Setter>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ChucNang}"
+                                                 Value="7">
+                                        <Setter Property="FontWeight"
+                                                Value="Bold"></Setter>
+                                        <Setter Property="Foreground"
+                                                Value="White"></Setter>
+                                        <Setter Property="Background"
+                                                Value="#FF52B6B0"></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <!--Btn REPORT-->
+                    <Button Height="auto"
+                            Width="auto"
+                            materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                            Command="{Binding BtnManageReportCommand}">
+                        <StackPanel Orientation="Horizontal"
+                                    Width="230">
+                            <!--Icon để tại đây-->
+                            <Image Source="Photo/report.png"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Height="40"
+                                   Width="40" />
+                            <!--Content-->
+                            <TextBlock Text="Báo cáo"
+                                       Margin="20,0,0,0"
+                                       FontSize="20"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ChucNang}"
+                                                         Value="8">
+                                                <Setter Property="FontWeight"
+                                                        Value="Bold"></Setter>
+                                                <Setter Property="Foreground"
+                                                        Value="White"></Setter>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </StackPanel>
+                        <Button.Style>
+                            <Style TargetType="Button"
+                                   BasedOn="{StaticResource MaterialDesignRaisedButton}">
+                                <Setter Property="BorderThickness"
+                                        Value="0"></Setter>
+                                <Setter Property="FontWeight"
+                                        Value="Normal"></Setter>
+                                <Setter Property="Background"
+                                        Value="White"></Setter>
+                                <Setter Property="Foreground"
+                                        Value="#FF52B6B0"></Setter>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ChucNang}"
+                                                 Value="8">
+                                        <Setter Property="FontWeight"
+                                                Value="Bold"></Setter>
+                                        <Setter Property="Foreground"
+                                                Value="White"></Setter>
+                                        <Setter Property="Background"
+                                                Value="#FF52B6B0"></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <!--Btn ACCOUNT-->
+                    <Button Height="auto"
+                            Width="auto"
+                            materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                            Command="{Binding BtnManageAccountCommand}">
+                        <StackPanel Orientation="Horizontal"
+                                    Width="230">
+                            <!--Icon để tại đây-->
+                            <Image Source="Photo/account.png"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Height="40"
+                                   Width="40" />
+                            <!--Content-->
+                            <TextBlock Text="Tài khoản"
+                                       Margin="20,0,0,0"
+                                       FontSize="20"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ChucNang}"
+                                                         Value="9">
+                                                <Setter Property="FontWeight"
+                                                        Value="Bold"></Setter>
+                                                <Setter Property="Foreground"
+                                                        Value="White"></Setter>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </StackPanel>
+                        <Button.Style>
+                            <Style TargetType="Button"
+                                   BasedOn="{StaticResource MaterialDesignRaisedButton}">
+                                <Setter Property="BorderThickness"
+                                        Value="0"></Setter>
+                                <Setter Property="FontWeight"
+                                        Value="Normal"></Setter>
+                                <Setter Property="Background"
+                                        Value="White"></Setter>
+                                <Setter Property="Foreground"
+                                        Value="#FF52B6B0"></Setter>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ChucNang}"
+                                                 Value="9">
+                                        <Setter Property="FontWeight"
+                                                Value="Bold"></Setter>
+                                        <Setter Property="Foreground"
+                                                Value="White"></Setter>
+                                        <Setter Property="Background"
+                                                Value="#FF52B6B0"></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </StackPanel>
+            </Border>
+            
+            <Border Grid.Column="1"
+                    Margin="5"
+                    BorderBrush="#FF52B6B0"
+                    BorderThickness="3"
+                    CornerRadius="5">
+                <Grid Grid.Column="1">
+                    <!--View DashBoard-->
+                    <Grid>
+                        <Grid.Style>
+                            <Style TargetType="Grid">
+                                <Setter Property="Visibility"
+                                        Value="Visible"></Setter>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ChucNang}"
+                                                 Value="0">
+                                        <Setter Property="Visibility"
+                                                Value="Visible"></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Style>
+                        <viewDashBoard:Dashboard_UC></viewDashBoard:Dashboard_UC>
+                    </Grid>
+                    <!--View Student-->
+                    <Grid>
+                        <Grid.Style>
+                            <Style TargetType="Grid">
+                                <Setter Property="Visibility"
+                                        Value="Collapsed"></Setter>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ChucNang}"
+                                                 Value="1">
+                                        <Setter Property="Visibility"
+                                                Value="Visible"></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Style>
+                        <viewStudent:Student_UC></viewStudent:Student_UC>
+                    </Grid>
+                    <!--View Teacher-->
+                    <Grid>
+                        <Grid.Style>
+                            <Style TargetType="Grid">
+                                <Setter Property="Visibility"
+                                        Value="Collapsed"></Setter>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ChucNang}"
+                                                 Value="2">
+                                        <Setter Property="Visibility"
+                                                Value="Visible"></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Style>
+                        <viewTeacher:Teacher_UC></viewTeacher:Teacher_UC>
+                    </Grid>
+                    <!--View Subject-->
+                    <Grid>
+                        <Grid.Style>
+                            <Style TargetType="Grid">
+                                <Setter Property="Visibility"
+                                        Value="Collapsed"></Setter>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ChucNang}"
+                                                 Value="3">
+                                        <Setter Property="Visibility"
+                                                Value="Visible"></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Style>
+                        <viewSubject:Subject_UC></viewSubject:Subject_UC>
+                    </Grid>
+                    <!--View Mark-->
+                    <Grid>
+                        <Grid.Style>
+                            <Style TargetType="Grid">
+                                <Setter Property="Visibility"
+                                        Value="Collapsed"></Setter>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ChucNang}"
+                                                 Value="4">
+                                        <Setter Property="Visibility"
+                                                Value="Visible"></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Style>
+                        <viewMark:Mark_UC></viewMark:Mark_UC>
+                    </Grid>
+                    <!--View Class-->
+                    <Grid>
+                        <Grid.Style>
+                            <Style TargetType="Grid">
+                                <Setter Property="Visibility"
+                                        Value="Collapsed"></Setter>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ChucNang}"
+                                                 Value="5">
+                                        <Setter Property="Visibility"
+                                                Value="Visible"></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Style>
+                        <viewClass:Class_UC></viewClass:Class_UC>
+                    </Grid>
+                    <!--View Room-->
+                    <Grid>
+                        <Grid.Style>
+                            <Style TargetType="Grid">
+                                <Setter Property="Visibility"
+                                        Value="Collapsed"></Setter>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ChucNang}"
+                                                 Value="6">
+                                        <Setter Property="Visibility"
+                                                Value="Visible"></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Style>
+                        <viewRoom:Room_UC></viewRoom:Room_UC>
+                    </Grid>
+                    <!--View Fee-->
+                    <Grid>
+                        <Grid.Style>
+                            <Style TargetType="Grid">
+                                <Setter Property="Visibility"
+                                        Value="Collapsed"></Setter>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ChucNang}"
+                                                 Value="7">
+                                        <Setter Property="Visibility"
+                                                Value="Visible"></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Style>
+                        <viewMark:Mark_UC></viewMark:Mark_UC>
+                    </Grid>
+                    <!--View Report-->
+                    <Grid>
+                        <Grid.Style>
+                            <Style TargetType="Grid">
+                                <Setter Property="Visibility"
+                                        Value="Collapsed"></Setter>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ChucNang}"
+                                                 Value="8">
+                                        <Setter Property="Visibility"
+                                                Value="Visible"></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Style>
+                        <viewReport:Report_UC></viewReport:Report_UC>
+                    </Grid>
+                    <!--View Account-->
+                    <Grid>
+                        <Grid.Style>
+                            <Style TargetType="Grid">
+                                <Setter Property="Visibility"
+                                        Value="Collapsed"></Setter>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ChucNang}"
+                                                 Value="9">
+                                        <Setter Property="Visibility"
+                                                Value="Visible"></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Style>
+                        <viewAccount:Account_UC></viewAccount:Account_UC>
+                    </Grid>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

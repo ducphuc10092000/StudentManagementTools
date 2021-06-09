@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="StudentManagement.View.Class_Manage.Class_UC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:StudentManagement.View.Class_Manage"
+             mc:Ignorable="d" 
+             Background="White"
+             d:DesignHeight="850" d:DesignWidth="1350">
+    <Grid>
+        <TextBlock VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   FontSize="100">
+            CLASS
+        </TextBlock>
+    </Grid>
+</UserControl>

@@ -216,7 +216,7 @@
                             </StackPanel>
                             <Grid Grid.Column="1">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="300"></RowDefinition>
+                                    <RowDefinition Height="400"></RowDefinition>
                                     <RowDefinition></RowDefinition>
                                     <RowDefinition></RowDefinition>
                                 </Grid.RowDefinitions>
@@ -238,14 +238,14 @@
                                             materialDesign:ShadowAssist.ShadowDepth="Depth2"
                                             Content="Chọn ảnh"
                                             Command="{Binding ChangePictureCommand}"
-                                            Height="30"
+                                            Height="40"
                                             Width="100"></Button>
                                     <Button Style="{DynamicResource MaterialDesignRaisedButton}"
                                             materialDesign:ShadowAssist.ShadowDepth="Depth2"
                                             Content="Xóa ảnh"
                                             Command="{Binding DeletePictureCommand}"
                                             Background="#FFF3A2A2"
-                                            Height="30"
+                                            Height="40"
                                             Width="100"
                                             Margin="50,0,0,0"></Button>
                                 </StackPanel>

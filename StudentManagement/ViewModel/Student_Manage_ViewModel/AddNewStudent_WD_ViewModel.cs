@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using StudentManagement.Model;
 using StudentManagement.Model.STUDENT;
+using StudentManagement.View.Student_Manage;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -97,6 +98,11 @@ namespace StudentManagement.ViewModel.Student_Manage_ViewModel
                 DAN_TOC selected_Ethnicity = DataProvider.Ins.DB.DAN_TOC.Where(x => x.TEN_DAN_TOC == StudentEthnicity).SingleOrDefault();
                 QUOC_TICH selected_Nationality = DataProvider.Ins.DB.QUOC_TICH.Where(x => x.TEN_QUOC_TICH == StudentNationality).SingleOrDefault();
                 new_Student.AddNewStudent(StudentName,StudentGender,StudentBirthday,StudentEthnicity,StudentNationality,StudentDadName,StudentMomName,StudentPhoneNumber,ParentPhoneNumber,StudentAddress,Avatar);
+
+                Student_UC student_UC = new Student_UC();
+                var student_UC_DT = student_UC.DataContext as Student_UC_ViewModel;
+                student_UC_DT.LoadStudentList();
+
                 p.Close();
             });
             QuitCommand = new RelayCommand<Window>((p) =>

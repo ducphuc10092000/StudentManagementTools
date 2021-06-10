@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using StudentManagement.Model;
 using StudentManagement.Model.STUDENT;
+using StudentManagement.View.Student_Manage;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -74,6 +75,36 @@ namespace StudentManagement.ViewModel.Student_Manage_ViewModel
         #endregion
         public EditStudent_WD_ViewModel()
         {
+            ConfirmEditStudentCommand = new RelayCommand<Window>((p) =>
+            {
+                //if (AccountPower == 0 || AccountPower == 1)
+                //{
+                //    MessageBoxResult result = MessageBox.Show("Bạn không đủ quyền truy cập vào chức năng này!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                //    return false;
+                //}
+
+
+                return true;
+            }, (p) =>
+            {
+                //Check Input Tại đây
+                //if()
+                //{
+
+                //}    
+                STUDENT selected_Student = new STUDENT();
+
+                DAN_TOC selected_Ethnicity = DataProvider.Ins.DB.DAN_TOC.Where(x => x.TEN_DAN_TOC == StudentEthnicity).SingleOrDefault();
+                QUOC_TICH selected_Nationality = DataProvider.Ins.DB.QUOC_TICH.Where(x => x.TEN_QUOC_TICH == StudentNationality).SingleOrDefault();
+
+                selected_Student.EditStudent(SelectedStudentID,StudentName, StudentGender, StudentBirthday, StudentEthnicity, StudentNationality, StudentDadName, StudentMomName, StudentPhoneNumber, ParentPhoneNumber, StudentAddress, Avatar);
+
+                Student_UC student_UC = new Student_UC();
+                var student_UC_DT = student_UC.DataContext as Student_UC_ViewModel;
+                student_UC_DT.LoadStudentList();
+
+                p.Close();
+            });
             QuitCommand = new RelayCommand<Window>((p) =>
             {
                 //if (AccountPower == 0 || AccountPower == 1)
@@ -149,7 +180,8 @@ namespace StudentManagement.ViewModel.Student_Manage_ViewModel
             StudentMomName = selected_STUDENT.hocsinh.HO_TEN_ME;
             StudentDadName = selected_STUDENT.hocsinh.HO_TEN_CHA;
             Avatar = selected_STUDENT.hocsinh.AVATAR;
-            if (Avatar == null)
+
+            if (string.IsNullOrEmpty(Avatar))
             {
                 AvatarSource = null;
             }

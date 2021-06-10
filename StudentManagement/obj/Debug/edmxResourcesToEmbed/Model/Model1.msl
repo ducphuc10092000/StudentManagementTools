@@ -74,9 +74,9 @@
     <EntitySetMapping Name="HOC_SINH">
       <EntityTypeMapping TypeName="STUDENTMANAGEMENTModel.HOC_SINH">
         <MappingFragment StoreEntitySet="HOC_SINH">
+          <ScalarProperty Name="GIOI_TINH" ColumnName="GIOI_TINH" />
           <ScalarProperty Name="MA_QUOC_TICH" ColumnName="MA_QUOC_TICH" />
           <ScalarProperty Name="AVATAR" ColumnName="AVATAR" />
-          <ScalarProperty Name="GIOI_TINH" ColumnName="GIOI_TINH" />
           <ScalarProperty Name="SDT_PHU_HUYNH" ColumnName="SDT_PHU_HUYNH" />
           <ScalarProperty Name="MA_DAN_TOC" ColumnName="MA_DAN_TOC" />
           <ScalarProperty Name="MA_TON_GIAO" ColumnName="MA_TON_GIAO" />

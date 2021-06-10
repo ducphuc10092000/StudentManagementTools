@@ -77,9 +77,9 @@
     <Property Name="MA_TON_GIAO" Type="int" />
     <Property Name="MA_DAN_TOC" Type="int" />
     <Property Name="SDT_PHU_HUYNH" Type="nvarchar" MaxLength="50" />
-    <Property Name="GIOI_TINH" Type="varchar" MaxLength="3" />
     <Property Name="AVATAR" Type="nvarchar(max)" />
     <Property Name="MA_QUOC_TICH" Type="int" />
+    <Property Name="GIOI_TINH" Type="nvarchar" MaxLength="3" />
   </EntityType>
   <EntityType Name="KHOI_LOP">
     <Key>

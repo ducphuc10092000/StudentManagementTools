@@ -30,9 +30,9 @@ namespace StudentManagement.Model
         public Nullable<int> MA_TON_GIAO { get; set; }
         public Nullable<int> MA_DAN_TOC { get; set; }
         public string SDT_PHU_HUYNH { get; set; }
-        public string GIOI_TINH { get; set; }
         public string AVATAR { get; set; }
         public Nullable<int> MA_QUOC_TICH { get; set; }
+        public string GIOI_TINH { get; set; }
     
         public virtual DAN_TOC DAN_TOC { get; set; }
         public virtual QUOC_TICH QUOC_TICH { get; set; }

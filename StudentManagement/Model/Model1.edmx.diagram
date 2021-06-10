@@ -5,27 +5,27 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="b6f0fc16500c4367afc089ed461b58ec" Name="Diagram1" ZoomLevel="82">
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.BO_MON" Width="1.5" PointX="0.75" PointY="15.125" />
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.DAN_TOC" Width="1.5" PointX="0.75" PointY="5.375" />
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.DIEM" Width="1.5" PointX="15.75" PointY="5.125" />
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.GIANG_DAY" Width="1.5" PointX="8.25" PointY="5.125" />
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.GIAO_VIEN" Width="1.5" PointX="3" PointY="4.375" />
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.HANH_KIEM" Width="1.5" PointX="9" PointY="2.25" />
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.HOC_KY" Width="1.5" PointX="3.75" PointY="18.5" />
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.HOC_SINH" Width="1.5" PointX="6" PointY="4.125" />
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.KHOI_LOP" Width="1.5" PointX="3.75" PointY="21.25" />
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.LOAI_DIEM" Width="1.5" PointX="13.5" PointY="2.375" />
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.LOAI_TAI_KHOAN" Width="1.5" PointX="1.5" PointY="10" />
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.LOP" Width="1.5" PointX="6" PointY="19.25" />
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.MON_HOC" Width="1.5" PointX="6" PointY="0.75" />
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.NAM_HOC" Width="1.5" PointX="1.5" PointY="18.5" />
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.QUA_TRINH_HOC_HOC_KY" Width="1.5" PointX="11.25" PointY="4.75" />
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.QUA_TRINH_HOC_MON_HOC" Width="1.5" PointX="13.5" PointY="5.25" />
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.QUOC_TICH" Width="1.5" PointX="3.75" PointY="1.5" />
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.sysdiagram" Width="1.5" PointX="3.75" PointY="9.25" />
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.TAI_KHOAN" Width="1.5" PointX="0.75" PointY="1.625" />
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.TON_GIAO" Width="1.5" PointX="0.75" PointY="12.625" />
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.XEP_LOAI" Width="1.5" PointX="9" PointY="8.625" />
+        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.BO_MON" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.DAN_TOC" Width="1.5" PointX="0.75" PointY="5.5" />
+        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.DIEM" Width="1.5" PointX="12.75" PointY="1.25" />
+        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.GIANG_DAY" Width="1.5" PointX="8.25" PointY="5.25" />
+        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.GIAO_VIEN" Width="1.5" PointX="6" PointY="4.375" />
+        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.HANH_KIEM" Width="1.5" PointX="6" PointY="10.75" />
+        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.HOC_KY" Width="1.5" PointX="3.75" PointY="15.625" />
+        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.HOC_SINH" Width="1.5" PointX="3" PointY="4.25" />
+        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.KHOI_LOP" Width="1.5" PointX="3.75" PointY="18.25" />
+        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.LOAI_DIEM" Width="1.5" PointX="10.5" PointY="4.5" />
+        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.LOAI_TAI_KHOAN" Width="1.5" PointX="1.5" PointY="12.125" />
+        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.LOP" Width="1.5" PointX="6" PointY="16.375" />
+        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.MON_HOC" Width="1.5" PointX="6" PointY="0.875" />
+        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.NAM_HOC" Width="1.5" PointX="1.5" PointY="15.625" />
+        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.QUA_TRINH_HOC_HOC_KY" Width="1.5" PointX="8.25" PointY="0.75" />
+        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.QUA_TRINH_HOC_MON_HOC" Width="1.5" PointX="10.5" PointY="1.375" />
+        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.QUOC_TICH" Width="1.5" PointX="0.75" PointY="2.625" />
+        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.sysdiagram" Width="1.5" PointX="0.75" PointY="9.375" />
+        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.TAI_KHOAN" Width="1.5" PointX="3.75" PointY="11.875" />
+        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.TON_GIAO" Width="1.5" PointX="3.75" PointY="9.25" />
+        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.XEP_LOAI" Width="1.5" PointX="6" PointY="13.125" />
         <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_GIAO_VIEN_BO_MON" />
         <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_MON_HOC_BO_MON" />
         <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_GIAO_VIEN_DAN_TOC" />

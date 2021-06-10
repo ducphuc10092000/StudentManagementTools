@@ -205,9 +205,9 @@
     <Property Name="MA_TON_GIAO" Type="Int32" />
     <Property Name="MA_DAN_TOC" Type="Int32" />
     <Property Name="SDT_PHU_HUYNH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="GIOI_TINH" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
     <Property Name="AVATAR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="MA_QUOC_TICH" Type="Int32" />
+    <Property Name="GIOI_TINH" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="DAN_TOC" Relationship="STUDENTMANAGEMENTModel.fk_HOC_SINH_DAN_TOC" FromRole="HOC_SINH" ToRole="DAN_TOC" />
     <NavigationProperty Name="QUOC_TICH" Relationship="STUDENTMANAGEMENTModel.fk_HOC_SINH_QUOC_TICH" FromRole="HOC_SINH" ToRole="QUOC_TICH" />
     <NavigationProperty Name="TON_GIAO" Relationship="STUDENTMANAGEMENTModel.fk_HOC_SINH_TON_GIAO" FromRole="HOC_SINH" ToRole="TON_GIAO" />

@@ -82,9 +82,9 @@
           <Property Name="MA_TON_GIAO" Type="int" />
           <Property Name="MA_DAN_TOC" Type="int" />
           <Property Name="SDT_PHU_HUYNH" Type="nvarchar" MaxLength="50" />
-          <Property Name="GIOI_TINH" Type="varchar" MaxLength="3" />
           <Property Name="AVATAR" Type="nvarchar(max)" />
           <Property Name="MA_QUOC_TICH" Type="int" />
+          <Property Name="GIOI_TINH" Type="nvarchar" MaxLength="3" />
         </EntityType>
         <EntityType Name="KHOI_LOP">
           <Key>
@@ -778,9 +778,9 @@
           <Property Name="MA_TON_GIAO" Type="Int32" />
           <Property Name="MA_DAN_TOC" Type="Int32" />
           <Property Name="SDT_PHU_HUYNH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GIOI_TINH" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
           <Property Name="AVATAR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="MA_QUOC_TICH" Type="Int32" />
+          <Property Name="GIOI_TINH" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="DAN_TOC" Relationship="STUDENTMANAGEMENTModel.fk_HOC_SINH_DAN_TOC" FromRole="HOC_SINH" ToRole="DAN_TOC" />
           <NavigationProperty Name="QUOC_TICH" Relationship="STUDENTMANAGEMENTModel.fk_HOC_SINH_QUOC_TICH" FromRole="HOC_SINH" ToRole="QUOC_TICH" />
           <NavigationProperty Name="TON_GIAO" Relationship="STUDENTMANAGEMENTModel.fk_HOC_SINH_TON_GIAO" FromRole="HOC_SINH" ToRole="TON_GIAO" />
@@ -1260,9 +1260,9 @@
           <EntitySetMapping Name="HOC_SINH">
             <EntityTypeMapping TypeName="STUDENTMANAGEMENTModel.HOC_SINH">
               <MappingFragment StoreEntitySet="HOC_SINH">
+                <ScalarProperty Name="GIOI_TINH" ColumnName="GIOI_TINH" />
                 <ScalarProperty Name="MA_QUOC_TICH" ColumnName="MA_QUOC_TICH" />
                 <ScalarProperty Name="AVATAR" ColumnName="AVATAR" />
-                <ScalarProperty Name="GIOI_TINH" ColumnName="GIOI_TINH" />
                 <ScalarProperty Name="SDT_PHU_HUYNH" ColumnName="SDT_PHU_HUYNH" />
                 <ScalarProperty Name="MA_DAN_TOC" ColumnName="MA_DAN_TOC" />
                 <ScalarProperty Name="MA_TON_GIAO" ColumnName="MA_TON_GIAO" />

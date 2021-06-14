@@ -4,50 +4,49 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b6f0fc16500c4367afc089ed461b58ec" Name="Diagram1" ZoomLevel="82">
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.BO_MON" Width="1.5" PointX="3.75" PointY="0.75" />
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.DAN_TOC" Width="1.5" PointX="0.75" PointY="5.5" />
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.DIEM" Width="1.5" PointX="12.75" PointY="1.25" />
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.GIANG_DAY" Width="1.5" PointX="8.25" PointY="5.25" />
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.GIAO_VIEN" Width="1.5" PointX="6" PointY="4.375" />
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.HANH_KIEM" Width="1.5" PointX="6" PointY="10.75" />
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.HOC_KY" Width="1.5" PointX="3.75" PointY="15.625" />
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.HOC_SINH" Width="1.5" PointX="3" PointY="4.25" />
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.KHOI_LOP" Width="1.5" PointX="3.75" PointY="18.25" />
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.LOAI_DIEM" Width="1.5" PointX="10.5" PointY="4.5" />
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.LOAI_TAI_KHOAN" Width="1.5" PointX="1.5" PointY="12.125" />
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.LOP" Width="1.5" PointX="6" PointY="16.375" />
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.MON_HOC" Width="1.5" PointX="6" PointY="0.875" />
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.NAM_HOC" Width="1.5" PointX="1.5" PointY="15.625" />
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.QUA_TRINH_HOC_HOC_KY" Width="1.5" PointX="8.25" PointY="0.75" />
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.QUA_TRINH_HOC_MON_HOC" Width="1.5" PointX="10.5" PointY="1.375" />
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.QUOC_TICH" Width="1.5" PointX="0.75" PointY="2.625" />
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.sysdiagram" Width="1.5" PointX="0.75" PointY="9.375" />
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.TAI_KHOAN" Width="1.5" PointX="3.75" PointY="11.875" />
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.TON_GIAO" Width="1.5" PointX="3.75" PointY="9.25" />
-        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.XEP_LOAI" Width="1.5" PointX="6" PointY="13.125" />
-        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_GIAO_VIEN_BO_MON" />
-        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_MON_HOC_BO_MON" />
-        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_GIAO_VIEN_DAN_TOC" />
-        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_HOC_SINH_DAN_TOC" />
-        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_DIEM_LOAI_DIEM" />
-        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_DIEM_QTMH" />
-        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_GIANG_DAY_GIAO_VIEN" />
-        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_GIANG_DAY_LOP" />
-        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_GIANG_DAY_MON_HOC" />
-        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_GIAO_VIEN_TAI_KHOAN" />
-        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_GIAO_VIEN_TON_GIAO" />
-        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_QTTK_HANH_KIEM" />
-        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_HOC_KY_NAM_HOC" />
-        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_LOP_HOC_KY" />
-        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_HOC_SINH_QUOC_TICH" />
-        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_HOC_SINH_TON_GIAO" />
-        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_QTTK_HOC_SINH" />
-        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_LOP_KHOI_LOP" />
-        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_TAI_KHOAN_LTK" />
-        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_QTTK_LOP" />
-        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_QTMH_QTHK" />
-        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_QTTK_XEP_LOAI" />
+      <Diagram DiagramId="f776e8ffc1cd43768fe3075011e7f165" Name="Diagram1">
+        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.BO_MON" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.DAN_TOC" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.DIEM" Width="1.5" PointX="12.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.GIANG_DAY" Width="1.5" PointX="8.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.GIAO_VIEN" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.HANH_KIEM" Width="1.5" PointX="6" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.HOC_KY" Width="1.5" PointX="3.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.HOC_SINH" Width="1.5" PointX="6" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.KHOI_LOP" Width="1.5" PointX="3.75" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.LOAI_DIEM" Width="1.5" PointX="10.5" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.LOAI_TAI_KHOAN" Width="1.5" PointX="1.5" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.LOP" Width="1.5" PointX="6" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.MON_HOC" Width="1.5" PointX="6" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.NAM_HOC" Width="1.5" PointX="1.5" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.QUA_TRINH_HOC_HOC_KY" Width="1.5" PointX="8.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.QUA_TRINH_HOC_MON_HOC" Width="1.5" PointX="10.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.QUOC_TICH" Width="1.5" PointX="3.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.TAI_KHOAN" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.TON_GIAO" Width="1.5" PointX="3.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="STUDENTMANAGEMENTModel.XEP_LOAI" Width="1.5" PointX="6" PointY="8.875" IsExpanded="true" />
+        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_GIAO_VIEN_BO_MON" ManuallyRouted="false" />
+        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_MON_HOC_BO_MON" ManuallyRouted="false" />
+        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_GIAO_VIEN_DAN_TOC" ManuallyRouted="false" />
+        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_HOC_SINH_DAN_TOC" ManuallyRouted="false" />
+        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_DIEM_LOAI_DIEM" ManuallyRouted="false" />
+        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_DIEM_QTMH" ManuallyRouted="false" />
+        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_GIANG_DAY_GIAO_VIEN" ManuallyRouted="false" />
+        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_GIANG_DAY_LOP" ManuallyRouted="false" />
+        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_GIANG_DAY_MON_HOC" ManuallyRouted="false" />
+        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_GIAO_VIEN_TAI_KHOAN" ManuallyRouted="false" />
+        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_GIAO_VIEN_TON_GIAO" ManuallyRouted="false" />
+        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_QTTK_HANH_KIEM" ManuallyRouted="false" />
+        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_HOC_KY_NAM_HOC" ManuallyRouted="false" />
+        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_LOP_HOC_KY" ManuallyRouted="false" />
+        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_HOC_SINH_QUOC_TICH" ManuallyRouted="false" />
+        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_HOC_SINH_TON_GIAO" ManuallyRouted="false" />
+        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_QTTK_HOC_SINH" ManuallyRouted="false" />
+        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_LOP_KHOI_LOP" ManuallyRouted="false" />
+        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_TAI_KHOAN_LTK" ManuallyRouted="false" />
+        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_QTTK_LOP" ManuallyRouted="false" />
+        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_QTMH_QTHK" ManuallyRouted="false" />
+        <AssociationConnector Association="STUDENTMANAGEMENTModel.fk_QTTK_XEP_LOAI" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

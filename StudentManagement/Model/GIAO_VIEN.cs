@@ -23,13 +23,15 @@ namespace StudentManagement.Model
         public int MA_GIAO_VIEN { get; set; }
         public string HO_TEN { get; set; }
         public System.DateTime NGAY_SINH { get; set; }
-        public Nullable<int> GIOI_TINH { get; set; }
+        public string GIOI_TINH { get; set; }
         public string SO_DIEN_THOAI { get; set; }
         public string EMAIL { get; set; }
         public Nullable<int> MA_TON_GIAO { get; set; }
         public Nullable<int> MA_DAN_TOC { get; set; }
         public Nullable<int> MA_BO_MON { get; set; }
         public Nullable<int> MA_TAI_KHOAN { get; set; }
+        public string AVATAR { get; set; }
+        public string DIA_CHI { get; set; }
     
         public virtual BO_MON BO_MON { get; set; }
         public virtual DAN_TOC DAN_TOC { get; set; }

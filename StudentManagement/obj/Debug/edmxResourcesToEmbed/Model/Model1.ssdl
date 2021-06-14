@@ -40,13 +40,15 @@
     <Property Name="MA_GIAO_VIEN" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="HO_TEN" Type="nvarchar" MaxLength="50" />
     <Property Name="NGAY_SINH" Type="date" Nullable="false" />
-    <Property Name="GIOI_TINH" Type="int" />
+    <Property Name="GIOI_TINH" Type="nvarchar" MaxLength="3" />
     <Property Name="SO_DIEN_THOAI" Type="nvarchar" MaxLength="20" />
     <Property Name="EMAIL" Type="nvarchar" MaxLength="50" />
     <Property Name="MA_TON_GIAO" Type="int" />
     <Property Name="MA_DAN_TOC" Type="int" />
     <Property Name="MA_BO_MON" Type="int" />
     <Property Name="MA_TAI_KHOAN" Type="int" />
+    <Property Name="AVATAR" Type="nvarchar(max)" />
+    <Property Name="DIA_CHI" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="HANH_KIEM">
     <Key>
@@ -155,16 +157,6 @@
     </Key>
     <Property Name="MA_QUOC_TICH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TEN_QUOC_TICH" Type="nvarchar" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="TAI_KHOAN">
     <Key>
@@ -471,7 +463,6 @@
     <EntitySet Name="QUA_TRINH_HOC_HOC_KY" EntityType="Self.QUA_TRINH_HOC_HOC_KY" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="QUA_TRINH_HOC_MON_HOC" EntityType="Self.QUA_TRINH_HOC_MON_HOC" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="QUOC_TICH" EntityType="Self.QUOC_TICH" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TAI_KHOAN" EntityType="Self.TAI_KHOAN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TON_GIAO" EntityType="Self.TON_GIAO" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="XEP_LOAI" EntityType="Self.XEP_LOAI" Schema="dbo" store:Type="Tables" />

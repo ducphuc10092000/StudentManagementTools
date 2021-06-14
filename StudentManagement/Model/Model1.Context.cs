@@ -13,10 +13,10 @@ namespace StudentManagement.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class STUDENTMANAGEMENTEntities : DbContext
+    public partial class STUDENTMANAGEMENTEntities1 : DbContext
     {
-        public STUDENTMANAGEMENTEntities()
-            : base("name=STUDENTMANAGEMENTEntities")
+        public STUDENTMANAGEMENTEntities1()
+            : base("name=STUDENTMANAGEMENTEntities1")
         {
         }
     
@@ -42,7 +42,6 @@ namespace StudentManagement.Model
         public virtual DbSet<QUA_TRINH_HOC_HOC_KY> QUA_TRINH_HOC_HOC_KY { get; set; }
         public virtual DbSet<QUA_TRINH_HOC_MON_HOC> QUA_TRINH_HOC_MON_HOC { get; set; }
         public virtual DbSet<QUOC_TICH> QUOC_TICH { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TAI_KHOAN> TAI_KHOAN { get; set; }
         public virtual DbSet<TON_GIAO> TON_GIAO { get; set; }
         public virtual DbSet<XEP_LOAI> XEP_LOAI { get; set; }

@@ -871,7 +871,7 @@
                                 </Style.Triggers>
                             </Style>
                         </Grid.Style>
-                        <viewMark:Mark_UC></viewMark:Mark_UC>
+                        <viewTuition:Tuition_UC></viewTuition:Tuition_UC>
                     </Grid>
                     <!--View Report-->
                     <Grid>

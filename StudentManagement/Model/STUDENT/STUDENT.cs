@@ -50,7 +50,7 @@ namespace StudentManagement.Model.STUDENT
             hocsinh.SDT_PHU_HUYNH = sdt_phu_huynh;
             hocsinh.DIA_CHI = dia_chi;
             hocsinh.AVATAR = avatar;
-            DataProvider.Ins.DB.SaveChanges();
+            DataProvider.Ins.DB.SaveChanges(); 
             MessageBox.Show("Chỉnh sửa thông tin học sinh thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 

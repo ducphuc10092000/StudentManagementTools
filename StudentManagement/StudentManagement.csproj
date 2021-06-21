@@ -86,6 +86,7 @@
     <Compile Include="Model\BO_MON.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\CLASS\CLASS.cs" />
     <Compile Include="Model\DAN_TOC.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -162,6 +163,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\Class_Manage_ViewModel\AddNewClass_WD_ViewModel.cs" />
+    <Compile Include="ViewModel\Class_Manage_ViewModel\Class_UC_ViewModel.cs" />
+    <Compile Include="ViewModel\Class_Manage_ViewModel\EditClass_WD_ViewModel.cs" />
     <Compile Include="ViewModel\ImageProvider.cs" />
     <Compile Include="ViewModel\Login_ViewModel\Login_WD_ViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
@@ -174,8 +178,14 @@
     <Compile Include="View\Account_Manage\Account_UC.xaml.cs">
       <DependentUpon>Account_UC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Class_Manage\AddNewClass_WD.xaml.cs">
+      <DependentUpon>AddNewClass_WD.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Class_Manage\Class_UC.xaml.cs">
       <DependentUpon>Class_UC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Class_Manage\EditClass_WD.xaml.cs">
+      <DependentUpon>EditClass_WD.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Dashboard\Dashboard_UC.xaml.cs">
       <DependentUpon>Dashboard_UC.xaml</DependentUpon>
@@ -236,7 +246,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Class_Manage\AddNewClass_WD.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Class_Manage\Class_UC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Class_Manage\EditClass_WD.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -370,6 +388,7 @@
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.1.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.1.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

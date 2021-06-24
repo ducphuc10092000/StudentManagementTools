@@ -17,20 +17,32 @@ namespace StudentManagement.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LOP()
         {
+            this.CT_LOP_HOC_SINH = new HashSet<CT_LOP_HOC_SINH>();
             this.GIANG_DAY = new HashSet<GIANG_DAY>();
+            this.GIAO_VIEN = new HashSet<GIAO_VIEN>();
+            this.HOC_SINH = new HashSet<HOC_SINH>();
             this.QUA_TRINH_HOC_HOC_KY = new HashSet<QUA_TRINH_HOC_HOC_KY>();
         }
     
         public int MA_LOP { get; set; }
         public string TEN_LOP { get; set; }
         public Nullable<int> SI_SO { get; set; }
-        public Nullable<int> MA_HOC_KY { get; set; }
         public Nullable<int> MA_KHOI_LOP { get; set; }
+        public Nullable<int> SI_SO_TOI_DA { get; set; }
+        public Nullable<int> MA_NAM_HOC { get; set; }
+        public Nullable<int> MA_GVCN { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CT_LOP_HOC_SINH> CT_LOP_HOC_SINH { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GIANG_DAY> GIANG_DAY { get; set; }
-        public virtual HOC_KY HOC_KY { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<GIAO_VIEN> GIAO_VIEN { get; set; }
+        public virtual GIAO_VIEN GIAO_VIEN1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HOC_SINH> HOC_SINH { get; set; }
         public virtual KHOI_LOP KHOI_LOP { get; set; }
+        public virtual NAM_HOC NAM_HOC { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<QUA_TRINH_HOC_HOC_KY> QUA_TRINH_HOC_HOC_KY { get; set; }
     }

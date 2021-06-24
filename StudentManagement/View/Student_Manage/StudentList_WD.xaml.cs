@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace StudentManagement.View.Room_Manage
+namespace StudentManagement.View.Student_Manage
 {
     /// <summary>
-    /// Interaction logic for Room_UC.xaml
+    /// Interaction logic for StudentList_WD.xaml
     /// </summary>
-    public partial class Room_UC : UserControl
+    public partial class StudentList_WD : Window
     {
-        public Room_UC()
+        public StudentList_WD()
         {
             InitializeComponent();
         }

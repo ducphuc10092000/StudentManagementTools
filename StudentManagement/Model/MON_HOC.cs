@@ -23,9 +23,11 @@ namespace StudentManagement.Model
         public int MA_MON_HOC { get; set; }
         public string TEN_MON_HOC { get; set; }
         public Nullable<int> MA_BO_MON { get; set; }
+        public Nullable<int> MA_KHOI_LOP { get; set; }
     
         public virtual BO_MON BO_MON { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GIANG_DAY> GIANG_DAY { get; set; }
+        public virtual KHOI_LOP KHOI_LOP { get; set; }
     }
 }

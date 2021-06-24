@@ -21,6 +21,7 @@
                         CornerRadius="10"
                         Background="WhiteSmoke"
                         BorderBrush="#FF52B6B0"
+                        Width="270"
                         BorderThickness="1">
                     <Grid>
                         <StackPanel Orientation="Horizontal">
@@ -32,42 +33,30 @@
                                                      Width="30"></materialDesign:PackIcon>
                             <TextBox Text="{Binding StudentNameFind,UpdateSourceTrigger=PropertyChanged,NotifyOnSourceUpdated=True}"
                                      FontSize="17"
-                                     Margin="5"
+                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                      VerticalContentAlignment="Center"
                                      HorizontalContentAlignment="Left"
                                      materialDesign:HintAssist.Hint="Nhập tên học sinh"
-                                     Width="250">
+                                     Width="219"
+                                     Margin="0,-6,0,-1">
                             </TextBox>
                         </StackPanel>
                     </Grid>
                 </Border>
                 <!--Combobox Lớp-->
-                <Border Height="50"
-                        Width="170"
-                        Margin="20,0,0,0"
+                <Border Width="170"
+                        Margin="20,5,5,5"
                         CornerRadius="10"
                         Background="WhiteSmoke"
                         BorderBrush="#FF52B6B0"
                         BorderThickness="1">
                     <ComboBox materialDesign:HintAssist.Hint="Tên lớp"
-                              Margin="5"
-                              Padding="0,0,0,-10"
-                              Width="140"
+                              Width="150"
                               FontSize="17"
                               IsEditable="True"
-                              Style="{StaticResource MaterialDesignFloatingHintComboBox}">
-                        <ComboBoxItem IsSelected="True">
-                            10A1
-                        </ComboBoxItem>
-                        <ComboBoxItem>
-                            10A2
-                        </ComboBoxItem>
-                        <ComboBoxItem>
-                            10A3
-                        </ComboBoxItem>
-                        <ComboBoxItem>
-                            10A4
-                        </ComboBoxItem>
+                              Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                              Height="49"
+                              Margin="14,0,14,-1">
                     </ComboBox>
                 </Border>
                 <!--Btn Tìm Kiếm-->
@@ -231,26 +220,30 @@
                         <!--Cột TÊN điểm tham quan-->
                         <DataGridTextColumn Header="Tên học sinh"
                                             Binding="{Binding hocsinh.HO_TEN}"
-                                            Width="250"></DataGridTextColumn>
+                                            Width="200"></DataGridTextColumn>
                         <!--Tỉnh thành-->
-                        <DataGridTextColumn Header="Lớp"
-                                            Binding="{Binding product.DON_GIA}"
-                                            Width="150"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Ngày sinh"
+                                            Binding="{Binding hocsinh.NGAY_SINH}"
+                                            Width="120"></DataGridTextColumn>
+                        <!--Tỉnh thành-->
+                        <DataGridTextColumn Header="Lớp đang học"
+                                            Binding="{Binding lop_hien_tai}"
+                                            Width="120"></DataGridTextColumn>
 
                         <!--Trạng thái-->
                         <DataGridTextColumn Header="SDT"
-                                            Width="150"
+                                            Width="120"
                                             Binding="{Binding hocsinh.SO_DIEN_THOAI}">
                         </DataGridTextColumn>
                         <!--Trạng thái-->
                         <DataGridTextColumn Header="SDT phụ huynh"
-                                            Width="150"
+                                            Width="120"
                                             Binding="{Binding hocsinh.SDT_PHU_HUYNH}">
                         </DataGridTextColumn>
                         <!--Mô tả-->
                         <DataGridTextColumn Header="Địa chỉ"
                                             Binding="{Binding hocsinh.DIA_CHI}"
-                                            Width="450"></DataGridTextColumn>
+                                            Width="350"></DataGridTextColumn>
                     </DataGrid.Columns>
                 </DataGrid>
             </ScrollViewer>

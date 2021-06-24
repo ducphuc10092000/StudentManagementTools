@@ -10,7 +10,7 @@
         xmlns:viewStudent="clr-namespace:StudentManagement.View.Student_Manage"
         xmlns:viewTeacher="clr-namespace:StudentManagement.View.Teacher_Manage"
         xmlns:viewClass="clr-namespace:StudentManagement.View.Class_Manage"
-        xmlns:viewRoom="clr-namespace:StudentManagement.View.Room_Manage"
+        xmlns:viewSchoolYear="clr-namespace:StudentManagement.View.SchoolYear_Manage"
         xmlns:viewMark="clr-namespace:StudentManagement.View.Mark_Manage"
         xmlns:viewTuition="clr-namespace:StudentManagement.View.Tuition_Manage"
         xmlns:viewReport="clr-namespace:StudentManagement.View.Report_Manage"
@@ -492,21 +492,21 @@
                             </Style>
                         </Button.Style>
                     </Button>
-                    <!--Btn CLASSROOM-->
+                    <!--Btn SchoolYear-->
                     <Button Height="auto"
                             Width="auto"
                             materialDesign:ShadowAssist.ShadowDepth="Depth0"
-                            Command="{Binding BtnManageRoomCommand}">
+                            Command="{Binding BtnManageSchoolYearCommand}">
                         <StackPanel Orientation="Horizontal"
                                     Width="230">
                             <!--Icon để tại đây-->
-                            <Image Source="Photo/classroom.png"
+                            <Image Source="Photo/time.png"
                                    HorizontalAlignment="Left"
                                    VerticalAlignment="Center"
                                    Height="40"
                                    Width="40" />
                             <!--Content-->
-                            <TextBlock Text="Phòng học"
+                            <TextBlock Text="Năm học"
                                        Margin="20,0,0,0"
                                        FontSize="20"
                                        VerticalAlignment="Center"
@@ -839,7 +839,7 @@
                         </Grid.Style>
                         <viewClass:Class_UC></viewClass:Class_UC>
                     </Grid>
-                    <!--View Room-->
+                    <!--View Schoolyear-->
                     <Grid>
                         <Grid.Style>
                             <Style TargetType="Grid">
@@ -854,7 +854,7 @@
                                 </Style.Triggers>
                             </Style>
                         </Grid.Style>
-                        <viewRoom:Room_UC></viewRoom:Room_UC>
+                        <viewSchoolYear:SchoolYear_UC></viewSchoolYear:SchoolYear_UC>
                     </Grid>
                     <!--View Fee-->
                     <Grid>

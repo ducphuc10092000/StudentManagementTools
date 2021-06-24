@@ -15,7 +15,7 @@ namespace StudentManagement.ViewModel
         #region Chức năng Button chuyển UC
         public enum CHUCNANG
         {
-            DashBoard, ManageStudent, ManageTeacher, ManageSubject, ManageMark, ManageClass, ManageRoom,  ManageFee, ManageReport, ManageAccount
+            DashBoard, ManageStudent, ManageTeacher, ManageSubject, ManageMark, ManageClass, ManageSchoolYear,  ManageFee, ManageReport, ManageAccount
         }
         private int _ChucNang;
         public int ChucNang { get => _ChucNang; set { _ChucNang = value; OnPropertyChanged(); } }
@@ -31,7 +31,7 @@ namespace StudentManagement.ViewModel
         public ICommand BtnManageSubjectCommand { get; set; }
         public ICommand BtnManageMarkCommand { get; set; }
         public ICommand BtnManageClassCommand { get; set; }
-        public ICommand BtnManageRoomCommand { get; set; }
+        public ICommand BtnManageSchoolYearCommand { get; set; }
         public ICommand BtnManageFeeCommand { get; set; }
         public ICommand BtnManageReportCommand { get; set; }
         public ICommand BtnManageAccountCommand { get; set; }
@@ -127,7 +127,7 @@ namespace StudentManagement.ViewModel
             {
                 ChucNang = (int)CHUCNANG.ManageClass;
             });
-            BtnManageRoomCommand = new RelayCommand<object>((p) =>
+            BtnManageSchoolYearCommand = new RelayCommand<object>((p) =>
             {
                 //if (AccountPower == 0 || AccountPower == 1)
                 //{
@@ -139,7 +139,7 @@ namespace StudentManagement.ViewModel
                 return true;
             }, (p) =>
             {
-                ChucNang = (int)CHUCNANG.ManageRoom;
+                ChucNang = (int)CHUCNANG.ManageSchoolYear;
             });
             
             BtnManageFeeCommand = new RelayCommand<object>((p) =>

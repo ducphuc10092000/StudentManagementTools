@@ -22,10 +22,10 @@ namespace StudentManagement.Model
                 _ins = value;
             }
         }
-        public STUDENTMANAGEMENTEntities DB { get; set; }
+        public STUDENTMANAGEMENTEntities1 DB { get; set; }
         private DataProvider()
         {
-            DB = new STUDENTMANAGEMENTEntities();
+            DB = new STUDENTMANAGEMENTEntities1();
 
         }
     }

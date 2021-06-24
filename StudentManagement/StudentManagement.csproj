@@ -86,6 +86,11 @@
     <Compile Include="Model\BO_MON.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\CLASS\CLASS.cs" />
+    <Compile Include="Model\CLASS\CLASS_STUDENT_DETAIL.cs" />
+    <Compile Include="Model\CT_LOP_HOC_SINH.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\DAN_TOC.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -157,24 +162,43 @@
     <Compile Include="Model\TAI_KHOAN.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\TEACHER\TEACHER.cs" />
     <Compile Include="Model\TON_GIAO.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TRINH_DO_HOC_VAN.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\XEP_LOAI.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\Class_Manage _ViewModel\AddNewClass_WD_ViewModel.cs" />
+    <Compile Include="ViewModel\Class_Manage _ViewModel\Class_UC_ViewModel.cs" />
     <Compile Include="ViewModel\ImageProvider.cs" />
     <Compile Include="ViewModel\Login_ViewModel\Login_WD_ViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\Student_Manage_ViewModel\AddNewStudent_WD_ViewModel.cs" />
-    <Compile Include="ViewModel\Student_Manage_ViewModel\EditStudent_WD_ViewModel.cs" />
     <Compile Include="ViewModel\Student_Manage_ViewModel\Student_UC_ViewModel.cs" />
+    <Compile Include="ViewModel\Teacher_Manage_ViewModel\AddNewTeacher_WD_ViewModel.cs" />
+    <Compile Include="ViewModel\Teacher_Manage_ViewModel\Teacher_UC_ViewModel.cs" />
     <Compile Include="View\Account_Manage\Account_UC.xaml.cs">
       <DependentUpon>Account_UC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Class_Manage\AddNewClass_WD.xaml.cs">
+      <DependentUpon>AddNewClass_WD.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Class_Manage\Class_UC.xaml.cs">
       <DependentUpon>Class_UC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Class_Manage\EditClass_WD.xaml.cs">
+      <DependentUpon>EditClass_WD.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Class_Manage\SchoolYear\AddNewSchoolYear_WD.xaml.cs">
+      <DependentUpon>AddNewSchoolYear_WD.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Class_Manage\Semester\AddNewSemester_WD.xaml.cs">
+      <DependentUpon>AddNewSemester_WD.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Dashboard\Dashboard_UC.xaml.cs">
       <DependentUpon>Dashboard_UC.xaml</DependentUpon>
@@ -188,8 +212,8 @@
     <Compile Include="View\Report_Manage\Report_UC.xaml.cs">
       <DependentUpon>Report_UC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Room_Manage\Room_UC.xaml.cs">
-      <DependentUpon>Room_UC.xaml</DependentUpon>
+    <Compile Include="View\SchoolYear_Manage\SchoolYear_UC.xaml.cs">
+      <DependentUpon>SchoolYear_UC.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Student_Manage\AddNewStudent_WD.xaml.cs">
       <DependentUpon>AddNewStudent_WD.xaml</DependentUpon>
@@ -197,11 +221,23 @@
     <Compile Include="View\Student_Manage\EditStudent_WD.xaml.cs">
       <DependentUpon>EditStudent_WD.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Student_Manage\StudentList_WD.xaml.cs">
+      <DependentUpon>StudentList_WD.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Student_Manage\Student_UC.xaml.cs">
       <DependentUpon>Student_UC.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Subject_Manage\Subject_UC.xaml.cs">
       <DependentUpon>Subject_UC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Teacher_Manage\AddNewTeacher_WD.xaml.cs">
+      <DependentUpon>AddNewTeacher_WD.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Teacher_Manage\EditTeacher_WD.xaml.cs">
+      <DependentUpon>EditTeacher_WD.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Teacher_Manage\TeacherList_WD.xaml.cs">
+      <DependentUpon>TeacherList_WD.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Teacher_Manage\Teacher_UC.xaml.cs">
       <DependentUpon>Teacher_UC.xaml</DependentUpon>
@@ -229,7 +265,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Class_Manage\AddNewClass_WD.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Class_Manage\Class_UC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Class_Manage\EditClass_WD.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Class_Manage\SchoolYear\AddNewSchoolYear_WD.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Class_Manage\Semester\AddNewSemester_WD.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -249,7 +301,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Room_Manage\Room_UC.xaml">
+    <Page Include="View\SchoolYear_Manage\SchoolYear_UC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -261,11 +313,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Student_Manage\StudentList_WD.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Student_Manage\Student_UC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Subject_Manage\Subject_UC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Teacher_Manage\AddNewTeacher_WD.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Teacher_Manage\EditTeacher_WD.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Teacher_Manage\TeacherList_WD.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -313,16 +381,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model\Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Model\Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
+    <Resource Include="Photo\time.png" />
     <Resource Include="Photo\delete_icon.png" />
     <Resource Include="Photo\edit_icon.png" />
     <Resource Include="Photo\icons_window\enter.png" />
@@ -352,6 +411,23 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\MARK\" />
+    <Folder Include="ViewModel\Class_Manage _ViewModel\SchoolYear\" />
+    <Folder Include="ViewModel\Class_Manage _ViewModel\Semester\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.1.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.1.0\build\MaterialDesignThemes.targets')" />

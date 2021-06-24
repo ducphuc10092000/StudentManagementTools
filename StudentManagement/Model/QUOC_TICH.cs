@@ -17,12 +17,15 @@ namespace StudentManagement.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public QUOC_TICH()
         {
+            this.GIAO_VIEN = new HashSet<GIAO_VIEN>();
             this.HOC_SINH = new HashSet<HOC_SINH>();
         }
     
         public int MA_QUOC_TICH { get; set; }
         public string TEN_QUOC_TICH { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<GIAO_VIEN> GIAO_VIEN { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HOC_SINH> HOC_SINH { get; set; }
     }

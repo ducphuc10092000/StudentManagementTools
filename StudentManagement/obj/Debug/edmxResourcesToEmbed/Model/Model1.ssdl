@@ -7,6 +7,15 @@
     <Property Name="MA_BO_MON" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TEN_BO_MON" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="CT_LOP_HOC_SINH">
+    <Key>
+      <PropertyRef Name="MA_LOP" />
+      <PropertyRef Name="MA_HOC_SINH" />
+    </Key>
+    <Property Name="MA_LOP" Type="int" Nullable="false" />
+    <Property Name="MA_HOC_SINH" Type="int" Nullable="false" />
+    <Property Name="GHI_CHU" Type="nvarchar" MaxLength="100" />
+  </EntityType>
   <EntityType Name="DAN_TOC">
     <Key>
       <PropertyRef Name="MA_DAN_TOC" />
@@ -39,14 +48,21 @@
     </Key>
     <Property Name="MA_GIAO_VIEN" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="HO_TEN" Type="nvarchar" MaxLength="50" />
-    <Property Name="NGAY_SINH" Type="date" Nullable="false" />
-    <Property Name="GIOI_TINH" Type="int" />
     <Property Name="SO_DIEN_THOAI" Type="nvarchar" MaxLength="20" />
     <Property Name="EMAIL" Type="nvarchar" MaxLength="50" />
     <Property Name="MA_TON_GIAO" Type="int" />
     <Property Name="MA_DAN_TOC" Type="int" />
     <Property Name="MA_BO_MON" Type="int" />
     <Property Name="MA_TAI_KHOAN" Type="int" />
+    <Property Name="AVATAR" Type="nvarchar(max)" />
+    <Property Name="GIOI_TINH" Type="nvarchar" MaxLength="3" />
+    <Property Name="DIA_CHI" Type="nvarchar" MaxLength="100" />
+    <Property Name="NGAY_SINH" Type="varchar" MaxLength="20" />
+    <Property Name="MA_TDHV" Type="int" />
+    <Property Name="MA_QUOC_TICH" Type="int" />
+    <Property Name="DA_CHU_NHIEM" Type="bit" />
+    <Property Name="SO_CMND" Type="varchar" MaxLength="20" />
+    <Property Name="MA_LOP_CHU_NHIEM" Type="int" />
   </EntityType>
   <EntityType Name="HANH_KIEM">
     <Key>
@@ -73,13 +89,15 @@
     <Property Name="DIA_CHI" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="HO_TEN_CHA" Type="nvarchar" MaxLength="50" />
     <Property Name="HO_TEN_ME" Type="nvarchar" MaxLength="50" />
-    <Property Name="NGAY_SINH" Type="date" Nullable="false" />
     <Property Name="MA_TON_GIAO" Type="int" />
     <Property Name="MA_DAN_TOC" Type="int" />
     <Property Name="SDT_PHU_HUYNH" Type="nvarchar" MaxLength="50" />
     <Property Name="AVATAR" Type="nvarchar(max)" />
     <Property Name="MA_QUOC_TICH" Type="int" />
     <Property Name="GIOI_TINH" Type="nvarchar" MaxLength="3" />
+    <Property Name="NGAY_SINH" Type="varchar" MaxLength="20" />
+    <Property Name="DA_CO_LOP_HOC" Type="bit" />
+    <Property Name="MA_LOP_DANG_HOC" Type="int" />
   </EntityType>
   <EntityType Name="KHOI_LOP">
     <Key>
@@ -110,8 +128,10 @@
     <Property Name="MA_LOP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TEN_LOP" Type="nvarchar" MaxLength="20" />
     <Property Name="SI_SO" Type="int" />
-    <Property Name="MA_HOC_KY" Type="int" />
     <Property Name="MA_KHOI_LOP" Type="int" />
+    <Property Name="SI_SO_TOI_DA" Type="int" />
+    <Property Name="MA_NAM_HOC" Type="int" />
+    <Property Name="MA_GVCN" Type="int" />
   </EntityType>
   <EntityType Name="MON_HOC">
     <Key>
@@ -120,6 +140,7 @@
     <Property Name="MA_MON_HOC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TEN_MON_HOC" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="MA_BO_MON" Type="int" />
+    <Property Name="MA_KHOI_LOP" Type="int" />
   </EntityType>
   <EntityType Name="NAM_HOC">
     <Key>
@@ -182,6 +203,13 @@
     <Property Name="MA_TON_GIAO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TEN_TON_GIAO" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="TRINH_DO_HOC_VAN">
+    <Key>
+      <PropertyRef Name="MA_TDHV" />
+    </Key>
+    <Property Name="MA_TDHV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TEN_TDHV" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="XEP_LOAI">
     <Key>
       <PropertyRef Name="MA_XEP_LOAI" />
@@ -189,6 +217,30 @@
     <Property Name="MA_XEP_LOAI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TEN_XEP_LOAI" Type="nvarchar" MaxLength="20" Nullable="false" />
   </EntityType>
+  <Association Name="fk_CT_LOP_HOC_SINH_HOC_SINH">
+    <End Role="HOC_SINH" Type="Self.HOC_SINH" Multiplicity="1" />
+    <End Role="CT_LOP_HOC_SINH" Type="Self.CT_LOP_HOC_SINH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOC_SINH">
+        <PropertyRef Name="MA_HOC_SINH" />
+      </Principal>
+      <Dependent Role="CT_LOP_HOC_SINH">
+        <PropertyRef Name="MA_HOC_SINH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_CT_LOP_HOC_SINH_LOP">
+    <End Role="LOP" Type="Self.LOP" Multiplicity="1" />
+    <End Role="CT_LOP_HOC_SINH" Type="Self.CT_LOP_HOC_SINH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOP">
+        <PropertyRef Name="MA_LOP" />
+      </Principal>
+      <Dependent Role="CT_LOP_HOC_SINH">
+        <PropertyRef Name="MA_LOP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="fk_DIEM_LOAI_DIEM">
     <End Role="LOAI_DIEM" Type="Self.LOAI_DIEM" Multiplicity="0..1" />
     <End Role="DIEM" Type="Self.DIEM" Multiplicity="*" />
@@ -273,6 +325,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="fk_GIAO_VIEN_LOP_CHU_NHIEM">
+    <End Role="LOP" Type="Self.LOP" Multiplicity="0..1" />
+    <End Role="GIAO_VIEN" Type="Self.GIAO_VIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOP">
+        <PropertyRef Name="MA_LOP" />
+      </Principal>
+      <Dependent Role="GIAO_VIEN">
+        <PropertyRef Name="MA_LOP_CHU_NHIEM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_GIAO_VIEN_QUOC_TICH">
+    <End Role="QUOC_TICH" Type="Self.QUOC_TICH" Multiplicity="0..1" />
+    <End Role="GIAO_VIEN" Type="Self.GIAO_VIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QUOC_TICH">
+        <PropertyRef Name="MA_QUOC_TICH" />
+      </Principal>
+      <Dependent Role="GIAO_VIEN">
+        <PropertyRef Name="MA_QUOC_TICH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="fk_GIAO_VIEN_TAI_KHOAN">
     <End Role="TAI_KHOAN" Type="Self.TAI_KHOAN" Multiplicity="0..1" />
     <End Role="GIAO_VIEN" Type="Self.GIAO_VIEN" Multiplicity="*" />
@@ -294,6 +370,18 @@
       </Principal>
       <Dependent Role="GIAO_VIEN">
         <PropertyRef Name="MA_TON_GIAO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_GIAO_VIEN_TRINH_DO_HOC_VAN">
+    <End Role="TRINH_DO_HOC_VAN" Type="Self.TRINH_DO_HOC_VAN" Multiplicity="0..1" />
+    <End Role="GIAO_VIEN" Type="Self.GIAO_VIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TRINH_DO_HOC_VAN">
+        <PropertyRef Name="MA_TDHV" />
+      </Principal>
+      <Dependent Role="GIAO_VIEN">
+        <PropertyRef Name="MA_TDHV" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -321,6 +409,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="fk_HOC_SINH_LOP_DANG_HOC">
+    <End Role="LOP" Type="Self.LOP" Multiplicity="0..1" />
+    <End Role="HOC_SINH" Type="Self.HOC_SINH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOP">
+        <PropertyRef Name="MA_LOP" />
+      </Principal>
+      <Dependent Role="HOC_SINH">
+        <PropertyRef Name="MA_LOP_DANG_HOC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="fk_HOC_SINH_QUOC_TICH">
     <End Role="QUOC_TICH" Type="Self.QUOC_TICH" Multiplicity="0..1" />
     <End Role="HOC_SINH" Type="Self.HOC_SINH" Multiplicity="*" />
@@ -345,15 +445,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="fk_LOP_HOC_KY">
-    <End Role="HOC_KY" Type="Self.HOC_KY" Multiplicity="0..1" />
+  <Association Name="fk_LOP_GVCN">
+    <End Role="GIAO_VIEN" Type="Self.GIAO_VIEN" Multiplicity="0..1" />
     <End Role="LOP" Type="Self.LOP" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="HOC_KY">
-        <PropertyRef Name="MA_HOC_KY" />
+      <Principal Role="GIAO_VIEN">
+        <PropertyRef Name="MA_GIAO_VIEN" />
       </Principal>
       <Dependent Role="LOP">
-        <PropertyRef Name="MA_HOC_KY" />
+        <PropertyRef Name="MA_GVCN" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -369,6 +469,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="fk_LOP_NAM_HOC">
+    <End Role="NAM_HOC" Type="Self.NAM_HOC" Multiplicity="0..1" />
+    <End Role="LOP" Type="Self.LOP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NAM_HOC">
+        <PropertyRef Name="MA_NAM_HOC" />
+      </Principal>
+      <Dependent Role="LOP">
+        <PropertyRef Name="MA_NAM_HOC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="fk_MON_HOC_BO_MON">
     <End Role="BO_MON" Type="Self.BO_MON" Multiplicity="0..1" />
     <End Role="MON_HOC" Type="Self.MON_HOC" Multiplicity="*" />
@@ -378,6 +490,18 @@
       </Principal>
       <Dependent Role="MON_HOC">
         <PropertyRef Name="MA_BO_MON" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_MON_HOC_KHOI_LOP">
+    <End Role="KHOI_LOP" Type="Self.KHOI_LOP" Multiplicity="0..1" />
+    <End Role="MON_HOC" Type="Self.MON_HOC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHOI_LOP">
+        <PropertyRef Name="MA_KHOI_LOP" />
+      </Principal>
+      <Dependent Role="MON_HOC">
+        <PropertyRef Name="MA_KHOI_LOP" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -455,6 +579,7 @@
   </Association>
   <EntityContainer Name="STUDENTMANAGEMENTModelStoreContainer">
     <EntitySet Name="BO_MON" EntityType="Self.BO_MON" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CT_LOP_HOC_SINH" EntityType="Self.CT_LOP_HOC_SINH" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DAN_TOC" EntityType="Self.DAN_TOC" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DIEM" EntityType="Self.DIEM" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="GIANG_DAY" EntityType="Self.GIANG_DAY" Schema="dbo" store:Type="Tables" />
@@ -474,7 +599,16 @@
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TAI_KHOAN" EntityType="Self.TAI_KHOAN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TON_GIAO" EntityType="Self.TON_GIAO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TRINH_DO_HOC_VAN" EntityType="Self.TRINH_DO_HOC_VAN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="XEP_LOAI" EntityType="Self.XEP_LOAI" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_CT_LOP_HOC_SINH_HOC_SINH" Association="Self.fk_CT_LOP_HOC_SINH_HOC_SINH">
+      <End Role="HOC_SINH" EntitySet="HOC_SINH" />
+      <End Role="CT_LOP_HOC_SINH" EntitySet="CT_LOP_HOC_SINH" />
+    </AssociationSet>
+    <AssociationSet Name="fk_CT_LOP_HOC_SINH_LOP" Association="Self.fk_CT_LOP_HOC_SINH_LOP">
+      <End Role="LOP" EntitySet="LOP" />
+      <End Role="CT_LOP_HOC_SINH" EntitySet="CT_LOP_HOC_SINH" />
+    </AssociationSet>
     <AssociationSet Name="fk_DIEM_LOAI_DIEM" Association="Self.fk_DIEM_LOAI_DIEM">
       <End Role="LOAI_DIEM" EntitySet="LOAI_DIEM" />
       <End Role="DIEM" EntitySet="DIEM" />
@@ -503,12 +637,24 @@
       <End Role="DAN_TOC" EntitySet="DAN_TOC" />
       <End Role="GIAO_VIEN" EntitySet="GIAO_VIEN" />
     </AssociationSet>
+    <AssociationSet Name="fk_GIAO_VIEN_LOP_CHU_NHIEM" Association="Self.fk_GIAO_VIEN_LOP_CHU_NHIEM">
+      <End Role="LOP" EntitySet="LOP" />
+      <End Role="GIAO_VIEN" EntitySet="GIAO_VIEN" />
+    </AssociationSet>
+    <AssociationSet Name="fk_GIAO_VIEN_QUOC_TICH" Association="Self.fk_GIAO_VIEN_QUOC_TICH">
+      <End Role="QUOC_TICH" EntitySet="QUOC_TICH" />
+      <End Role="GIAO_VIEN" EntitySet="GIAO_VIEN" />
+    </AssociationSet>
     <AssociationSet Name="fk_GIAO_VIEN_TAI_KHOAN" Association="Self.fk_GIAO_VIEN_TAI_KHOAN">
       <End Role="TAI_KHOAN" EntitySet="TAI_KHOAN" />
       <End Role="GIAO_VIEN" EntitySet="GIAO_VIEN" />
     </AssociationSet>
     <AssociationSet Name="fk_GIAO_VIEN_TON_GIAO" Association="Self.fk_GIAO_VIEN_TON_GIAO">
       <End Role="TON_GIAO" EntitySet="TON_GIAO" />
+      <End Role="GIAO_VIEN" EntitySet="GIAO_VIEN" />
+    </AssociationSet>
+    <AssociationSet Name="fk_GIAO_VIEN_TRINH_DO_HOC_VAN" Association="Self.fk_GIAO_VIEN_TRINH_DO_HOC_VAN">
+      <End Role="TRINH_DO_HOC_VAN" EntitySet="TRINH_DO_HOC_VAN" />
       <End Role="GIAO_VIEN" EntitySet="GIAO_VIEN" />
     </AssociationSet>
     <AssociationSet Name="fk_HOC_KY_NAM_HOC" Association="Self.fk_HOC_KY_NAM_HOC">
@@ -519,6 +665,10 @@
       <End Role="DAN_TOC" EntitySet="DAN_TOC" />
       <End Role="HOC_SINH" EntitySet="HOC_SINH" />
     </AssociationSet>
+    <AssociationSet Name="fk_HOC_SINH_LOP_DANG_HOC" Association="Self.fk_HOC_SINH_LOP_DANG_HOC">
+      <End Role="LOP" EntitySet="LOP" />
+      <End Role="HOC_SINH" EntitySet="HOC_SINH" />
+    </AssociationSet>
     <AssociationSet Name="fk_HOC_SINH_QUOC_TICH" Association="Self.fk_HOC_SINH_QUOC_TICH">
       <End Role="QUOC_TICH" EntitySet="QUOC_TICH" />
       <End Role="HOC_SINH" EntitySet="HOC_SINH" />
@@ -527,16 +677,24 @@
       <End Role="TON_GIAO" EntitySet="TON_GIAO" />
       <End Role="HOC_SINH" EntitySet="HOC_SINH" />
     </AssociationSet>
-    <AssociationSet Name="fk_LOP_HOC_KY" Association="Self.fk_LOP_HOC_KY">
-      <End Role="HOC_KY" EntitySet="HOC_KY" />
+    <AssociationSet Name="fk_LOP_GVCN" Association="Self.fk_LOP_GVCN">
+      <End Role="GIAO_VIEN" EntitySet="GIAO_VIEN" />
       <End Role="LOP" EntitySet="LOP" />
     </AssociationSet>
     <AssociationSet Name="fk_LOP_KHOI_LOP" Association="Self.fk_LOP_KHOI_LOP">
       <End Role="KHOI_LOP" EntitySet="KHOI_LOP" />
       <End Role="LOP" EntitySet="LOP" />
     </AssociationSet>
+    <AssociationSet Name="fk_LOP_NAM_HOC" Association="Self.fk_LOP_NAM_HOC">
+      <End Role="NAM_HOC" EntitySet="NAM_HOC" />
+      <End Role="LOP" EntitySet="LOP" />
+    </AssociationSet>
     <AssociationSet Name="fk_MON_HOC_BO_MON" Association="Self.fk_MON_HOC_BO_MON">
       <End Role="BO_MON" EntitySet="BO_MON" />
+      <End Role="MON_HOC" EntitySet="MON_HOC" />
+    </AssociationSet>
+    <AssociationSet Name="fk_MON_HOC_KHOI_LOP" Association="Self.fk_MON_HOC_KHOI_LOP">
+      <End Role="KHOI_LOP" EntitySet="KHOI_LOP" />
       <End Role="MON_HOC" EntitySet="MON_HOC" />
     </AssociationSet>
     <AssociationSet Name="fk_QTMH_QTHK" Association="Self.fk_QTMH_QTHK">

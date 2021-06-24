@@ -18,6 +18,7 @@ namespace StudentManagement.Model
         public NAM_HOC()
         {
             this.HOC_KY = new HashSet<HOC_KY>();
+            this.LOPs = new HashSet<LOP>();
         }
     
         public int MA_NAM_HOC { get; set; }
@@ -27,5 +28,7 @@ namespace StudentManagement.Model
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HOC_KY> HOC_KY { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LOP> LOPs { get; set; }
     }
 }

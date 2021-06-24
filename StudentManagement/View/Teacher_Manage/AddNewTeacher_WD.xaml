@@ -1,0 +1,286 @@
+﻿<Window x:Class="StudentManagement.View.Teacher_Manage.AddNewTeacher_WD"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudentManagement.View.Teacher_Manage"
+        mc:Ignorable="d"
+        Language="vi-VN"
+        DataContext="{StaticResource AddNewTeacher_WD_VM}"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        x:Name="addNewTeacher_WD"
+        Title="AddNewTeacher_WD"
+        Height="900"
+        Width="900">
+    <Grid>
+        <Border BorderBrush="#FF41A27A"
+                Background="#FF41A27A"
+                BorderThickness="10"
+                CornerRadius="20">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <materialDesign:ColorZone Background="#FF41A27A"
+                                          Grid.Row="0"
+                                          CornerRadius="10">
+                    <DockPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock VerticalAlignment="Center"
+                                       FontSize="25"
+                                       Foreground="White"
+                                       FontWeight="Bold"
+                                       Margin="10,0,0,0">
+                        Thêm mới giáo viên
+                            </TextBlock>
+                        </StackPanel>
+                    </DockPanel>
+                </materialDesign:ColorZone>
+                <Border Grid.Row="1"
+                        Margin="5"
+                        BorderBrush="White"
+                        BorderThickness="5"
+                        CornerRadius="10">
+                    <materialDesign:Card Background="#FFFBFBFB"
+                                         materialDesign:ShadowAssist.ShadowDepth="Depth5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="550"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Orientation="Vertical"
+                                        Grid.Column="0">
+                                <TextBox materialDesign:HintAssist.Hint="Tên giáo viên"
+                                         Background="White"
+                                         materialDesign:ValidationAssist.HasError="True"
+                                         Height="50"
+                                         Width="500"
+                                         Text="{Binding TeacherName}"
+                                         Padding="5,-5,0,0"
+                                         Margin="0,10,0,0"
+                                         FontSize="20"
+                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                <Grid>
+                                    <StackPanel Orientation="Horizontal">
+                                        <!--Chọn giới tính-->
+                                        <ComboBox materialDesign:HintAssist.Hint="Giới tính"
+                                                  Margin="25,20,0,0"
+                                                  Padding="0,0,0,-10"
+                                                  Width="150"
+                                                  Text="{Binding TeacherGender,UpdateSourceTrigger=PropertyChanged,NotifyOnSourceUpdated=True}"
+                                                  FontSize="20"
+                                                  IsEditable="True"
+                                                  Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                                            <ComboBoxItem IsSelected="True">
+                                                Nam
+                                            </ComboBoxItem>
+                                            <ComboBoxItem>
+                                                Nữ
+                                            </ComboBoxItem>
+                                        </ComboBox>
+
+                                        <!--Chọn ngày sinh-->
+                                        <DatePicker Width="150"
+                                                    FontSize="20"
+                                                    Margin="25,20,0,0"
+                                                    Padding="0,0,0,-10"
+                                                    SelectedDateFormat="Short"
+                                                    materialDesign:HintAssist.Hint="Ngày sinh"
+                                                    Text="{Binding TeacherBirthday, StringFormat=dd/MM/yyyy, Mode=OneWayToSource, NotifyOnSourceUpdated=True, UpdateSourceTrigger=Default}"
+                                                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                                    </StackPanel>
+                                </Grid>
+                                <Grid>
+                                    <StackPanel Orientation="Horizontal">
+                                        <ComboBox materialDesign:HintAssist.Hint="Quốc tịch"
+                                                  Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                                  ItemsSource="{Binding NationalityList,UpdateSourceTrigger=Default,NotifyOnSourceUpdated=True,Mode=TwoWay}"
+                                                  Width="190"
+                                                  IsEditable="True"
+                                                  Text="{Binding TeacherNationality}"
+                                                  FontSize="20"
+                                                  Height="50"
+                                                  Padding="0,0,0,-10"
+                                                  Margin="25,10,0,20">
+                                        </ComboBox>
+                                        <Button Height="40"
+                                                Width="100"
+                                                Command="{Binding Open_AddNewNationality_WD_Command,UpdateSourceTrigger=PropertyChanged,NotifyOnSourceUpdated=True}"
+                                                Background="#FFADD8E6"
+                                                Margin="10,0,0,0">
+                                            Thêm
+                                        </Button>
+                                    </StackPanel>
+                                </Grid>
+                                <Grid>
+                                    <StackPanel Orientation="Horizontal">
+                                        <ComboBox materialDesign:HintAssist.Hint="Dân tộc"
+                                                  Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                                  ItemsSource="{Binding EthnicityList,UpdateSourceTrigger=Default,NotifyOnSourceUpdated=True,Mode=TwoWay}"
+                                                  Width="190"
+                                                  IsEditable="True"
+                                                  Text="{Binding TeacherEthnicity}"
+                                                  FontSize="20"
+                                                  Height="50"
+                                                  Padding="0,0,0,-10"
+                                                  Margin="25,10,0,20">
+                                        </ComboBox>
+                                        <ComboBox materialDesign:HintAssist.Hint="Tôn giáo"
+                                                  Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                                  ItemsSource="{Binding ReligionList,UpdateSourceTrigger=Default,NotifyOnSourceUpdated=True,Mode=TwoWay}"
+                                                  Width="190"
+                                                  IsEditable="True"
+                                                  Text="{Binding TeacherReligion}"
+                                                  FontSize="20"
+                                                  Height="50"
+                                                  Padding="0,0,0,-10"
+                                                  Margin="25,10,0,20">
+                                        </ComboBox>
+                                    </StackPanel>
+                                </Grid>
+                                <TextBox materialDesign:HintAssist.Hint="Số CMND"
+                                         Background="White"
+                                         materialDesign:ValidationAssist.HasError="True"
+                                         Height="50"
+                                         Width="500"
+                                         Text="{Binding TeacherIdentifyNumber}"
+                                         Padding="5,-5,0,0"
+                                         Margin="0,10,0,0"
+                                         FontSize="20"
+                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                <TextBox materialDesign:HintAssist.Hint="Email"
+                                         Background="White"
+                                         materialDesign:ValidationAssist.HasError="True"
+                                         Height="50"
+                                         Width="500"
+                                         Text="{Binding TeacherEmail}"
+                                         Padding="5,-5,0,0"
+                                         Margin="0,10,0,0"
+                                         FontSize="20"
+                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                <TextBox materialDesign:HintAssist.Hint="Số điện thoại"
+                                         Background="White"
+                                         materialDesign:ValidationAssist.HasError="True"
+                                         Height="50"
+                                         Width="500"
+                                         Text="{Binding TeacherPhoneNumber}"
+                                         Padding="5,-5,0,0"
+                                         Margin="0,10,0,0"
+                                         FontSize="20"
+                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                <Grid>
+                                    <StackPanel Orientation="Horizontal">
+                                        <ComboBox materialDesign:HintAssist.Hint="Trình độ"
+                                                  Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                                  Width="190"
+                                                  ItemsSource="{Binding AcademicLevelListCbb}"
+                                                  SelectedIndex="0"
+                                                  Text="{Binding TeacherAcademicLevel}"
+                                                  FontSize="20"
+                                                  Height="50"
+                                                  Padding="0,0,0,-10"
+                                                  Margin="25,10,0,20">
+                                        </ComboBox>
+                                        
+                                        <ComboBox materialDesign:HintAssist.Hint="Bộ môn"
+                                                  Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                                  ItemsSource="{Binding GroupSubjectListCbb,UpdateSourceTrigger=Default,NotifyOnSourceUpdated=True,Mode=TwoWay}"
+                                                  Width="190"
+                                                  IsEditable="True"
+                                                  Text="{Binding TeacherGroupSubject}"
+                                                  SelectedIndex="0"
+                                                  FontSize="20"
+                                                  Height="50"
+                                                  Padding="0,0,0,-10"
+                                                  Margin="25,10,0,20">
+                                        </ComboBox>
+                                    </StackPanel>
+                                </Grid>
+                                
+                                
+                                <TextBox materialDesign:HintAssist.Hint="Địa chỉ"
+                                         Text="{Binding TeacherAddress}"
+                                         MaxLength="100"
+                                         Height="150"
+                                         Padding="0,-10,0,0"
+                                         TextWrapping="Wrap"
+                                         AcceptsReturn="True"
+                                         FontSize="20"
+                                         Margin="25,20,25,30"
+                                         TextAlignment="Left"
+                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                <StackPanel Orientation="Horizontal"
+                                            Margin="0,-10,0,0"
+                                            HorizontalAlignment="Center">
+                                    <Button Height="40"
+                                            Width="150"
+                                            Margin="30,0,0,0"
+                                            Background="#FFADD8E6"
+                                            Command="{Binding AddNewTeacherCommand}"
+                                            CommandParameter="{Binding ElementName=addNewTeacher_WD}"
+                                            Style="{DynamicResource MaterialDesignRaisedButton}"
+                                            materialDesign:ShadowAssist.ShadowDepth="Depth3">
+                                        Thêm mới
+                                    </Button>
+                                    <Button Height="auto"
+                                            Width="150"
+                                            Command="{Binding QuitCommand}"
+                                            CommandParameter="{Binding ElementName=addNewTeacher_WD}"
+                                            Style="{DynamicResource MaterialDesignRaisedButton}"
+                                            Margin="100,0,0,0"
+                                            Background="#FFF3A2A2"
+                                            materialDesign:ShadowAssist.ShadowDepth="Depth3">
+                                        Thoát
+                                    </Button>
+                                </StackPanel>
+                            </StackPanel>
+                            <Grid Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="400"></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Border Grid.Row="0"
+                                        Background="WhiteSmoke"
+                                        Margin="5,5,5,5"
+                                        BorderBrush="#FF41A27A"
+                                        BorderThickness="2"
+                                        CornerRadius="10">
+                                    <Image Margin="2"
+                                           Source="{Binding AvatarSource}"></Image>
+                                </Border>
+                                <StackPanel Grid.Row="1"
+                                            Orientation="Horizontal"
+                                            Margin="0,0,0,100"
+                                            HorizontalAlignment="Center">
+                                    <Button Style="{DynamicResource MaterialDesignRaisedButton}"
+                                            Background="#FFADD8E6"
+                                            materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                                            Content="Chọn ảnh"
+                                            Command="{Binding ChangePictureCommand}"
+                                            Height="40"
+                                            Width="100"></Button>
+                                    <Button Style="{DynamicResource MaterialDesignRaisedButton}"
+                                            materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                                            Content="Xóa ảnh"
+                                            Command="{Binding DeletePictureCommand}"
+                                            Background="#FFF3A2A2"
+                                            Height="40"
+                                            Width="100"
+                                            Margin="50,0,0,0"></Button>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </materialDesign:Card>
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

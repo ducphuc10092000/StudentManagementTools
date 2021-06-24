@@ -18,6 +18,7 @@ namespace StudentManagement.Model
         public KHOI_LOP()
         {
             this.LOPs = new HashSet<LOP>();
+            this.MON_HOC = new HashSet<MON_HOC>();
         }
     
         public int MA_KHOI_LOP { get; set; }
@@ -25,5 +26,7 @@ namespace StudentManagement.Model
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LOP> LOPs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MON_HOC> MON_HOC { get; set; }
     }
 }

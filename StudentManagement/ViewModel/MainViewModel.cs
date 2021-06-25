@@ -1,5 +1,7 @@
 ﻿using StudentManagement.View.Login;
+using StudentManagement.View.Mark_Manage;
 using StudentManagement.ViewModel.Login_ViewModel;
+using StudentManagement.ViewModel.Mark_Manage_ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -112,6 +114,9 @@ namespace StudentManagement.ViewModel
             }, (p) =>
             {
                 ChucNang = (int)CHUCNANG.ManageMark;
+                Mark_UC mark_UC = new Mark_UC();
+                var mark_UC_DT = mark_UC.DataContext as Mark_UC_ViewModel;
+                mark_UC_DT.Reset();
             });
             BtnManageClassCommand = new RelayCommand<object>((p) =>
             {

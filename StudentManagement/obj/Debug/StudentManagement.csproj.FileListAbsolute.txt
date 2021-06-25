@@ -66,11 +66,11 @@ D:\StudentManagement\StudentManagement\StudentManagement\obj\Debug\StudentManage
 D:\StudentManagement\StudentManagement\StudentManagement\obj\Debug\StudentManagement.exe
 D:\StudentManagement\StudentManagement\StudentManagement\obj\Debug\StudentManagement.pdb
 D:\StudentManagement\StudentManagement\StudentManagement\obj\Debug\StudentManagement.csproj.AssemblyReference.cache
-D:\StudentManagement\StudentManagement\StudentManagement\obj\Debug\View\Class_Manage\SchoolYear\AddNewSchoolYear_WD.g.cs
-D:\StudentManagement\StudentManagement\StudentManagement\obj\Debug\View\Class_Manage\Semester\AddNewSemester_WD.g.cs
-D:\StudentManagement\StudentManagement\StudentManagement\obj\Debug\View\Class_Manage\SchoolYear\AddNewSchoolYear_WD.baml
-D:\StudentManagement\StudentManagement\StudentManagement\obj\Debug\View\Class_Manage\Semester\AddNewSemester_WD.baml
 D:\StudentManagement\StudentManagement\StudentManagement\obj\Debug\View\Teacher_Manage\TeacherList_WD.g.cs
 D:\StudentManagement\StudentManagement\StudentManagement\obj\Debug\View\Teacher_Manage\TeacherList_WD.baml
 D:\StudentManagement\StudentManagement\StudentManagement\obj\Debug\View\Student_Manage\StudentList_WD.g.cs
 D:\StudentManagement\StudentManagement\StudentManagement\obj\Debug\View\Student_Manage\StudentList_WD.baml
+D:\StudentManagement\StudentManagement\StudentManagement\obj\Debug\View\SchoolYear_Manage\AddNewSchoolYear_WD.g.cs
+D:\StudentManagement\StudentManagement\StudentManagement\obj\Debug\View\SchoolYear_Manage\AddNewSchoolYear_WD.baml
+D:\StudentManagement\StudentManagement\StudentManagement\obj\Debug\View\Mark_Manage\EditMark_WD.g.cs
+D:\StudentManagement\StudentManagement\StudentManagement\obj\Debug\View\Mark_Manage\EditMark_WD.baml

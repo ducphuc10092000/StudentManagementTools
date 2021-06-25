@@ -23,9 +23,11 @@ namespace StudentManagement.Model
         public int MA_QTMH { get; set; }
         public Nullable<double> DIEM_TB_MON_HOC { get; set; }
         public Nullable<int> MA_QTHK { get; set; }
+        public Nullable<int> MA_MON_HOC { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DIEM> DIEMs { get; set; }
+        public virtual MON_HOC MON_HOC { get; set; }
         public virtual QUA_TRINH_HOC_HOC_KY QUA_TRINH_HOC_HOC_KY { get; set; }
     }
 }

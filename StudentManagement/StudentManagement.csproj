@@ -125,6 +125,8 @@
     <Compile Include="Model\LOP.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\MARK\MARK.cs" />
+    <Compile Include="Model\MARK\STUDENT_MARK.cs" />
     <Compile Include="Model\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -178,6 +180,8 @@
     <Compile Include="ViewModel\ImageProvider.cs" />
     <Compile Include="ViewModel\Login_ViewModel\Login_WD_ViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\Mark_Manage_ViewModel\EditMark_WD_ViewModel.cs" />
+    <Compile Include="ViewModel\Mark_Manage_ViewModel\Mark_UC_ViewModel.cs" />
     <Compile Include="ViewModel\Student_Manage_ViewModel\AddNewStudent_WD_ViewModel.cs" />
     <Compile Include="ViewModel\Student_Manage_ViewModel\Student_UC_ViewModel.cs" />
     <Compile Include="ViewModel\Teacher_Manage_ViewModel\AddNewTeacher_WD_ViewModel.cs" />
@@ -194,23 +198,23 @@
     <Compile Include="View\Class_Manage\EditClass_WD.xaml.cs">
       <DependentUpon>EditClass_WD.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Class_Manage\SchoolYear\AddNewSchoolYear_WD.xaml.cs">
-      <DependentUpon>AddNewSchoolYear_WD.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Class_Manage\Semester\AddNewSemester_WD.xaml.cs">
-      <DependentUpon>AddNewSemester_WD.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\Dashboard\Dashboard_UC.xaml.cs">
       <DependentUpon>Dashboard_UC.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Login\Login_WD.xaml.cs">
       <DependentUpon>Login_WD.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Mark_Manage\EditMark_WD.xaml.cs">
+      <DependentUpon>EditMark_WD.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Mark_Manage\Mark_UC.xaml.cs">
       <DependentUpon>Mark_UC.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Report_Manage\Report_UC.xaml.cs">
       <DependentUpon>Report_UC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SchoolYear_Manage\AddNewSchoolYear_WD.xaml.cs">
+      <DependentUpon>AddNewSchoolYear_WD.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SchoolYear_Manage\SchoolYear_UC.xaml.cs">
       <DependentUpon>SchoolYear_UC.xaml</DependentUpon>
@@ -277,14 +281,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Class_Manage\SchoolYear\AddNewSchoolYear_WD.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Class_Manage\Semester\AddNewSemester_WD.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\Dashboard\Dashboard_UC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -293,11 +289,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Mark_Manage\EditMark_WD.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Mark_Manage\Mark_UC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Report_Manage\Report_UC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SchoolYear_Manage\AddNewSchoolYear_WD.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -413,7 +417,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Model\MARK\" />
     <Folder Include="ViewModel\Class_Manage _ViewModel\SchoolYear\" />
     <Folder Include="ViewModel\Class_Manage _ViewModel\Semester\" />
   </ItemGroup>

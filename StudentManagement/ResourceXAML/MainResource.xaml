@@ -4,7 +4,8 @@
                     xmlns:viewmodel_Login="clr-namespace:StudentManagement.ViewModel.Login_ViewModel"
                     xmlns:viewmodel_Student="clr-namespace:StudentManagement.ViewModel.Student_Manage_ViewModel"
                     xmlns:viewmodel_Teacher="clr-namespace:StudentManagement.ViewModel.Teacher_Manage_ViewModel"
-                    xmlns:viewmodel_Class="clr-namespace:StudentManagement.ViewModel.Class_Manage__ViewModel">
+                    xmlns:viewmodel_Class="clr-namespace:StudentManagement.ViewModel.Class_Manage__ViewModel"
+                    xmlns:viewmodel_Mark="clr-namespace:StudentManagement.ViewModel.Mark_Manage_ViewModel">
     <viewmodel:MainViewModel x:Key="MainVM"></viewmodel:MainViewModel>
     <viewmodel_Login:Login_WD_ViewModel x:Key="Login_WD_VM"></viewmodel_Login:Login_WD_ViewModel>
     <viewmodel_Student:Student_UC_ViewModel x:Key="Student_UC_VM"></viewmodel_Student:Student_UC_ViewModel>
@@ -13,4 +14,6 @@
     <viewmodel_Teacher:AddNewTeacher_WD_ViewModel x:Key="AddNewTeacher_WD_VM"></viewmodel_Teacher:AddNewTeacher_WD_ViewModel>
     <viewmodel_Class:Class_UC_ViewModel x:Key="Class_UC_VM"></viewmodel_Class:Class_UC_ViewModel>
     <viewmodel_Class:AddNewClass_WD_ViewModel x:Key="AddNewClass_WD_VM"></viewmodel_Class:AddNewClass_WD_ViewModel>
+    <viewmodel_Mark:Mark_UC_ViewModel x:Key="Mark_UC_VM"></viewmodel_Mark:Mark_UC_ViewModel>
+    <viewmodel_Mark:EditMark_WD_ViewModel x:Key="EditMark_WD_VM"></viewmodel_Mark:EditMark_WD_ViewModel>
 </ResourceDictionary>

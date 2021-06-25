@@ -32,10 +32,39 @@ namespace StudentManagement.Model.CLASS
             DataProvider.Ins.DB.LOPs.Add(lop);
             DataProvider.Ins.DB.SaveChanges();
 
-            foreach(var item in studentList)
+
+            ObservableCollection<HOC_KY> hockylist_thisSchoolYear = new ObservableCollection<HOC_KY>(DataProvider.Ins.DB.HOC_KY.Where(x => x.MA_NAM_HOC == lop.MA_NAM_HOC));
+
+            ObservableCollection<MON_HOC> monhocList = new ObservableCollection<MON_HOC>(DataProvider.Ins.DB.MON_HOC.Where(x => x.MA_KHOI_LOP == lop.MA_KHOI_LOP));
+
+
+            foreach (var item in studentList)
             {
                 CLASS_STUDENT_DETAIL class_Student_Detail = new CLASS_STUDENT_DETAIL();
                 class_Student_Detail.AddNewClassStudentDetail(lop.MA_LOP, item.MA_HOC_SINH);
+
+                //Chạy list để tạo QUÁ TRÌNH HỌC _ HỌC KỲ
+                foreach(var hocky in hockylist_thisSchoolYear)
+                {
+                    QUA_TRINH_HOC_HOC_KY tempQTHHK = new QUA_TRINH_HOC_HOC_KY();
+                    tempQTHHK.LOP = lop;
+                    tempQTHHK.HOC_SINH = item;
+                    tempQTHHK.HOC_KY = hocky;
+
+                    DataProvider.Ins.DB.QUA_TRINH_HOC_HOC_KY.Add(tempQTHHK);
+                    DataProvider.Ins.DB.SaveChanges();
+
+                    //Chạy list để tạo QUÁ TRÌNH HỌC _ MÔN HỌC
+                    foreach (var monhoc in monhocList)
+                    {
+                        QUA_TRINH_HOC_MON_HOC tempQTHMH = new QUA_TRINH_HOC_MON_HOC();
+                        tempQTHMH.QUA_TRINH_HOC_HOC_KY = tempQTHHK;
+                        tempQTHMH.MON_HOC = monhoc;
+
+                        DataProvider.Ins.DB.QUA_TRINH_HOC_MON_HOC.Add(tempQTHMH);
+                        DataProvider.Ins.DB.SaveChanges();
+                    }
+                }    
             }    
             MessageBox.Show("Thêm lớp thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
         }
@@ -64,6 +93,8 @@ namespace StudentManagement.Model.CLASS
             lop.NAM_HOC = DataProvider.Ins.DB.NAM_HOC.Where(x => x.TEN_NAM_HOC == SchoolYear).SingleOrDefault();
             lop.SI_SO = studentList.Count();
 
+            
+
             //Xoá chi tiết LOP_HOCSINH cũ
             ObservableCollection<CT_LOP_HOC_SINH> class_Student_Detail = new ObservableCollection<CT_LOP_HOC_SINH>(DataProvider.Ins.DB.CT_LOP_HOC_SINH.Where(x => x.MA_LOP == ClassID));
             foreach(var item in class_Student_Detail)
@@ -77,14 +108,51 @@ namespace StudentManagement.Model.CLASS
                 DataProvider.Ins.DB.SaveChanges();
             }
 
+            //Lấy list học kỳ
+            ObservableCollection<HOC_KY> hockylist_thisSchoolYear = new ObservableCollection<HOC_KY>(DataProvider.Ins.DB.HOC_KY.Where(x => x.MA_NAM_HOC == lop.MA_NAM_HOC));
+
+            //Lấy list môn học 
+            ObservableCollection<MON_HOC> monhocList = new ObservableCollection<MON_HOC>(DataProvider.Ins.DB.MON_HOC.Where(x => x.MA_KHOI_LOP == lop.MA_KHOI_LOP));
+
+
+            //Tạo chi tiết LOP_HOC_SINH mới
             foreach (var item in studentList)
             {
                 HOC_SINH tempHocSinh = new HOC_SINH();
                 tempHocSinh = DataProvider.Ins.DB.HOC_SINH.Where(x => x.MA_HOC_SINH == item.MA_HOC_SINH).SingleOrDefault();
                 tempHocSinh.DA_CO_LOP_HOC = Convert.ToBoolean(1);
                 DataProvider.Ins.DB.SaveChanges();
+
                 CLASS_STUDENT_DETAIL tempclass_Student_Detail = new CLASS_STUDENT_DETAIL();
                 tempclass_Student_Detail.AddNewClassStudentDetail(lop.MA_LOP, item.MA_HOC_SINH);
+
+                //Tạo quá trình học _ học kỳ
+                foreach (var hocky in hockylist_thisSchoolYear)
+                {
+                    QUA_TRINH_HOC_HOC_KY tempQTHHK = new QUA_TRINH_HOC_HOC_KY();
+                    tempQTHHK.LOP = lop;
+                    tempQTHHK.HOC_SINH = item;
+                    tempQTHHK.HOC_KY = hocky;
+
+                    if (DataProvider.Ins.DB.QUA_TRINH_HOC_HOC_KY.Where(x => x.LOP.MA_LOP == tempQTHHK.LOP.MA_LOP && x.HOC_SINH.MA_HOC_SINH == tempQTHHK.HOC_SINH.MA_HOC_SINH && x.HOC_KY.MA_HOC_KY == tempQTHHK.HOC_KY.MA_HOC_KY).Count() != 0)
+                    {
+                        return;
+                    }
+
+                    DataProvider.Ins.DB.QUA_TRINH_HOC_HOC_KY.Add(tempQTHHK);
+                    DataProvider.Ins.DB.SaveChanges();
+
+                    //Chạy list để tạo QUÁ TRÌNH HỌC _ MÔN HỌC
+                    foreach (var monhoc in monhocList)
+                    {
+                        QUA_TRINH_HOC_MON_HOC tempQTHMH = new QUA_TRINH_HOC_MON_HOC();
+                        tempQTHMH.QUA_TRINH_HOC_HOC_KY = tempQTHHK;
+                        tempQTHMH.MON_HOC = monhoc;
+
+                        DataProvider.Ins.DB.QUA_TRINH_HOC_MON_HOC.Add(tempQTHMH);
+                        DataProvider.Ins.DB.SaveChanges();
+                    }
+                }
             }
 
             DataProvider.Ins.DB.SaveChanges();

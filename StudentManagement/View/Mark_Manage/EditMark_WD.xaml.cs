@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace StudentManagement.View.Class_Manage.Semester
+namespace StudentManagement.View.Mark_Manage
 {
     /// <summary>
-    /// Interaction logic for AddNewSemester_WD.xaml
+    /// Interaction logic for EditMark_WD.xaml
     /// </summary>
-    public partial class AddNewSemester_WD : Window
+    public partial class EditMark_WD : Window
     {
-        public AddNewSemester_WD()
+        public EditMark_WD()
         {
             InitializeComponent();
         }

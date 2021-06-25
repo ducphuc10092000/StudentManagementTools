@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace StudentManagement.View.Class_Manage.SchoolYear
+namespace StudentManagement.View.SchoolYear_Manage
 {
     /// <summary>
     /// Interaction logic for AddNewSchoolYear_WD.xaml

@@ -286,7 +286,7 @@ namespace StudentManagement.ViewModel.Class_Manage__ViewModel
             MaxQuantityStudent = Convert.ToInt32(selectedClass.lop.SI_SO_TOI_DA);
             SchoolYear = selectedClass.lop.NAM_HOC.TEN_NAM_HOC;
             Grade = selectedClass.lop.KHOI_LOP.TEN_KHOI_LOP;
-            if (selectedClass.lop.GIAO_VIEN == null)
+            if (selectedClass.lop.GIAO_VIEN1 == null)
             {
                 HomeroomTeacherName = "";
             }

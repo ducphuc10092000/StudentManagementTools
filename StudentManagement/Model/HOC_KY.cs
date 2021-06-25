@@ -14,10 +14,20 @@ namespace StudentManagement.Model
     
     public partial class HOC_KY
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public HOC_KY()
+        {
+            this.QUA_TRINH_HOC_HOC_KY = new HashSet<QUA_TRINH_HOC_HOC_KY>();
+        }
+    
         public int MA_HOC_KY { get; set; }
         public string TEN_HOC_KY { get; set; }
         public Nullable<int> MA_NAM_HOC { get; set; }
+        public string NGAY_BAT_DAU { get; set; }
+        public string NGAY_KET_THUC { get; set; }
     
         public virtual NAM_HOC NAM_HOC { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<QUA_TRINH_HOC_HOC_KY> QUA_TRINH_HOC_HOC_KY { get; set; }
     }
 }

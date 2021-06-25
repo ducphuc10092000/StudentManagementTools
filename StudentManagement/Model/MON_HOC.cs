@@ -18,6 +18,7 @@ namespace StudentManagement.Model
         public MON_HOC()
         {
             this.GIANG_DAY = new HashSet<GIANG_DAY>();
+            this.QUA_TRINH_HOC_MON_HOC = new HashSet<QUA_TRINH_HOC_MON_HOC>();
         }
     
         public int MA_MON_HOC { get; set; }
@@ -29,5 +30,7 @@ namespace StudentManagement.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GIANG_DAY> GIANG_DAY { get; set; }
         public virtual KHOI_LOP KHOI_LOP { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<QUA_TRINH_HOC_MON_HOC> QUA_TRINH_HOC_MON_HOC { get; set; }
     }
 }

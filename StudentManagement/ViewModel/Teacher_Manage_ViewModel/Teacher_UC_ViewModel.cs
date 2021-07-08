@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Data;
 using System.Windows.Input;
 
 namespace StudentManagement.ViewModel.Teacher_Manage_ViewModel
@@ -15,6 +16,13 @@ namespace StudentManagement.ViewModel.Teacher_Manage_ViewModel
     public class Teacher_UC_ViewModel : BaseViewModel
     {
         #region Binding TEACHER_UC
+        private string _TeacherNameFind;
+        public string TeacherNameFind { get => _TeacherNameFind; set { _TeacherNameFind = value; OnPropertyChanged(); } }
+
+        private string _SelectedGroupSubject;
+        public string SelectedGroupSubject { get => _SelectedGroupSubject; set { _SelectedGroupSubject = value; OnPropertyChanged(); } }
+
+
         private ObservableCollection<GIAO_VIEN> _TEACHERLIST;
         public ObservableCollection<GIAO_VIEN> TEACHERLIST { get => _TEACHERLIST; set { _TEACHERLIST = value; OnPropertyChanged(); } }
 
@@ -93,6 +101,22 @@ namespace StudentManagement.ViewModel.Teacher_Manage_ViewModel
             });
             #endregion
             #region Handling command Button TEACHER_UC
+            TeacherFindCommand = new RelayCommand<object>((p) =>
+            {
+                return true;
+            }, (p) =>
+            {
+                Filter();
+            });
+            TeacherDefaultFilterCommand = new RelayCommand<object>((p) =>
+            {
+                return true;
+            }, (p) =>
+            {
+                TeacherNameFind = "";
+                SelectedGroupSubject = "";
+                CollectionViewSource.GetDefaultView(TEACHERLISTDTG).Filter = (all) => { return true; };
+            });
             Open_AddNewTeacher_WD_Command = new RelayCommand<object>((p) =>
             {
                 return true;
@@ -120,6 +144,42 @@ namespace StudentManagement.ViewModel.Teacher_Manage_ViewModel
             #endregion
 
         }
+        public void Filter()
+        {
+            if (string.IsNullOrEmpty(TeacherNameFind))
+            {
+                if (string.IsNullOrEmpty(SelectedGroupSubject))
+                {
+                    MessageBox.Show("Vui lòng nhập thông tin rồi bấm tìm kiếm!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+                else
+                {
+                    CollectionViewSource.GetDefaultView(TEACHERLISTDTG).Filter = (teacherFind) =>
+                    {
+                        return (teacherFind as TEACHER).giaovien.BO_MON.TEN_BO_MON.IndexOf(SelectedGroupSubject, StringComparison.OrdinalIgnoreCase) >= 0;
+                    };
+                }
+            }
+            else
+            {
+                if (string.IsNullOrEmpty(SelectedGroupSubject))
+                {
+                    CollectionViewSource.GetDefaultView(TEACHERLISTDTG).Filter = (teacherFind) =>
+                    {
+                        return (teacherFind as TEACHER).giaovien.HO_TEN.IndexOf(TeacherNameFind, StringComparison.OrdinalIgnoreCase) >= 0;
+                    };
+                }
+                else
+                {
+                    CollectionViewSource.GetDefaultView(TEACHERLISTDTG).Filter = (teacherFind) =>
+                    {
+                        return (teacherFind as TEACHER).giaovien.BO_MON.TEN_BO_MON.IndexOf(SelectedGroupSubject, StringComparison.OrdinalIgnoreCase) >= 0 &&
+                                (teacherFind as TEACHER).giaovien.HO_TEN.IndexOf(TeacherNameFind, StringComparison.OrdinalIgnoreCase) >= 0;
+                    };
+                }
+            }
+        }    
         public void LoadTeacherList()
         {
             TEACHERLIST = new ObservableCollection<GIAO_VIEN>(DataProvider.Ins.DB.GIAO_VIEN);

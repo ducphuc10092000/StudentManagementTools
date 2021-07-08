@@ -1,12 +1,15 @@
 ﻿using StudentManagement.View.Dashboard;
 using StudentManagement.View.Login;
 using StudentManagement.View.Mark_Manage;
+using StudentManagement.View.Report_Manage;
 using StudentManagement.View.Student_Manage;
+using StudentManagement.View.Summary_Manage;
 using StudentManagement.View.Teacher_Manage;
 using StudentManagement.ViewModel.Dashboard_Manage_ViewModel;
 using StudentManagement.ViewModel.Login_ViewModel;
 using StudentManagement.ViewModel.Mark_Manage_ViewModel;
 using StudentManagement.ViewModel.Student_Manage_ViewModel;
+using StudentManagement.ViewModel.Summary_Manage_ViewModel;
 using StudentManagement.ViewModel.Teacher_Manage_ViewModel;
 using System;
 using System.Collections.Generic;
@@ -172,6 +175,10 @@ namespace StudentManagement.ViewModel
             }, (p) =>
             {
                 ChucNang = (int)CHUCNANG.ManageSummary;
+
+                Summary_UC summary_UC = new Summary_UC();
+                var summary_UC_DT = summary_UC.DataContext as Summary_UC_ViewModel;
+                summary_UC_DT.ResetParaSemester();
             });
             BtnManageReportCommand = new RelayCommand<object>((p) =>
             {
@@ -186,6 +193,9 @@ namespace StudentManagement.ViewModel
             }, (p) =>
             {
                 ChucNang = (int)CHUCNANG.ManageReport;
+                Report_UC report_UC = new Report_UC();
+                var report_UC_DT = report_UC.DataContext as Summary_UC_ViewModel;
+                report_UC_DT.ResetParaSchoolYear();
             });
             BtnManageAccountCommand = new RelayCommand<object>((p) =>
             {

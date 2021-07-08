@@ -160,6 +160,9 @@
     <Compile Include="Model\QUA_TRINH_HOC_MON_HOC.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\QUA_TRINH_HOC_NAM_HOC.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\QUOC_TICH.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -244,6 +247,9 @@
     </Compile>
     <Compile Include="View\Subject_Manage\Subject_UC.xaml.cs">
       <DependentUpon>Subject_UC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Summary_Manage\EditSummary_SchoolYear_WD.xaml.cs">
+      <DependentUpon>EditSummary_SchoolYear_WD.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Summary_Manage\EditSummary_WD.xaml.cs">
       <DependentUpon>EditSummary_WD.xaml</DependentUpon>
@@ -340,6 +346,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Subject_Manage\Subject_UC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Summary_Manage\EditSummary_SchoolYear_WD.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

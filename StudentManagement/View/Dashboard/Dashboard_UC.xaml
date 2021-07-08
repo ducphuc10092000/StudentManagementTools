@@ -164,8 +164,10 @@
             </Border>
 
             <Border Grid.Column="2"
-                    Margin="20,0,0,0"
-                    CornerRadius="20">
+                    Margin="0,0,10,0"
+                    CornerRadius="20"
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Right">
                 <Button Command="{Binding UpdateDataCommand}"
                         materialDesign:ButtonAssist.CornerRadius="10"
                         TabIndex="2"
@@ -196,7 +198,7 @@
                 <GroupBox.HeaderTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="ImageArea"
+                            <materialDesign:PackIcon Kind="ChartArc"
                                                      Height="32"
                                                      Width="32"
                                                      VerticalAlignment="Center" />
@@ -227,7 +229,7 @@
                 <GroupBox.HeaderTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="ImageArea"
+                            <materialDesign:PackIcon Kind="ChartArc"
                                                      Height="32"
                                                      Width="32"
                                                      VerticalAlignment="Center" />

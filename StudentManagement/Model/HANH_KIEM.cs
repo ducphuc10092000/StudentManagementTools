@@ -18,6 +18,7 @@ namespace StudentManagement.Model
         public HANH_KIEM()
         {
             this.QUA_TRINH_HOC_HOC_KY = new HashSet<QUA_TRINH_HOC_HOC_KY>();
+            this.QUA_TRINH_HOC_NAM_HOC = new HashSet<QUA_TRINH_HOC_NAM_HOC>();
         }
     
         public int MA_HANH_KIEM { get; set; }
@@ -25,5 +26,7 @@ namespace StudentManagement.Model
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<QUA_TRINH_HOC_HOC_KY> QUA_TRINH_HOC_HOC_KY { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<QUA_TRINH_HOC_NAM_HOC> QUA_TRINH_HOC_NAM_HOC { get; set; }
     }
 }

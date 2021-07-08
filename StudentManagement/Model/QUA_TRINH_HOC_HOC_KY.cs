@@ -27,6 +27,8 @@ namespace StudentManagement.Model
         public Nullable<int> MA_HANH_KIEM { get; set; }
         public Nullable<int> MA_XEP_LOAI { get; set; }
         public Nullable<int> MA_HOC_KY { get; set; }
+        public string HOC_LUC { get; set; }
+        public Nullable<int> MA_QTNH { get; set; }
     
         public virtual HANH_KIEM HANH_KIEM { get; set; }
         public virtual HOC_KY HOC_KY { get; set; }
@@ -35,5 +37,6 @@ namespace StudentManagement.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<QUA_TRINH_HOC_MON_HOC> QUA_TRINH_HOC_MON_HOC { get; set; }
         public virtual XEP_LOAI XEP_LOAI { get; set; }
+        public virtual QUA_TRINH_HOC_NAM_HOC QUA_TRINH_HOC_NAM_HOC { get; set; }
     }
 }

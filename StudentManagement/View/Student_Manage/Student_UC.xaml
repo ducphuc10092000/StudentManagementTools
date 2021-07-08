@@ -44,19 +44,23 @@
                     </Grid>
                 </Border>
                 <!--Combobox Lớp-->
-                <Border Width="170"
-                        Margin="20,5,5,5"
+                <Border Height="50"
+                        Width="170"
+                        Margin="20,0,0,0"
                         CornerRadius="10"
                         Background="WhiteSmoke"
                         BorderBrush="#FF52B6B0"
                         BorderThickness="1">
-                    <ComboBox materialDesign:HintAssist.Hint="Tên lớp"
-                              Width="150"
+                    <ComboBox materialDesign:HintAssist.Hint="Lớp"
                               FontSize="17"
                               IsEditable="True"
                               Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                              Height="49"
-                              Margin="14,0,14,-1">
+                              Height="50"
+                              ItemsSource="{Binding ClassListCbb,UpdateSourceTrigger=PropertyChanged,NotifyOnSourceUpdated=True}"
+                              Text="{Binding SelectedClassName,UpdateSourceTrigger=PropertyChanged,NotifyOnSourceUpdated=True, Mode=TwoWay}"
+                              Margin="9,-1"
+                              VerticalAlignment="Top">
+
                     </ComboBox>
                 </Border>
                 <!--Btn Tìm Kiếm-->

@@ -16,7 +16,6 @@
     <EntitySet Name="LOPs" EntityType="STUDENTMANAGEMENTModel.LOP" />
     <EntitySet Name="MON_HOC" EntityType="STUDENTMANAGEMENTModel.MON_HOC" />
     <EntitySet Name="NAM_HOC" EntityType="STUDENTMANAGEMENTModel.NAM_HOC" />
-    <EntitySet Name="QUA_TRINH_HOC_HOC_KY" EntityType="STUDENTMANAGEMENTModel.QUA_TRINH_HOC_HOC_KY" />
     <EntitySet Name="QUA_TRINH_HOC_MON_HOC" EntityType="STUDENTMANAGEMENTModel.QUA_TRINH_HOC_MON_HOC" />
     <EntitySet Name="QUOC_TICH" EntityType="STUDENTMANAGEMENTModel.QUOC_TICH" />
     <EntitySet Name="sysdiagrams" EntityType="STUDENTMANAGEMENTModel.sysdiagram" />
@@ -92,17 +91,9 @@
       <End Role="GIAO_VIEN" EntitySet="GIAO_VIEN" />
       <End Role="LOP" EntitySet="LOPs" />
     </AssociationSet>
-    <AssociationSet Name="fk_QTTK_HANH_KIEM" Association="STUDENTMANAGEMENTModel.fk_QTTK_HANH_KIEM">
-      <End Role="HANH_KIEM" EntitySet="HANH_KIEM" />
-      <End Role="QUA_TRINH_HOC_HOC_KY" EntitySet="QUA_TRINH_HOC_HOC_KY" />
-    </AssociationSet>
     <AssociationSet Name="fk_HOC_KY_NAM_HOC" Association="STUDENTMANAGEMENTModel.fk_HOC_KY_NAM_HOC">
       <End Role="NAM_HOC" EntitySet="NAM_HOC" />
       <End Role="HOC_KY" EntitySet="HOC_KY" />
-    </AssociationSet>
-    <AssociationSet Name="fk_QUA_TRINH_HOC_HOC_KY" Association="STUDENTMANAGEMENTModel.fk_QUA_TRINH_HOC_HOC_KY">
-      <End Role="HOC_KY" EntitySet="HOC_KY" />
-      <End Role="QUA_TRINH_HOC_HOC_KY" EntitySet="QUA_TRINH_HOC_HOC_KY" />
     </AssociationSet>
     <AssociationSet Name="fk_HOC_SINH_LOP_DANG_HOC" Association="STUDENTMANAGEMENTModel.fk_HOC_SINH_LOP_DANG_HOC">
       <End Role="LOP" EntitySet="LOPs" />
@@ -115,10 +106,6 @@
     <AssociationSet Name="fk_HOC_SINH_TON_GIAO" Association="STUDENTMANAGEMENTModel.fk_HOC_SINH_TON_GIAO">
       <End Role="TON_GIAO" EntitySet="TON_GIAO" />
       <End Role="HOC_SINH" EntitySet="HOC_SINH" />
-    </AssociationSet>
-    <AssociationSet Name="fk_QTTK_HOC_SINH" Association="STUDENTMANAGEMENTModel.fk_QTTK_HOC_SINH">
-      <End Role="HOC_SINH" EntitySet="HOC_SINH" />
-      <End Role="QUA_TRINH_HOC_HOC_KY" EntitySet="QUA_TRINH_HOC_HOC_KY" />
     </AssociationSet>
     <AssociationSet Name="fk_LOP_KHOI_LOP" Association="STUDENTMANAGEMENTModel.fk_LOP_KHOI_LOP">
       <End Role="KHOI_LOP" EntitySet="KHOI_LOP" />
@@ -136,13 +123,26 @@
       <End Role="NAM_HOC" EntitySet="NAM_HOC" />
       <End Role="LOP" EntitySet="LOPs" />
     </AssociationSet>
-    <AssociationSet Name="fk_QTTK_LOP" Association="STUDENTMANAGEMENTModel.fk_QTTK_LOP">
-      <End Role="LOP" EntitySet="LOPs" />
-      <End Role="QUA_TRINH_HOC_HOC_KY" EntitySet="QUA_TRINH_HOC_HOC_KY" />
-    </AssociationSet>
     <AssociationSet Name="fk_QUA_TRINH_HOC_MON_HOC_MON_HOC" Association="STUDENTMANAGEMENTModel.fk_QUA_TRINH_HOC_MON_HOC_MON_HOC">
       <End Role="MON_HOC" EntitySet="MON_HOC" />
       <End Role="QUA_TRINH_HOC_MON_HOC" EntitySet="QUA_TRINH_HOC_MON_HOC" />
+    </AssociationSet>
+    <EntitySet Name="QUA_TRINH_HOC_HOC_KY" EntityType="STUDENTMANAGEMENTModel.QUA_TRINH_HOC_HOC_KY" />
+    <AssociationSet Name="fk_QTTK_HANH_KIEM" Association="STUDENTMANAGEMENTModel.fk_QTTK_HANH_KIEM">
+      <End Role="HANH_KIEM" EntitySet="HANH_KIEM" />
+      <End Role="QUA_TRINH_HOC_HOC_KY" EntitySet="QUA_TRINH_HOC_HOC_KY" />
+    </AssociationSet>
+    <AssociationSet Name="fk_QUA_TRINH_HOC_HOC_KY" Association="STUDENTMANAGEMENTModel.fk_QUA_TRINH_HOC_HOC_KY">
+      <End Role="HOC_KY" EntitySet="HOC_KY" />
+      <End Role="QUA_TRINH_HOC_HOC_KY" EntitySet="QUA_TRINH_HOC_HOC_KY" />
+    </AssociationSet>
+    <AssociationSet Name="fk_QTTK_HOC_SINH" Association="STUDENTMANAGEMENTModel.fk_QTTK_HOC_SINH">
+      <End Role="HOC_SINH" EntitySet="HOC_SINH" />
+      <End Role="QUA_TRINH_HOC_HOC_KY" EntitySet="QUA_TRINH_HOC_HOC_KY" />
+    </AssociationSet>
+    <AssociationSet Name="fk_QTTK_LOP" Association="STUDENTMANAGEMENTModel.fk_QTTK_LOP">
+      <End Role="LOP" EntitySet="LOPs" />
+      <End Role="QUA_TRINH_HOC_HOC_KY" EntitySet="QUA_TRINH_HOC_HOC_KY" />
     </AssociationSet>
     <AssociationSet Name="fk_QTMH_QTHK" Association="STUDENTMANAGEMENTModel.fk_QTMH_QTHK">
       <End Role="QUA_TRINH_HOC_HOC_KY" EntitySet="QUA_TRINH_HOC_HOC_KY" />
@@ -151,6 +151,27 @@
     <AssociationSet Name="fk_QTTK_XEP_LOAI" Association="STUDENTMANAGEMENTModel.fk_QTTK_XEP_LOAI">
       <End Role="XEP_LOAI" EntitySet="XEP_LOAI" />
       <End Role="QUA_TRINH_HOC_HOC_KY" EntitySet="QUA_TRINH_HOC_HOC_KY" />
+    </AssociationSet>
+    <EntitySet Name="QUA_TRINH_HOC_NAM_HOC" EntityType="STUDENTMANAGEMENTModel.QUA_TRINH_HOC_NAM_HOC" />
+    <AssociationSet Name="fk_QUA_TRINH_HOC_NAM_HOC_HANH_KIEM" Association="STUDENTMANAGEMENTModel.fk_QUA_TRINH_HOC_NAM_HOC_HANH_KIEM">
+      <End Role="HANH_KIEM" EntitySet="HANH_KIEM" />
+      <End Role="QUA_TRINH_HOC_NAM_HOC" EntitySet="QUA_TRINH_HOC_NAM_HOC" />
+    </AssociationSet>
+    <AssociationSet Name="fk_QUA_TRINH_HOC_NAM_HOC_HOC_SINH" Association="STUDENTMANAGEMENTModel.fk_QUA_TRINH_HOC_NAM_HOC_HOC_SINH">
+      <End Role="HOC_SINH" EntitySet="HOC_SINH" />
+      <End Role="QUA_TRINH_HOC_NAM_HOC" EntitySet="QUA_TRINH_HOC_NAM_HOC" />
+    </AssociationSet>
+    <AssociationSet Name="fk_QUA_TRINH_HOC_NAM_HOC_LOP" Association="STUDENTMANAGEMENTModel.fk_QUA_TRINH_HOC_NAM_HOC_LOP">
+      <End Role="LOP" EntitySet="LOPs" />
+      <End Role="QUA_TRINH_HOC_NAM_HOC" EntitySet="QUA_TRINH_HOC_NAM_HOC" />
+    </AssociationSet>
+    <AssociationSet Name="fk_QUA_TRINH_HOC_HOC_KY_QTNH" Association="STUDENTMANAGEMENTModel.fk_QUA_TRINH_HOC_HOC_KY_QTNH">
+      <End Role="QUA_TRINH_HOC_NAM_HOC" EntitySet="QUA_TRINH_HOC_NAM_HOC" />
+      <End Role="QUA_TRINH_HOC_HOC_KY" EntitySet="QUA_TRINH_HOC_HOC_KY" />
+    </AssociationSet>
+    <AssociationSet Name="fk_QUA_TRINH_HOC_NAM_HOC_XEP_LOAI" Association="STUDENTMANAGEMENTModel.fk_QUA_TRINH_HOC_NAM_HOC_XEP_LOAI">
+      <End Role="XEP_LOAI" EntitySet="XEP_LOAI" />
+      <End Role="QUA_TRINH_HOC_NAM_HOC" EntitySet="QUA_TRINH_HOC_NAM_HOC" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="BO_MON">
@@ -244,6 +265,7 @@
     <Property Name="MA_HANH_KIEM" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TEN_HANH_KIEM" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="QUA_TRINH_HOC_HOC_KY" Relationship="STUDENTMANAGEMENTModel.fk_QTTK_HANH_KIEM" FromRole="HANH_KIEM" ToRole="QUA_TRINH_HOC_HOC_KY" />
+    <NavigationProperty Name="QUA_TRINH_HOC_NAM_HOC" Relationship="STUDENTMANAGEMENTModel.fk_QUA_TRINH_HOC_NAM_HOC_HANH_KIEM" FromRole="HANH_KIEM" ToRole="QUA_TRINH_HOC_NAM_HOC" />
   </EntityType>
   <EntityType Name="HOC_KY">
     <Key>
@@ -282,6 +304,7 @@
     <NavigationProperty Name="QUOC_TICH" Relationship="STUDENTMANAGEMENTModel.fk_HOC_SINH_QUOC_TICH" FromRole="HOC_SINH" ToRole="QUOC_TICH" />
     <NavigationProperty Name="TON_GIAO" Relationship="STUDENTMANAGEMENTModel.fk_HOC_SINH_TON_GIAO" FromRole="HOC_SINH" ToRole="TON_GIAO" />
     <NavigationProperty Name="QUA_TRINH_HOC_HOC_KY" Relationship="STUDENTMANAGEMENTModel.fk_QTTK_HOC_SINH" FromRole="HOC_SINH" ToRole="QUA_TRINH_HOC_HOC_KY" />
+    <NavigationProperty Name="QUA_TRINH_HOC_NAM_HOC" Relationship="STUDENTMANAGEMENTModel.fk_QUA_TRINH_HOC_NAM_HOC_HOC_SINH" FromRole="HOC_SINH" ToRole="QUA_TRINH_HOC_NAM_HOC" />
   </EntityType>
   <EntityType Name="KHOI_LOP">
     <Key>
@@ -328,6 +351,7 @@
     <NavigationProperty Name="KHOI_LOP" Relationship="STUDENTMANAGEMENTModel.fk_LOP_KHOI_LOP" FromRole="LOP" ToRole="KHOI_LOP" />
     <NavigationProperty Name="NAM_HOC" Relationship="STUDENTMANAGEMENTModel.fk_LOP_NAM_HOC" FromRole="LOP" ToRole="NAM_HOC" />
     <NavigationProperty Name="QUA_TRINH_HOC_HOC_KY" Relationship="STUDENTMANAGEMENTModel.fk_QTTK_LOP" FromRole="LOP" ToRole="QUA_TRINH_HOC_HOC_KY" />
+    <NavigationProperty Name="QUA_TRINH_HOC_NAM_HOC" Relationship="STUDENTMANAGEMENTModel.fk_QUA_TRINH_HOC_NAM_HOC_LOP" FromRole="LOP" ToRole="QUA_TRINH_HOC_NAM_HOC" />
   </EntityType>
   <EntityType Name="MON_HOC">
     <Key>
@@ -352,24 +376,6 @@
     <Property Name="NAM_KET_THUC" Type="Int32" />
     <NavigationProperty Name="HOC_KY" Relationship="STUDENTMANAGEMENTModel.fk_HOC_KY_NAM_HOC" FromRole="NAM_HOC" ToRole="HOC_KY" />
     <NavigationProperty Name="LOPs" Relationship="STUDENTMANAGEMENTModel.fk_LOP_NAM_HOC" FromRole="NAM_HOC" ToRole="LOP" />
-  </EntityType>
-  <EntityType Name="QUA_TRINH_HOC_HOC_KY">
-    <Key>
-      <PropertyRef Name="MA_QTHK" />
-    </Key>
-    <Property Name="MA_QTHK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="DIEM_TB" Type="Double" />
-    <Property Name="MA_LOP" Type="Int32" />
-    <Property Name="MA_HOC_SINH" Type="Int32" />
-    <Property Name="MA_HANH_KIEM" Type="Int32" />
-    <Property Name="MA_XEP_LOAI" Type="Int32" />
-    <Property Name="MA_HOC_KY" Type="Int32" />
-    <NavigationProperty Name="HANH_KIEM" Relationship="STUDENTMANAGEMENTModel.fk_QTTK_HANH_KIEM" FromRole="QUA_TRINH_HOC_HOC_KY" ToRole="HANH_KIEM" />
-    <NavigationProperty Name="HOC_KY" Relationship="STUDENTMANAGEMENTModel.fk_QUA_TRINH_HOC_HOC_KY" FromRole="QUA_TRINH_HOC_HOC_KY" ToRole="HOC_KY" />
-    <NavigationProperty Name="HOC_SINH" Relationship="STUDENTMANAGEMENTModel.fk_QTTK_HOC_SINH" FromRole="QUA_TRINH_HOC_HOC_KY" ToRole="HOC_SINH" />
-    <NavigationProperty Name="LOP" Relationship="STUDENTMANAGEMENTModel.fk_QTTK_LOP" FromRole="QUA_TRINH_HOC_HOC_KY" ToRole="LOP" />
-    <NavigationProperty Name="QUA_TRINH_HOC_MON_HOC" Relationship="STUDENTMANAGEMENTModel.fk_QTMH_QTHK" FromRole="QUA_TRINH_HOC_HOC_KY" ToRole="QUA_TRINH_HOC_MON_HOC" />
-    <NavigationProperty Name="XEP_LOAI" Relationship="STUDENTMANAGEMENTModel.fk_QTTK_XEP_LOAI" FromRole="QUA_TRINH_HOC_HOC_KY" ToRole="XEP_LOAI" />
   </EntityType>
   <EntityType Name="QUA_TRINH_HOC_MON_HOC">
     <Key>
@@ -437,6 +443,7 @@
     <Property Name="MA_XEP_LOAI" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TEN_XEP_LOAI" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="QUA_TRINH_HOC_HOC_KY" Relationship="STUDENTMANAGEMENTModel.fk_QTTK_XEP_LOAI" FromRole="XEP_LOAI" ToRole="QUA_TRINH_HOC_HOC_KY" />
+    <NavigationProperty Name="QUA_TRINH_HOC_NAM_HOC" Relationship="STUDENTMANAGEMENTModel.fk_QUA_TRINH_HOC_NAM_HOC_XEP_LOAI" FromRole="XEP_LOAI" ToRole="QUA_TRINH_HOC_NAM_HOC" />
   </EntityType>
   <Association Name="fk_GIAO_VIEN_BO_MON">
     <End Type="STUDENTMANAGEMENTModel.BO_MON" Role="BO_MON" Multiplicity="0..1" />
@@ -642,18 +649,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="fk_QTTK_HANH_KIEM">
-    <End Type="STUDENTMANAGEMENTModel.HANH_KIEM" Role="HANH_KIEM" Multiplicity="0..1" />
-    <End Type="STUDENTMANAGEMENTModel.QUA_TRINH_HOC_HOC_KY" Role="QUA_TRINH_HOC_HOC_KY" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="HANH_KIEM">
-        <PropertyRef Name="MA_HANH_KIEM" />
-      </Principal>
-      <Dependent Role="QUA_TRINH_HOC_HOC_KY">
-        <PropertyRef Name="MA_HANH_KIEM" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="fk_HOC_KY_NAM_HOC">
     <End Type="STUDENTMANAGEMENTModel.NAM_HOC" Role="NAM_HOC" Multiplicity="0..1" />
     <End Type="STUDENTMANAGEMENTModel.HOC_KY" Role="HOC_KY" Multiplicity="*" />
@@ -663,18 +658,6 @@
       </Principal>
       <Dependent Role="HOC_KY">
         <PropertyRef Name="MA_NAM_HOC" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_QUA_TRINH_HOC_HOC_KY">
-    <End Type="STUDENTMANAGEMENTModel.HOC_KY" Role="HOC_KY" Multiplicity="0..1" />
-    <End Type="STUDENTMANAGEMENTModel.QUA_TRINH_HOC_HOC_KY" Role="QUA_TRINH_HOC_HOC_KY" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="HOC_KY">
-        <PropertyRef Name="MA_HOC_KY" />
-      </Principal>
-      <Dependent Role="QUA_TRINH_HOC_HOC_KY">
-        <PropertyRef Name="MA_HOC_KY" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -711,18 +694,6 @@
       </Principal>
       <Dependent Role="HOC_SINH">
         <PropertyRef Name="MA_TON_GIAO" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_QTTK_HOC_SINH">
-    <End Type="STUDENTMANAGEMENTModel.HOC_SINH" Role="HOC_SINH" Multiplicity="0..1" />
-    <End Type="STUDENTMANAGEMENTModel.QUA_TRINH_HOC_HOC_KY" Role="QUA_TRINH_HOC_HOC_KY" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="HOC_SINH">
-        <PropertyRef Name="MA_HOC_SINH" />
-      </Principal>
-      <Dependent Role="QUA_TRINH_HOC_HOC_KY">
-        <PropertyRef Name="MA_HOC_SINH" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -774,18 +745,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="fk_QTTK_LOP">
-    <End Type="STUDENTMANAGEMENTModel.LOP" Role="LOP" Multiplicity="0..1" />
-    <End Type="STUDENTMANAGEMENTModel.QUA_TRINH_HOC_HOC_KY" Role="QUA_TRINH_HOC_HOC_KY" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="LOP">
-        <PropertyRef Name="MA_LOP" />
-      </Principal>
-      <Dependent Role="QUA_TRINH_HOC_HOC_KY">
-        <PropertyRef Name="MA_LOP" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="fk_QUA_TRINH_HOC_MON_HOC_MON_HOC">
     <End Type="STUDENTMANAGEMENTModel.MON_HOC" Role="MON_HOC" Multiplicity="0..1" />
     <End Type="STUDENTMANAGEMENTModel.QUA_TRINH_HOC_MON_HOC" Role="QUA_TRINH_HOC_MON_HOC" Multiplicity="*" />
@@ -795,6 +754,75 @@
       </Principal>
       <Dependent Role="QUA_TRINH_HOC_MON_HOC">
         <PropertyRef Name="MA_MON_HOC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="QUA_TRINH_HOC_HOC_KY">
+    <Key>
+      <PropertyRef Name="MA_QTHK" />
+    </Key>
+    <Property Name="MA_QTHK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DIEM_TB" Type="Double" />
+    <Property Name="MA_LOP" Type="Int32" />
+    <Property Name="MA_HOC_SINH" Type="Int32" />
+    <Property Name="MA_HANH_KIEM" Type="Int32" />
+    <Property Name="MA_XEP_LOAI" Type="Int32" />
+    <Property Name="MA_HOC_KY" Type="Int32" />
+    <Property Name="HOC_LUC" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HANH_KIEM" Relationship="STUDENTMANAGEMENTModel.fk_QTTK_HANH_KIEM" FromRole="QUA_TRINH_HOC_HOC_KY" ToRole="HANH_KIEM" />
+    <NavigationProperty Name="HOC_KY" Relationship="STUDENTMANAGEMENTModel.fk_QUA_TRINH_HOC_HOC_KY" FromRole="QUA_TRINH_HOC_HOC_KY" ToRole="HOC_KY" />
+    <NavigationProperty Name="HOC_SINH" Relationship="STUDENTMANAGEMENTModel.fk_QTTK_HOC_SINH" FromRole="QUA_TRINH_HOC_HOC_KY" ToRole="HOC_SINH" />
+    <NavigationProperty Name="LOP" Relationship="STUDENTMANAGEMENTModel.fk_QTTK_LOP" FromRole="QUA_TRINH_HOC_HOC_KY" ToRole="LOP" />
+    <NavigationProperty Name="QUA_TRINH_HOC_MON_HOC" Relationship="STUDENTMANAGEMENTModel.fk_QTMH_QTHK" FromRole="QUA_TRINH_HOC_HOC_KY" ToRole="QUA_TRINH_HOC_MON_HOC" />
+    <NavigationProperty Name="XEP_LOAI" Relationship="STUDENTMANAGEMENTModel.fk_QTTK_XEP_LOAI" FromRole="QUA_TRINH_HOC_HOC_KY" ToRole="XEP_LOAI" />
+    <Property Name="MA_QTNH" Type="Int32" />
+    <NavigationProperty Name="QUA_TRINH_HOC_NAM_HOC" Relationship="STUDENTMANAGEMENTModel.fk_QUA_TRINH_HOC_HOC_KY_QTNH" FromRole="QUA_TRINH_HOC_HOC_KY" ToRole="QUA_TRINH_HOC_NAM_HOC" />
+  </EntityType>
+  <Association Name="fk_QTTK_HANH_KIEM">
+    <End Type="STUDENTMANAGEMENTModel.HANH_KIEM" Role="HANH_KIEM" Multiplicity="0..1" />
+    <End Type="STUDENTMANAGEMENTModel.QUA_TRINH_HOC_HOC_KY" Role="QUA_TRINH_HOC_HOC_KY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HANH_KIEM">
+        <PropertyRef Name="MA_HANH_KIEM" />
+      </Principal>
+      <Dependent Role="QUA_TRINH_HOC_HOC_KY">
+        <PropertyRef Name="MA_HANH_KIEM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_QUA_TRINH_HOC_HOC_KY">
+    <End Type="STUDENTMANAGEMENTModel.HOC_KY" Role="HOC_KY" Multiplicity="0..1" />
+    <End Type="STUDENTMANAGEMENTModel.QUA_TRINH_HOC_HOC_KY" Role="QUA_TRINH_HOC_HOC_KY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOC_KY">
+        <PropertyRef Name="MA_HOC_KY" />
+      </Principal>
+      <Dependent Role="QUA_TRINH_HOC_HOC_KY">
+        <PropertyRef Name="MA_HOC_KY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_QTTK_HOC_SINH">
+    <End Type="STUDENTMANAGEMENTModel.HOC_SINH" Role="HOC_SINH" Multiplicity="0..1" />
+    <End Type="STUDENTMANAGEMENTModel.QUA_TRINH_HOC_HOC_KY" Role="QUA_TRINH_HOC_HOC_KY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOC_SINH">
+        <PropertyRef Name="MA_HOC_SINH" />
+      </Principal>
+      <Dependent Role="QUA_TRINH_HOC_HOC_KY">
+        <PropertyRef Name="MA_HOC_SINH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_QTTK_LOP">
+    <End Type="STUDENTMANAGEMENTModel.LOP" Role="LOP" Multiplicity="0..1" />
+    <End Type="STUDENTMANAGEMENTModel.QUA_TRINH_HOC_HOC_KY" Role="QUA_TRINH_HOC_HOC_KY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOP">
+        <PropertyRef Name="MA_LOP" />
+      </Principal>
+      <Dependent Role="QUA_TRINH_HOC_HOC_KY">
+        <PropertyRef Name="MA_LOP" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -818,6 +846,83 @@
         <PropertyRef Name="MA_XEP_LOAI" />
       </Principal>
       <Dependent Role="QUA_TRINH_HOC_HOC_KY">
+        <PropertyRef Name="MA_XEP_LOAI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="QUA_TRINH_HOC_NAM_HOC">
+    <Key>
+      <PropertyRef Name="MA_QTNH" />
+    </Key>
+    <Property Name="MA_QTNH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MA_LOP" Type="Int32" />
+    <Property Name="MA_HOC_SINH" Type="Int32" />
+    <Property Name="MA_HANH_KIEM" Type="Int32" />
+    <Property Name="MA_XEP_LOAI" Type="Int32" />
+    <Property Name="HOC_LUC" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DIEM_TB" Type="Double" />
+    <NavigationProperty Name="HANH_KIEM" Relationship="STUDENTMANAGEMENTModel.fk_QUA_TRINH_HOC_NAM_HOC_HANH_KIEM" FromRole="QUA_TRINH_HOC_NAM_HOC" ToRole="HANH_KIEM" />
+    <NavigationProperty Name="HOC_SINH" Relationship="STUDENTMANAGEMENTModel.fk_QUA_TRINH_HOC_NAM_HOC_HOC_SINH" FromRole="QUA_TRINH_HOC_NAM_HOC" ToRole="HOC_SINH" />
+    <NavigationProperty Name="LOP" Relationship="STUDENTMANAGEMENTModel.fk_QUA_TRINH_HOC_NAM_HOC_LOP" FromRole="QUA_TRINH_HOC_NAM_HOC" ToRole="LOP" />
+    <NavigationProperty Name="QUA_TRINH_HOC_HOC_KY" Relationship="STUDENTMANAGEMENTModel.fk_QUA_TRINH_HOC_HOC_KY_QTNH" FromRole="QUA_TRINH_HOC_NAM_HOC" ToRole="QUA_TRINH_HOC_HOC_KY" />
+    <NavigationProperty Name="XEP_LOAI" Relationship="STUDENTMANAGEMENTModel.fk_QUA_TRINH_HOC_NAM_HOC_XEP_LOAI" FromRole="QUA_TRINH_HOC_NAM_HOC" ToRole="XEP_LOAI" />
+  </EntityType>
+  <Association Name="fk_QUA_TRINH_HOC_NAM_HOC_HANH_KIEM">
+    <End Type="STUDENTMANAGEMENTModel.HANH_KIEM" Role="HANH_KIEM" Multiplicity="0..1" />
+    <End Type="STUDENTMANAGEMENTModel.QUA_TRINH_HOC_NAM_HOC" Role="QUA_TRINH_HOC_NAM_HOC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HANH_KIEM">
+        <PropertyRef Name="MA_HANH_KIEM" />
+      </Principal>
+      <Dependent Role="QUA_TRINH_HOC_NAM_HOC">
+        <PropertyRef Name="MA_HANH_KIEM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_QUA_TRINH_HOC_NAM_HOC_HOC_SINH">
+    <End Type="STUDENTMANAGEMENTModel.HOC_SINH" Role="HOC_SINH" Multiplicity="0..1" />
+    <End Type="STUDENTMANAGEMENTModel.QUA_TRINH_HOC_NAM_HOC" Role="QUA_TRINH_HOC_NAM_HOC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOC_SINH">
+        <PropertyRef Name="MA_HOC_SINH" />
+      </Principal>
+      <Dependent Role="QUA_TRINH_HOC_NAM_HOC">
+        <PropertyRef Name="MA_HOC_SINH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_QUA_TRINH_HOC_NAM_HOC_LOP">
+    <End Type="STUDENTMANAGEMENTModel.LOP" Role="LOP" Multiplicity="0..1" />
+    <End Type="STUDENTMANAGEMENTModel.QUA_TRINH_HOC_NAM_HOC" Role="QUA_TRINH_HOC_NAM_HOC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOP">
+        <PropertyRef Name="MA_LOP" />
+      </Principal>
+      <Dependent Role="QUA_TRINH_HOC_NAM_HOC">
+        <PropertyRef Name="MA_LOP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_QUA_TRINH_HOC_HOC_KY_QTNH">
+    <End Type="STUDENTMANAGEMENTModel.QUA_TRINH_HOC_NAM_HOC" Role="QUA_TRINH_HOC_NAM_HOC" Multiplicity="0..1" />
+    <End Type="STUDENTMANAGEMENTModel.QUA_TRINH_HOC_HOC_KY" Role="QUA_TRINH_HOC_HOC_KY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QUA_TRINH_HOC_NAM_HOC">
+        <PropertyRef Name="MA_QTNH" />
+      </Principal>
+      <Dependent Role="QUA_TRINH_HOC_HOC_KY">
+        <PropertyRef Name="MA_QTNH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_QUA_TRINH_HOC_NAM_HOC_XEP_LOAI">
+    <End Type="STUDENTMANAGEMENTModel.XEP_LOAI" Role="XEP_LOAI" Multiplicity="0..1" />
+    <End Type="STUDENTMANAGEMENTModel.QUA_TRINH_HOC_NAM_HOC" Role="QUA_TRINH_HOC_NAM_HOC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="XEP_LOAI">
+        <PropertyRef Name="MA_XEP_LOAI" />
+      </Principal>
+      <Dependent Role="QUA_TRINH_HOC_NAM_HOC">
         <PropertyRef Name="MA_XEP_LOAI" />
       </Dependent>
     </ReferentialConstraint>

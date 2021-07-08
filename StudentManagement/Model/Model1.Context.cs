@@ -40,7 +40,6 @@ namespace StudentManagement.Model
         public virtual DbSet<LOP> LOPs { get; set; }
         public virtual DbSet<MON_HOC> MON_HOC { get; set; }
         public virtual DbSet<NAM_HOC> NAM_HOC { get; set; }
-        public virtual DbSet<QUA_TRINH_HOC_HOC_KY> QUA_TRINH_HOC_HOC_KY { get; set; }
         public virtual DbSet<QUA_TRINH_HOC_MON_HOC> QUA_TRINH_HOC_MON_HOC { get; set; }
         public virtual DbSet<QUOC_TICH> QUOC_TICH { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
@@ -48,5 +47,7 @@ namespace StudentManagement.Model
         public virtual DbSet<TON_GIAO> TON_GIAO { get; set; }
         public virtual DbSet<TRINH_DO_HOC_VAN> TRINH_DO_HOC_VAN { get; set; }
         public virtual DbSet<XEP_LOAI> XEP_LOAI { get; set; }
+        public virtual DbSet<QUA_TRINH_HOC_HOC_KY> QUA_TRINH_HOC_HOC_KY { get; set; }
+        public virtual DbSet<QUA_TRINH_HOC_NAM_HOC> QUA_TRINH_HOC_NAM_HOC { get; set; }
     }
 }

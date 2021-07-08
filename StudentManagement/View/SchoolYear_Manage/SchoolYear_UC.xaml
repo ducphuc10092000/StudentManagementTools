@@ -84,7 +84,7 @@
                             <!--Cột Mã DTQ-->
                             <DataGridTextColumn Header="Mã năm học"
                                                 Width="150"
-                                                Binding="{Binding lop.MA_LOP}">
+                                                Binding="{Binding MA_NAM_HOC}">
                             </DataGridTextColumn>
                             <!--Cột THAO TÁC-->
                             <DataGridTemplateColumn Header="Thao tác"
@@ -101,9 +101,9 @@
                                             <Button Grid.Column="0"
                                                     Background="{x:Null}"
                                                     BorderThickness="0"
-                                                    Command="{Binding Path=DataContext.Open_EditClass_WD_Command,
+                                                    Command="{Binding Path=DataContext.EditSchoolYear,
                                                 RelativeSource= {RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}"
-                                                    CommandParameter="{Binding Path= lop.MA_LOP}"
+                                                    CommandParameter="{Binding Path= MA_NAM_HOC}"
                                                     Height="Auto"
                                                     Width="20"
                                                     Margin="6,0,5,0">
@@ -156,7 +156,7 @@
                             </DataGridTemplateColumn>
                             <!--Cột TÊN điểm tham quan-->
                             <DataGridTextColumn Header="Tên năm học"
-                                                Binding="{Binding lop.TEN_LOP}"
+                                                Binding="{Binding TEN_NAM_HOC}"
                                                 Width="300"></DataGridTextColumn>
 
 
@@ -190,7 +190,7 @@
                                  IsReadOnly="True"
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                  Width="230"
-                                 Text="{Binding Grade}"
+                                 Text="{Binding selectedSchoolYear.TEN_NAM_HOC}"
                                  FontSize="20"
                                  Margin="9,-8,0,-1" />
                     </Border>
@@ -228,16 +228,14 @@
                                                         Padding="0,0,0,-10"
                                                         materialDesign:HintAssist.Hint="Ngày bắt đầu"
                                                         SelectedDateFormat="Short"
-                                                        SelectedDate="{Binding SelectedStudentBirthday}"
-                                                        Text="{Binding StudentBirthday, StringFormat=dd/MM/yyyy,  NotifyOnSourceUpdated=True, UpdateSourceTrigger=Default}"
+                                                        Text="{Binding Semester_1_StartDay, StringFormat=dd/MM/yyyy,  NotifyOnSourceUpdated=True, UpdateSourceTrigger=Default}"
                                                         Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
                                             <DatePicker FontSize="20"
                                                         Margin="50,20,50,0"
                                                         Padding="0,0,0,-10"
                                                         materialDesign:HintAssist.Hint="Ngày kết thúc"
                                                         SelectedDateFormat="Short"
-                                                        SelectedDate="{Binding SelectedStudentBirthday}"
-                                                        Text="{Binding StudentBirthday, StringFormat=dd/MM/yyyy,  NotifyOnSourceUpdated=True, UpdateSourceTrigger=Default}"
+                                                        Text="{Binding Semester_1_EndDay, StringFormat=dd/MM/yyyy,  NotifyOnSourceUpdated=True, UpdateSourceTrigger=Default}"
                                                         Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
                                         </StackPanel>
                                     </Grid>
@@ -271,16 +269,14 @@
                                                         Padding="0,0,0,-10"
                                                         materialDesign:HintAssist.Hint="Ngày bắt đầu"
                                                         SelectedDateFormat="Short"
-                                                        SelectedDate="{Binding SelectedStudentBirthday,StringFormat=yyyy}"
-                                                        Text="{Binding StudentBirthday, StringFormat=yyyy,  NotifyOnSourceUpdated=True, UpdateSourceTrigger=Default}"
+                                                        Text="{Binding Semester_2_StartDay, StringFormat=yyyy,  NotifyOnSourceUpdated=True, UpdateSourceTrigger=Default}"
                                                         Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
                                             <DatePicker FontSize="20"
                                                         Margin="50,20,50,0"
                                                         Padding="0,0,0,-10"
                                                         materialDesign:HintAssist.Hint="Ngày kết thúc"
                                                         SelectedDateFormat="Short"
-                                                        SelectedDate="{Binding SelectedStudentBirthday,StringFormat=yyyy}"
-                                                        Text="{Binding StudentBirthday, StringFormat=yyyy,  NotifyOnSourceUpdated=True, UpdateSourceTrigger=Default}"
+                                                        Text="{Binding Semester_2_EndDay, StringFormat=yyyy,  NotifyOnSourceUpdated=True, UpdateSourceTrigger=Default}"
                                                         Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
                                         </StackPanel>
                                     </Grid>

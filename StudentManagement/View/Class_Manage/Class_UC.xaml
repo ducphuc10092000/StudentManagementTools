@@ -17,32 +17,6 @@
 
         <Grid Grid.Row="0">
             <StackPanel Orientation="Horizontal">
-                <Border Margin="5"
-                        CornerRadius="10"
-                        Width="270"
-                        Background="WhiteSmoke"
-                        BorderBrush="#FF52B6B0"
-                        BorderThickness="1">
-                    <Grid>
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Search"
-                                                     HorizontalAlignment="Center"
-                                                     VerticalAlignment="Center"
-                                                     Margin="10,0,0,0"
-                                                     Height="30"
-                                                     Width="30"></materialDesign:PackIcon>
-                            <TextBox Text="{Binding ClassNameFind,UpdateSourceTrigger=PropertyChanged,NotifyOnSourceUpdated=True}"
-                                     FontSize="17"
-                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                                     VerticalContentAlignment="Center"
-                                     HorizontalContentAlignment="Left"
-                                     materialDesign:HintAssist.Hint="Nhập tên lớp"
-                                     Width="220"
-                                     Margin="0,0,0,-1">
-                            </TextBox>
-                        </StackPanel>
-                    </Grid>
-                </Border>
                 <!--Combobox Lớp-->
                 <Border Height="50"
                         Width="170"
@@ -56,7 +30,7 @@
                               IsEditable="True"
                               Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                               Height="50"
-                              Text="{Binding GradeClass}"
+                              Text="{Binding GradeClass, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
                               Margin="9,-1"
                               VerticalAlignment="Top">
                         <ComboBoxItem>
@@ -82,6 +56,7 @@
                               FontSize="17"
                               IsEditable="True"
                               ItemsSource="{Binding SchoolYearListCbb}"
+                              Text="{Binding SelectedSchoolYear}"
                               Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                               Height="50"
                               Margin="9,-1"

@@ -14,7 +14,7 @@
         WindowStyle="None"
         AllowsTransparency="True"
         Title="EditSummary_WD"
-        Height="800"
+        Height="700"
         Width="1200">
     <Grid>
         <Border BorderBrush="#FF41A27A"
@@ -89,10 +89,10 @@
                                         Background="WhiteSmoke"
                                         BorderBrush="#FF52B6B0"
                                         BorderThickness="1">
-                                    <TextBox materialDesign:HintAssist.Hint="Thời gian"
+                                    <TextBox materialDesign:HintAssist.Hint="Học kỳ"
                                              IsReadOnly="True"
                                              Margin="8,-7,9,-1"
-                                             Text="{Binding SelectedSemester}"
+                                             Text="{Binding SelectedStudent_Semester_Process.HOC_KY.TEN_HOC_KY}"
                                              FontSize="20"
                                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                 </Border>
@@ -120,7 +120,7 @@
                                     <TextBox materialDesign:HintAssist.Hint="Điểm trung bình"
                                              IsReadOnly="True"
                                              Margin="8,-7,9,-1"
-                                             Text="{Binding SelectedStudent_Semester_Process.DIEM_TB}"
+                                             Text="{Binding SelectedMediumMark,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                                              FontSize="20"
                                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                 </Border>
@@ -286,14 +286,14 @@
                                     </Border>
 
                                     <Button Height="40"
-                                            Width="150"
+                                            Width="160"
+                                            FontSize="17"
                                             Margin="0,0,20,0"
-                                            Background="#FFADD8E6"
+                                            Background="#FF5ACFF5"
                                             Command="{Binding ConfirmEditStudentMarkSummaryCommand}"
-                                            CommandParameter="{Binding ElementName=editMark_WD}"
                                             Style="{DynamicResource MaterialDesignRaisedButton}"
                                             materialDesign:ShadowAssist.ShadowDepth="Depth3">
-                                        Chỉnh sửa
+                                        Đánh giá học kỳ
                                     </Button>
                                 </StackPanel>
                             </StackPanel>

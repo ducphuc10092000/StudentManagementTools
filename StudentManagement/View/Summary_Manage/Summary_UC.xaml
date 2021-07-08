@@ -42,17 +42,14 @@
                     Background="WhiteSmoke"
                     BorderBrush="#FF52B6B0"
                     BorderThickness="1">
-                <ComboBox materialDesign:HintAssist.Hint="Thời gian"
+                <ComboBox materialDesign:HintAssist.Hint="Học kỳ"
                           FontSize="17"
-                          IsEditable="True"
+                          IsEditable="False"
                           Text="{Binding SelectedSemester}"
                           Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                           Height="50"
                           Margin="9,-1"
                           VerticalAlignment="Top">
-                    <ComboBoxItem> 
-                        Cả năm
-                    </ComboBoxItem>
                     <ComboBoxItem>
                         Học kỳ 1
                     </ComboBoxItem>
@@ -250,7 +247,7 @@
 
                         <!--Trạng thái-->
                         <DataGridTextColumn Header="Hạnh kiểm"
-                                            Width="200"
+                                            Width="150"
                                             Binding="{Binding HANH_KIEM.TEN_HANH_KIEM}">
                         </DataGridTextColumn>
                        
@@ -260,7 +257,7 @@
                                             Width="150"></DataGridTextColumn>
 
                         <!--Trạng thái-->
-                        <DataGridTextColumn Header="Đánh giá"
+                        <DataGridTextColumn Header="Xếp loại"
                                             Width="200"
                                             Binding="{Binding XEP_LOAI.TEN_XEP_LOAI}">
                         </DataGridTextColumn>

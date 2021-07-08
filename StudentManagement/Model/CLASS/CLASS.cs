@@ -43,13 +43,23 @@ namespace StudentManagement.Model.CLASS
                 CLASS_STUDENT_DETAIL class_Student_Detail = new CLASS_STUDENT_DETAIL();
                 class_Student_Detail.AddNewClassStudentDetail(lop.MA_LOP, item.MA_HOC_SINH);
 
+
+                // Tạo QUÁ TRÌNH HỌC _ NĂM HỌC
+                QUA_TRINH_HOC_NAM_HOC tempQTHNH = new QUA_TRINH_HOC_NAM_HOC();
+                tempQTHNH.MA_LOP = lop.MA_LOP;
+                tempQTHNH.MA_HOC_SINH = item.MA_HOC_SINH;
+                DataProvider.Ins.DB.QUA_TRINH_HOC_NAM_HOC.Add(tempQTHNH);
+                DataProvider.Ins.DB.SaveChanges();
+
+
                 //Chạy list để tạo QUÁ TRÌNH HỌC _ HỌC KỲ
-                foreach(var hocky in hockylist_thisSchoolYear)
+                foreach (var hocky in hockylist_thisSchoolYear)
                 {
                     QUA_TRINH_HOC_HOC_KY tempQTHHK = new QUA_TRINH_HOC_HOC_KY();
                     tempQTHHK.LOP = lop;
                     tempQTHHK.HOC_SINH = item;
                     tempQTHHK.HOC_KY = hocky;
+                    tempQTHNH.MA_QTNH = tempQTHNH.MA_QTNH;
 
                     DataProvider.Ins.DB.QUA_TRINH_HOC_HOC_KY.Add(tempQTHHK);
                     DataProvider.Ins.DB.SaveChanges();
@@ -118,13 +128,17 @@ namespace StudentManagement.Model.CLASS
                 tempHocSinh.LOP = null;
                 DataProvider.Ins.DB.SaveChanges();
 
+                //Lấy quá trình học - năm học
+                QUA_TRINH_HOC_NAM_HOC tempQTHNH = new QUA_TRINH_HOC_NAM_HOC();
+                tempQTHNH = DataProvider.Ins.DB.QUA_TRINH_HOC_NAM_HOC.Where(x => x.MA_LOP == lop.MA_LOP && x.MA_HOC_SINH == chitietlop_hocsinh.MA_HOC_SINH).SingleOrDefault();
+
 
                 //Xóa quá trình học - học kỳ
-                foreach(var hocky in hockylist_thisSchoolYear_thisClass)
+                foreach (var hocky in hockylist_thisSchoolYear_thisClass)
                 {
                     QUA_TRINH_HOC_HOC_KY tempQTHHK = new QUA_TRINH_HOC_HOC_KY();
                     tempQTHHK = DataProvider.Ins.DB.QUA_TRINH_HOC_HOC_KY.Where(x => x.MA_LOP == lop.MA_LOP && x.MA_HOC_SINH == chitietlop_hocsinh.MA_HOC_SINH && x.MA_HOC_KY == hocky.MA_HOC_KY).SingleOrDefault();
-                    //Xóa điểm trong mô học
+                    //Xóa điểm trong môn học
                     foreach(var monhoc in monhocList)
                     {
                         QUA_TRINH_HOC_MON_HOC tempQTHMH = new QUA_TRINH_HOC_MON_HOC();
@@ -146,9 +160,13 @@ namespace StudentManagement.Model.CLASS
                     DataProvider.Ins.DB.QUA_TRINH_HOC_HOC_KY.Remove(tempQTHHK);
                     DataProvider.Ins.DB.SaveChanges();
                 }
+                if(tempQTHNH!=null)
+                {
+                    //Xóa quá trình học - năm học
+                    DataProvider.Ins.DB.QUA_TRINH_HOC_NAM_HOC.Remove(tempQTHNH);
+                }    
 
-
-
+                //Xóa chi tiết lớp học sinh
                 DataProvider.Ins.DB.CT_LOP_HOC_SINH.Remove(chitietlop_hocsinh);
                 DataProvider.Ins.DB.SaveChanges();
             }
@@ -165,6 +183,13 @@ namespace StudentManagement.Model.CLASS
                 CLASS_STUDENT_DETAIL tempclass_Student_Detail = new CLASS_STUDENT_DETAIL();
                 tempclass_Student_Detail.AddNewClassStudentDetail(lop.MA_LOP, item.MA_HOC_SINH);
 
+                // Tạo QUÁ TRÌNH HỌC _ NĂM HỌC
+                QUA_TRINH_HOC_NAM_HOC tempQTHNH = new QUA_TRINH_HOC_NAM_HOC();
+                tempQTHNH.MA_LOP = lop.MA_LOP;
+                tempQTHNH.MA_HOC_SINH = item.MA_HOC_SINH;
+                DataProvider.Ins.DB.QUA_TRINH_HOC_NAM_HOC.Add(tempQTHNH);
+                DataProvider.Ins.DB.SaveChanges();
+
                 //Tạo quá trình học _ học kỳ
                 foreach (var hocky in hockylist_thisSchoolYear_thisClass)
                 {
@@ -172,6 +197,7 @@ namespace StudentManagement.Model.CLASS
                     tempQTHHK.LOP = lop;
                     tempQTHHK.HOC_SINH = item;
                     tempQTHHK.HOC_KY = hocky;
+                    tempQTHHK.MA_QTNH = tempQTHNH.MA_QTNH;
 
                     if (DataProvider.Ins.DB.QUA_TRINH_HOC_HOC_KY.Where(x => x.LOP.MA_LOP == tempQTHHK.LOP.MA_LOP && x.HOC_SINH.MA_HOC_SINH == tempQTHHK.HOC_SINH.MA_HOC_SINH && x.HOC_KY.MA_HOC_KY == tempQTHHK.HOC_KY.MA_HOC_KY).Count() != 0)
                     {

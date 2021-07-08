@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Data;
 using System.Windows.Input;
 
 namespace StudentManagement.ViewModel.Student_Manage_ViewModel
@@ -18,12 +19,24 @@ namespace StudentManagement.ViewModel.Student_Manage_ViewModel
         
         private STUDENT _SelectedStudent;
         public STUDENT SelectedStudent { get => _SelectedStudent; set { _SelectedStudent = value; OnPropertyChanged(); } }
-        
+
+        private string _StudentNameFind;
+        public string StudentNameFind { get => _StudentNameFind; set { _StudentNameFind = value; OnPropertyChanged(); } }
+
+        private string _SelectedClassName;
+        public string SelectedClassName { get => _SelectedClassName; set { _SelectedClassName = value; OnPropertyChanged(); } }
+
         private ObservableCollection<HOC_SINH> _STUDENTLIST;
         public ObservableCollection<HOC_SINH> STUDENTLIST { get => _STUDENTLIST; set { _STUDENTLIST = value; OnPropertyChanged(); } }
         
         private ObservableCollection<STUDENT> _STUDENTLISTDTG;
         public ObservableCollection<STUDENT> STUDENTLISTDTG { get => _STUDENTLISTDTG; set { _STUDENTLISTDTG = value; OnPropertyChanged(); } }
+
+        private ObservableCollection<LOP> _CLASSLIST;
+        public ObservableCollection<LOP> CLASSLIST { get => _CLASSLIST; set { _CLASSLIST = value; OnPropertyChanged(); } }
+
+        private ObservableCollection<string> _ClassListCbb;
+        public ObservableCollection<string> ClassListCbb { get => _ClassListCbb; set { _ClassListCbb = value; OnPropertyChanged(); } }
         #endregion
 
         #region Command
@@ -36,9 +49,24 @@ namespace StudentManagement.ViewModel.Student_Manage_ViewModel
         #endregion
         public Student_UC_ViewModel()
         {
+            LoadCombobox();
             LoadStudentList();
 
             #region Handling command Button STUDENT_UC
+            StudentFindCommand = new RelayCommand<object>((p) =>
+            {
+                return true;
+            }, (p) =>
+            {
+                Filter();
+            });
+            StudentDefaultFilterCommand = new RelayCommand<object>((p) =>
+            {
+                return true;
+            }, (p) =>
+            {
+                CollectionViewSource.GetDefaultView(STUDENTLISTDTG).Filter = (all) => { return true; };
+            });
             Open_AddNewStudent_WD_Command = new RelayCommand<object>((p) =>
             {
                 return true;
@@ -111,6 +139,65 @@ namespace StudentManagement.ViewModel.Student_Manage_ViewModel
             });
             #endregion
 
+        }
+
+        public void Filter()
+        {
+            if(string.IsNullOrEmpty(StudentNameFind))
+            {
+                if(string.IsNullOrEmpty(SelectedClassName))
+                {
+                    MessageBox.Show("Vui lòng nhập thông tin rồi bấm tìm kiếm!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }    
+                else
+                {
+                    CollectionViewSource.GetDefaultView(STUDENTLISTDTG).Filter = (studentFind) =>
+                    {
+                        return (studentFind as STUDENT).lop_hien_tai.IndexOf(SelectedClassName, StringComparison.OrdinalIgnoreCase) >= 0;
+                    };
+                }    
+            }    
+            else
+            {
+                if (string.IsNullOrEmpty(SelectedClassName))
+                {
+                    CollectionViewSource.GetDefaultView(STUDENTLISTDTG).Filter = (studentFind) =>
+                    {
+                        return (studentFind as STUDENT).hocsinh.HO_TEN.IndexOf(StudentNameFind, StringComparison.OrdinalIgnoreCase) >= 0;
+                    };
+                }
+                else
+                {
+                    CollectionViewSource.GetDefaultView(STUDENTLISTDTG).Filter = (studentFind) =>
+                    {
+                        return (studentFind as STUDENT).lop_hien_tai.IndexOf(SelectedClassName, StringComparison.OrdinalIgnoreCase) >= 0 &&
+                                (studentFind as STUDENT).hocsinh.HO_TEN.IndexOf(StudentNameFind, StringComparison.OrdinalIgnoreCase) >= 0;
+                    };
+                }
+            }    
+            //CollectionViewSource.GetDefaultView(STUDENTLISTDTG).Filter = (studentMarkFind) =>
+            //{
+            //    return (studentMarkFind as STUDENT_MARK).qt_hoc_mon_hoc.MON_HOC.TEN_MON_HOC.IndexOf(SelectedSubjectName, StringComparison.OrdinalIgnoreCase) >= 0 &&
+            //               (studentMarkFind as STUDENT_MARK).qt_hoc_mon_hoc.QUA_TRINH_HOC_HOC_KY.LOP.TEN_LOP.IndexOf(SelectedClassName, StringComparison.OrdinalIgnoreCase) >= 0 &&
+            //               (studentMarkFind as STUDENT_MARK).qt_hoc_mon_hoc.QUA_TRINH_HOC_HOC_KY.HOC_KY.MA_HOC_KY.ToString().IndexOf(selectedSemester.MA_HOC_KY.ToString(), StringComparison.OrdinalIgnoreCase) >= 0 &&
+            //               (studentMarkFind as STUDENT_MARK).qt_hoc_mon_hoc.QUA_TRINH_HOC_HOC_KY.HOC_KY.NAM_HOC.TEN_NAM_HOC.IndexOf(SelectedSchoolYear, StringComparison.OrdinalIgnoreCase) >= 0;
+            //};
+        }
+
+        public void LoadCombobox()
+        {
+            ClassListCbb = new ObservableCollection<string>();
+            CLASSLIST = new ObservableCollection<LOP>(DataProvider.Ins.DB.LOPs);
+
+            var orderAs = from s in CLASSLIST
+                          orderby s.TEN_LOP
+                          select s;
+
+            foreach(var item in orderAs)
+            {
+                ClassListCbb.Add(item.TEN_LOP);
+            }
         }
         public void LoadStudentList()
         {

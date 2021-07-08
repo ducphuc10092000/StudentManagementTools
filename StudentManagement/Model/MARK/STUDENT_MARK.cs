@@ -77,7 +77,7 @@ namespace StudentManagement.Model.MARK
                 }
             }
 
-            medium_score = (sumaryy_score_temp / (regular_score_quantity + 5)).ToString();
+            medium_score = (sumaryy_score_temp / (regular_score_quantity + 5)).ToString("n2");
 
             QUA_TRINH_HOC_MON_HOC temp = new QUA_TRINH_HOC_MON_HOC();
             temp = DataProvider.Ins.DB.QUA_TRINH_HOC_MON_HOC.Where(x => x.MA_QTMH == qt_hoc_mon_hoc.MA_QTMH).SingleOrDefault();

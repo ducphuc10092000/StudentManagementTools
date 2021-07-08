@@ -56,6 +56,7 @@
                               FontSize="17"
                               IsEditable="True"
                               ItemsSource="{Binding GroupSubjectListCbb}"
+                              Text="{Binding SelectedGroupSubject,UpdateSourceTrigger=PropertyChanged,NotifyOnSourceUpdated=True, Mode=TwoWay}"
                               Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                               Height="50"
                               Margin="9,-1"

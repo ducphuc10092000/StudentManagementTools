@@ -164,6 +164,8 @@
     <Property Name="MA_HANH_KIEM" Type="int" />
     <Property Name="MA_XEP_LOAI" Type="int" />
     <Property Name="MA_HOC_KY" Type="int" />
+    <Property Name="HOC_LUC" Type="nvarchar" MaxLength="10" />
+    <Property Name="MA_QTNH" Type="int" />
   </EntityType>
   <EntityType Name="QUA_TRINH_HOC_MON_HOC">
     <Key>
@@ -173,6 +175,18 @@
     <Property Name="DIEM_TB_MON_HOC" Type="float" />
     <Property Name="MA_QTHK" Type="int" />
     <Property Name="MA_MON_HOC" Type="int" />
+  </EntityType>
+  <EntityType Name="QUA_TRINH_HOC_NAM_HOC">
+    <Key>
+      <PropertyRef Name="MA_QTNH" />
+    </Key>
+    <Property Name="MA_QTNH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MA_LOP" Type="int" />
+    <Property Name="MA_HOC_SINH" Type="int" />
+    <Property Name="MA_HANH_KIEM" Type="int" />
+    <Property Name="MA_XEP_LOAI" Type="int" />
+    <Property Name="HOC_LUC" Type="nvarchar" MaxLength="20" />
+    <Property Name="DIEM_TB" Type="float" />
   </EntityType>
   <EntityType Name="QUOC_TICH">
     <Key>
@@ -581,6 +595,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="fk_QUA_TRINH_HOC_HOC_KY_QTNH">
+    <End Role="QUA_TRINH_HOC_NAM_HOC" Type="Self.QUA_TRINH_HOC_NAM_HOC" Multiplicity="0..1" />
+    <End Role="QUA_TRINH_HOC_HOC_KY" Type="Self.QUA_TRINH_HOC_HOC_KY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QUA_TRINH_HOC_NAM_HOC">
+        <PropertyRef Name="MA_QTNH" />
+      </Principal>
+      <Dependent Role="QUA_TRINH_HOC_HOC_KY">
+        <PropertyRef Name="MA_QTNH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="fk_QUA_TRINH_HOC_MON_HOC_MON_HOC">
     <End Role="MON_HOC" Type="Self.MON_HOC" Multiplicity="0..1" />
     <End Role="QUA_TRINH_HOC_MON_HOC" Type="Self.QUA_TRINH_HOC_MON_HOC" Multiplicity="*" />
@@ -590,6 +616,54 @@
       </Principal>
       <Dependent Role="QUA_TRINH_HOC_MON_HOC">
         <PropertyRef Name="MA_MON_HOC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_QUA_TRINH_HOC_NAM_HOC_HANH_KIEM">
+    <End Role="HANH_KIEM" Type="Self.HANH_KIEM" Multiplicity="0..1" />
+    <End Role="QUA_TRINH_HOC_NAM_HOC" Type="Self.QUA_TRINH_HOC_NAM_HOC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HANH_KIEM">
+        <PropertyRef Name="MA_HANH_KIEM" />
+      </Principal>
+      <Dependent Role="QUA_TRINH_HOC_NAM_HOC">
+        <PropertyRef Name="MA_HANH_KIEM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_QUA_TRINH_HOC_NAM_HOC_HOC_SINH">
+    <End Role="HOC_SINH" Type="Self.HOC_SINH" Multiplicity="0..1" />
+    <End Role="QUA_TRINH_HOC_NAM_HOC" Type="Self.QUA_TRINH_HOC_NAM_HOC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOC_SINH">
+        <PropertyRef Name="MA_HOC_SINH" />
+      </Principal>
+      <Dependent Role="QUA_TRINH_HOC_NAM_HOC">
+        <PropertyRef Name="MA_HOC_SINH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_QUA_TRINH_HOC_NAM_HOC_LOP">
+    <End Role="LOP" Type="Self.LOP" Multiplicity="0..1" />
+    <End Role="QUA_TRINH_HOC_NAM_HOC" Type="Self.QUA_TRINH_HOC_NAM_HOC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOP">
+        <PropertyRef Name="MA_LOP" />
+      </Principal>
+      <Dependent Role="QUA_TRINH_HOC_NAM_HOC">
+        <PropertyRef Name="MA_LOP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_QUA_TRINH_HOC_NAM_HOC_XEP_LOAI">
+    <End Role="XEP_LOAI" Type="Self.XEP_LOAI" Multiplicity="0..1" />
+    <End Role="QUA_TRINH_HOC_NAM_HOC" Type="Self.QUA_TRINH_HOC_NAM_HOC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="XEP_LOAI">
+        <PropertyRef Name="MA_XEP_LOAI" />
+      </Principal>
+      <Dependent Role="QUA_TRINH_HOC_NAM_HOC">
+        <PropertyRef Name="MA_XEP_LOAI" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -623,6 +697,7 @@
     <EntitySet Name="NAM_HOC" EntityType="Self.NAM_HOC" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="QUA_TRINH_HOC_HOC_KY" EntityType="Self.QUA_TRINH_HOC_HOC_KY" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="QUA_TRINH_HOC_MON_HOC" EntityType="Self.QUA_TRINH_HOC_MON_HOC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QUA_TRINH_HOC_NAM_HOC" EntityType="Self.QUA_TRINH_HOC_NAM_HOC" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="QUOC_TICH" EntityType="Self.QUOC_TICH" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TAI_KHOAN" EntityType="Self.TAI_KHOAN" Schema="dbo" store:Type="Tables" />
@@ -749,9 +824,29 @@
       <End Role="HOC_KY" EntitySet="HOC_KY" />
       <End Role="QUA_TRINH_HOC_HOC_KY" EntitySet="QUA_TRINH_HOC_HOC_KY" />
     </AssociationSet>
+    <AssociationSet Name="fk_QUA_TRINH_HOC_HOC_KY_QTNH" Association="Self.fk_QUA_TRINH_HOC_HOC_KY_QTNH">
+      <End Role="QUA_TRINH_HOC_NAM_HOC" EntitySet="QUA_TRINH_HOC_NAM_HOC" />
+      <End Role="QUA_TRINH_HOC_HOC_KY" EntitySet="QUA_TRINH_HOC_HOC_KY" />
+    </AssociationSet>
     <AssociationSet Name="fk_QUA_TRINH_HOC_MON_HOC_MON_HOC" Association="Self.fk_QUA_TRINH_HOC_MON_HOC_MON_HOC">
       <End Role="MON_HOC" EntitySet="MON_HOC" />
       <End Role="QUA_TRINH_HOC_MON_HOC" EntitySet="QUA_TRINH_HOC_MON_HOC" />
+    </AssociationSet>
+    <AssociationSet Name="fk_QUA_TRINH_HOC_NAM_HOC_HANH_KIEM" Association="Self.fk_QUA_TRINH_HOC_NAM_HOC_HANH_KIEM">
+      <End Role="HANH_KIEM" EntitySet="HANH_KIEM" />
+      <End Role="QUA_TRINH_HOC_NAM_HOC" EntitySet="QUA_TRINH_HOC_NAM_HOC" />
+    </AssociationSet>
+    <AssociationSet Name="fk_QUA_TRINH_HOC_NAM_HOC_HOC_SINH" Association="Self.fk_QUA_TRINH_HOC_NAM_HOC_HOC_SINH">
+      <End Role="HOC_SINH" EntitySet="HOC_SINH" />
+      <End Role="QUA_TRINH_HOC_NAM_HOC" EntitySet="QUA_TRINH_HOC_NAM_HOC" />
+    </AssociationSet>
+    <AssociationSet Name="fk_QUA_TRINH_HOC_NAM_HOC_LOP" Association="Self.fk_QUA_TRINH_HOC_NAM_HOC_LOP">
+      <End Role="LOP" EntitySet="LOP" />
+      <End Role="QUA_TRINH_HOC_NAM_HOC" EntitySet="QUA_TRINH_HOC_NAM_HOC" />
+    </AssociationSet>
+    <AssociationSet Name="fk_QUA_TRINH_HOC_NAM_HOC_XEP_LOAI" Association="Self.fk_QUA_TRINH_HOC_NAM_HOC_XEP_LOAI">
+      <End Role="XEP_LOAI" EntitySet="XEP_LOAI" />
+      <End Role="QUA_TRINH_HOC_NAM_HOC" EntitySet="QUA_TRINH_HOC_NAM_HOC" />
     </AssociationSet>
     <AssociationSet Name="fk_TAI_KHOAN_LTK" Association="Self.fk_TAI_KHOAN_LTK">
       <End Role="LOAI_TAI_KHOAN" EntitySet="LOAI_TAI_KHOAN" />

@@ -6,6 +6,8 @@
              xmlns:local="clr-namespace:StudentManagement.View.SchoolYear_Manage"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d"
+             Language="vi-VN"
+             DataContext="{StaticResource SchoolYear_UC_VM}"
              Background="White"
              d:DesignHeight="850"
              d:DesignWidth="1350">
@@ -16,10 +18,10 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="50"></RowDefinition>
                 <RowDefinition></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
+            <Grid Grid.Row="1">
                 <Border Margin="20,0,0,0">
                     <Button Command="{Binding Open_AddNewSchoolYear_WD_Command}"
                             materialDesign:ButtonAssist.CornerRadius="10"
@@ -29,11 +31,11 @@
                             FontSize="15"
                             Foreground="White"
                             Background="#FF4C7DD6"
-                            Margin="375,5,130,5">
+                            Margin="0,0,505,10">
                     </Button>
                 </Border>
             </Grid>
-            <Border Grid.Row="1"
+            <Border Grid.Row="0"
                     Margin="5"
                     BorderBrush="#FF52B6B0"
                     BorderThickness="2"
@@ -171,7 +173,7 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="60"></RowDefinition>
-                    <RowDefinition Height="400"></RowDefinition>
+                    <RowDefinition Height="260"></RowDefinition>
                     <RowDefinition Height="70"></RowDefinition>
                 </Grid.RowDefinitions>
                 <StackPanel Orientation="Horizontal"
@@ -185,6 +187,7 @@
                             BorderThickness="1">
                         <TextBox materialDesign:HintAssist.Hint="Năm học"
                                  HorizontalAlignment="Left"
+                                 IsReadOnly="True"
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                  Width="230"
                                  Text="{Binding Grade}"
@@ -219,7 +222,24 @@
                                                materialDesign:ValidationAssist.HasError="True"
                                                FontSize="20" />
                                     <Grid Grid.Row="1">
-
+                                        <StackPanel Orientation="Vertical">
+                                            <DatePicker FontSize="20"
+                                                        Margin="50,20,50,0"
+                                                        Padding="0,0,0,-10"
+                                                        materialDesign:HintAssist.Hint="Ngày bắt đầu"
+                                                        SelectedDateFormat="Short"
+                                                        SelectedDate="{Binding SelectedStudentBirthday}"
+                                                        Text="{Binding StudentBirthday, StringFormat=dd/MM/yyyy,  NotifyOnSourceUpdated=True, UpdateSourceTrigger=Default}"
+                                                        Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                                            <DatePicker FontSize="20"
+                                                        Margin="50,20,50,0"
+                                                        Padding="0,0,0,-10"
+                                                        materialDesign:HintAssist.Hint="Ngày kết thúc"
+                                                        SelectedDateFormat="Short"
+                                                        SelectedDate="{Binding SelectedStudentBirthday}"
+                                                        Text="{Binding StudentBirthday, StringFormat=dd/MM/yyyy,  NotifyOnSourceUpdated=True, UpdateSourceTrigger=Default}"
+                                                        Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                                        </StackPanel>
                                     </Grid>
                                 </Grid>
                             </Border>
@@ -244,6 +264,26 @@
                                                VerticalAlignment="Center"
                                                materialDesign:ValidationAssist.HasError="True"
                                                FontSize="20" />
+                                    <Grid Grid.Row="1">
+                                        <StackPanel Orientation="Vertical">
+                                            <DatePicker FontSize="20"
+                                                        Margin="50,20,50,0"
+                                                        Padding="0,0,0,-10"
+                                                        materialDesign:HintAssist.Hint="Ngày bắt đầu"
+                                                        SelectedDateFormat="Short"
+                                                        SelectedDate="{Binding SelectedStudentBirthday,StringFormat=yyyy}"
+                                                        Text="{Binding StudentBirthday, StringFormat=yyyy,  NotifyOnSourceUpdated=True, UpdateSourceTrigger=Default}"
+                                                        Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                                            <DatePicker FontSize="20"
+                                                        Margin="50,20,50,0"
+                                                        Padding="0,0,0,-10"
+                                                        materialDesign:HintAssist.Hint="Ngày kết thúc"
+                                                        SelectedDateFormat="Short"
+                                                        SelectedDate="{Binding SelectedStudentBirthday,StringFormat=yyyy}"
+                                                        Text="{Binding StudentBirthday, StringFormat=yyyy,  NotifyOnSourceUpdated=True, UpdateSourceTrigger=Default}"
+                                                        Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                                        </StackPanel>
+                                    </Grid>
                                 </Grid>
                             </Border>
                         </Grid>

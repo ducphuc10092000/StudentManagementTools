@@ -132,7 +132,7 @@ namespace StudentManagement.ViewModel.Student_Manage_ViewModel
         }
         public void LoadStudentListNotHaveClass(ObservableCollection<STUDENT> studentListDTGInClass)
         {
-            STUDENTLIST = new ObservableCollection<HOC_SINH>(DataProvider.Ins.DB.HOC_SINH.Where(x=>x.DA_CO_LOP_HOC == false));
+            STUDENTLIST = new ObservableCollection<HOC_SINH>(DataProvider.Ins.DB.HOC_SINH.Where(x=>x.DA_CO_LOP_HOC == false || x.DA_CO_LOP_HOC == null || x.MA_LOP_DANG_HOC == null));
             STUDENTLISTDTG = new ObservableCollection<STUDENT>();
             foreach (var item in STUDENTLIST)
             {

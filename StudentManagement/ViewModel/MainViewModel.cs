@@ -1,7 +1,13 @@
-﻿using StudentManagement.View.Login;
+﻿using StudentManagement.View.Dashboard;
+using StudentManagement.View.Login;
 using StudentManagement.View.Mark_Manage;
+using StudentManagement.View.Student_Manage;
+using StudentManagement.View.Teacher_Manage;
+using StudentManagement.ViewModel.Dashboard_Manage_ViewModel;
 using StudentManagement.ViewModel.Login_ViewModel;
 using StudentManagement.ViewModel.Mark_Manage_ViewModel;
+using StudentManagement.ViewModel.Student_Manage_ViewModel;
+using StudentManagement.ViewModel.Teacher_Manage_ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +23,7 @@ namespace StudentManagement.ViewModel
         #region Chức năng Button chuyển UC
         public enum CHUCNANG
         {
-            DashBoard, ManageStudent, ManageTeacher, ManageSubject, ManageMark, ManageClass, ManageSchoolYear,  ManageFee, ManageReport, ManageAccount
+            DashBoard, ManageStudent, ManageTeacher, ManageSubject, ManageMark, ManageClass, ManageSchoolYear, ManageSummary, ManageReport, ManageAccount
         }
         private int _ChucNang;
         public int ChucNang { get => _ChucNang; set { _ChucNang = value; OnPropertyChanged(); } }
@@ -34,7 +40,7 @@ namespace StudentManagement.ViewModel
         public ICommand BtnManageMarkCommand { get; set; }
         public ICommand BtnManageClassCommand { get; set; }
         public ICommand BtnManageSchoolYearCommand { get; set; }
-        public ICommand BtnManageFeeCommand { get; set; }
+        public ICommand BtnManageSummaryCommand { get; set; }
         public ICommand BtnManageReportCommand { get; set; }
         public ICommand BtnManageAccountCommand { get; set; }
 
@@ -72,6 +78,9 @@ namespace StudentManagement.ViewModel
             }, (p) =>
             {
                 ChucNang = (int)CHUCNANG.ManageStudent;
+                Student_UC student_UC = new Student_UC();
+                var student_UC_DT = student_UC.DataContext as Student_UC_ViewModel;
+                student_UC_DT.LoadStudentList();
             });
             BtnManageTeacherCommand = new RelayCommand<object>((p) =>
             {
@@ -86,6 +95,9 @@ namespace StudentManagement.ViewModel
             }, (p) =>
             {
                 ChucNang = (int)CHUCNANG.ManageTeacher;
+                Teacher_UC teacher_UC = new Teacher_UC();
+                var teacher_UC_DT = teacher_UC.DataContext as Teacher_UC_ViewModel;
+                teacher_UC_DT.LoadTeacherList();
             });
             BtnManageSubjectCommand = new RelayCommand<object>((p) =>
             {
@@ -146,8 +158,8 @@ namespace StudentManagement.ViewModel
             {
                 ChucNang = (int)CHUCNANG.ManageSchoolYear;
             });
-            
-            BtnManageFeeCommand = new RelayCommand<object>((p) =>
+
+            BtnManageSummaryCommand = new RelayCommand<object>((p) =>
             {
                 //if (AccountPower == 0 || AccountPower == 1)
                 //{
@@ -159,7 +171,7 @@ namespace StudentManagement.ViewModel
                 return true;
             }, (p) =>
             {
-                ChucNang = (int)CHUCNANG.ManageFee;
+                ChucNang = (int)CHUCNANG.ManageSummary;
             });
             BtnManageReportCommand = new RelayCommand<object>((p) =>
             {

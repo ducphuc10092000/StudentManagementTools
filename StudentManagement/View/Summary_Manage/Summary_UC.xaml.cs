@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace StudentManagement.View.Tuition_Manage
+namespace StudentManagement.View.Summary_Manage
 {
     /// <summary>
-    /// Interaction logic for Tuition_UC.xaml
+    /// Interaction logic for Summary_UC.xaml
     /// </summary>
-    public partial class Tuition_UC : UserControl
+    public partial class Summary_UC : UserControl
     {
-        public Tuition_UC()
+        public Summary_UC()
         {
             InitializeComponent();
         }

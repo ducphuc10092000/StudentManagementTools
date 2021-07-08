@@ -25,5 +25,10 @@ namespace StudentManagement.Model.MARK
             DataProvider.Ins.DB.DIEMs.Add(diem);
             DataProvider.Ins.DB.SaveChanges();
         }
+
+        public void DeleteMark()
+        {
+            
+        }
     }
 }

@@ -71,7 +71,6 @@ namespace StudentManagement.ViewModel.Mark_Manage_ViewModel
                 return true;
             }, (p) =>
             {
-
                 LoadDTG();
             });
             DefaultCommand = new RelayCommand<object>((p) =>

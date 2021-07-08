@@ -59,6 +59,11 @@ namespace StudentManagement.ViewModel.Mark_Manage_ViewModel
                 string[] arrListRegularScore = regularReviewScore.Split(' ');
                 foreach (var item in arrListRegularScore)
                 {
+                    if(string.IsNullOrWhiteSpace(item))
+                    {
+                        MessageBox.Show("Các điểm cách nhau một khoảng trắng, vui lòng kiểm tra lại!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        return;
+                    }    
                     if(Convert.ToDouble(item) < 0)
                     {
                         MessageBox.Show("Điểm đánh giá thường xuyên không thể nhỏ hơn 0","Thông báo",MessageBoxButton.OK,MessageBoxImage.Warning);

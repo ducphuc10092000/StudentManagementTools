@@ -261,8 +261,9 @@
                                             Binding="{Binding lop.NAM_HOC.TEN_NAM_HOC}">
                         </DataGridTextColumn>
                         <!--Mô tả-->
-                        <DataGridTextColumn Header="Mô tả"
-                                            Width="450">
+                        <DataGridTextColumn Header="Giáo viên chủ nhiệm"
+                                            Width="450"
+                                            Binding="{Binding lop.GIAO_VIEN1.HO_TEN}">
 
                         </DataGridTextColumn>
 

@@ -72,20 +72,28 @@ namespace StudentManagement.Model.CLASS
         public void EditClass(int ClassID, string ClassName, string Grade, int MaxQuantityStudent, string SchoolYear, GIAO_VIEN selectedTeacher, ObservableCollection<HOC_SINH> studentList)
         {
             lop = DataProvider.Ins.DB.LOPs.Where(x => x.MA_LOP == ClassID).SingleOrDefault();
+
             if(selectedTeacher == null)
             {
-                if(lop.GIAO_VIEN != null)
+                if(lop.GIAO_VIEN1 != null)
                 {
                     lop.GIAO_VIEN1.DA_CHU_NHIEM = Convert.ToBoolean(0);
                     lop.MA_GVCN = null;
-                    lop.GIAO_VIEN = null;
+                    lop.GIAO_VIEN1 = null;
                     DataProvider.Ins.DB.SaveChanges();
                 }    
             }    
-            else
+            if(selectedTeacher != null)
             {
                 lop.GIAO_VIEN1 = selectedTeacher;
+                lop.MA_GVCN = selectedTeacher.MA_GIAO_VIEN;
                 lop.GIAO_VIEN1.DA_CHU_NHIEM = Convert.ToBoolean(1);
+                DataProvider.Ins.DB.SaveChanges();
+
+                GIAO_VIEN giaovien = new GIAO_VIEN();
+                giaovien = DataProvider.Ins.DB.GIAO_VIEN.Where(x => x.MA_GIAO_VIEN == selectedTeacher.MA_GIAO_VIEN).SingleOrDefault();
+                giaovien.MA_LOP_CHU_NHIEM = lop.MA_LOP;
+                DataProvider.Ins.DB.SaveChanges();
             }    
             lop.TEN_LOP = ClassName;
             lop.KHOI_LOP = DataProvider.Ins.DB.KHOI_LOP.Where(x => x.TEN_KHOI_LOP == Grade).SingleOrDefault();
@@ -93,26 +101,57 @@ namespace StudentManagement.Model.CLASS
             lop.NAM_HOC = DataProvider.Ins.DB.NAM_HOC.Where(x => x.TEN_NAM_HOC == SchoolYear).SingleOrDefault();
             lop.SI_SO = studentList.Count();
 
-            
+
+
+
+            ObservableCollection<HOC_KY> hockylist_thisSchoolYear_thisClass = new ObservableCollection<HOC_KY>(DataProvider.Ins.DB.HOC_KY.Where(x => x.MA_NAM_HOC == lop.MA_NAM_HOC));
+            //Lấy list môn học 
+            ObservableCollection<MON_HOC> monhocList = new ObservableCollection<MON_HOC>(DataProvider.Ins.DB.MON_HOC.Where(x => x.MA_KHOI_LOP == lop.MA_KHOI_LOP));
 
             //Xoá chi tiết LOP_HOCSINH cũ
             ObservableCollection<CT_LOP_HOC_SINH> class_Student_Detail = new ObservableCollection<CT_LOP_HOC_SINH>(DataProvider.Ins.DB.CT_LOP_HOC_SINH.Where(x => x.MA_LOP == ClassID));
-            foreach(var item in class_Student_Detail)
+            foreach(var chitietlop_hocsinh in class_Student_Detail)
             {
                 HOC_SINH tempHocSinh = new HOC_SINH();
-                tempHocSinh = DataProvider.Ins.DB.HOC_SINH.Where(x => x.MA_HOC_SINH == item.MA_HOC_SINH).SingleOrDefault();
+                tempHocSinh = DataProvider.Ins.DB.HOC_SINH.Where(x => x.MA_HOC_SINH == chitietlop_hocsinh.MA_HOC_SINH).SingleOrDefault();
                 tempHocSinh.DA_CO_LOP_HOC = Convert.ToBoolean(0);
+                tempHocSinh.LOP = null;
                 DataProvider.Ins.DB.SaveChanges();
 
-                DataProvider.Ins.DB.CT_LOP_HOC_SINH.Remove(item);
+
+                //Xóa quá trình học - học kỳ
+                foreach(var hocky in hockylist_thisSchoolYear_thisClass)
+                {
+                    QUA_TRINH_HOC_HOC_KY tempQTHHK = new QUA_TRINH_HOC_HOC_KY();
+                    tempQTHHK = DataProvider.Ins.DB.QUA_TRINH_HOC_HOC_KY.Where(x => x.MA_LOP == lop.MA_LOP && x.MA_HOC_SINH == chitietlop_hocsinh.MA_HOC_SINH && x.MA_HOC_KY == hocky.MA_HOC_KY).SingleOrDefault();
+                    //Xóa điểm trong mô học
+                    foreach(var monhoc in monhocList)
+                    {
+                        QUA_TRINH_HOC_MON_HOC tempQTHMH = new QUA_TRINH_HOC_MON_HOC();
+                        tempQTHMH = DataProvider.Ins.DB.QUA_TRINH_HOC_MON_HOC.Where(x => x.MA_QTHK == tempQTHHK.MA_QTHK && x.MA_MON_HOC == monhoc.MA_MON_HOC).SingleOrDefault();
+
+                        ObservableCollection<DIEM> tempDiem = new ObservableCollection<DIEM>(DataProvider.Ins.DB.DIEMs.Where(x => x.MA_QTMH == tempQTHMH.MA_QTMH && x.MA_MON_HOC == monhoc.MA_MON_HOC));
+
+                        foreach(var diem in tempDiem)
+                        {
+
+                            DataProvider.Ins.DB.DIEMs.Remove(diem);
+                        }    
+                        DataProvider.Ins.DB.SaveChanges();
+
+                        DataProvider.Ins.DB.QUA_TRINH_HOC_MON_HOC.Remove(tempQTHMH);
+                        DataProvider.Ins.DB.SaveChanges();
+                    }
+
+                    DataProvider.Ins.DB.QUA_TRINH_HOC_HOC_KY.Remove(tempQTHHK);
+                    DataProvider.Ins.DB.SaveChanges();
+                }
+
+
+
+                DataProvider.Ins.DB.CT_LOP_HOC_SINH.Remove(chitietlop_hocsinh);
                 DataProvider.Ins.DB.SaveChanges();
             }
-
-            //Lấy list học kỳ
-            ObservableCollection<HOC_KY> hockylist_thisSchoolYear = new ObservableCollection<HOC_KY>(DataProvider.Ins.DB.HOC_KY.Where(x => x.MA_NAM_HOC == lop.MA_NAM_HOC));
-
-            //Lấy list môn học 
-            ObservableCollection<MON_HOC> monhocList = new ObservableCollection<MON_HOC>(DataProvider.Ins.DB.MON_HOC.Where(x => x.MA_KHOI_LOP == lop.MA_KHOI_LOP));
 
 
             //Tạo chi tiết LOP_HOC_SINH mới
@@ -127,7 +166,7 @@ namespace StudentManagement.Model.CLASS
                 tempclass_Student_Detail.AddNewClassStudentDetail(lop.MA_LOP, item.MA_HOC_SINH);
 
                 //Tạo quá trình học _ học kỳ
-                foreach (var hocky in hockylist_thisSchoolYear)
+                foreach (var hocky in hockylist_thisSchoolYear_thisClass)
                 {
                     QUA_TRINH_HOC_HOC_KY tempQTHHK = new QUA_TRINH_HOC_HOC_KY();
                     tempQTHHK.LOP = lop;

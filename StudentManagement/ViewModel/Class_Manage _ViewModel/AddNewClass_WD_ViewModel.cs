@@ -150,15 +150,15 @@ namespace StudentManagement.ViewModel.Class_Manage__ViewModel
                 CLASS new_Class = new CLASS();
                 if(string.IsNullOrEmpty(HomeroomTeacherName))
                 {
-                    SelectedTeacher.giaovien = null;
                     SelectedTeacher = new TEACHER();
-                }    
+                    SelectedTeacher.giaovien = null;
+                }      
                 new_Class.EditClass(selectedClass.lop.MA_LOP, ClassName, Grade, MaxQuantityStudent, SchoolYear, SelectedTeacher.giaovien, studentList);
-                p.Close();
 
                 Class_UC class_UC = new Class_UC();
                 var class_UC_DT = class_UC.DataContext as Class_UC_ViewModel;
                 class_UC_DT.LoadClassList();
+                p.Close();
             });
             AddNewClassCommand = new RelayCommand<Window>((p) =>
             {
@@ -177,7 +177,7 @@ namespace StudentManagement.ViewModel.Class_Manage__ViewModel
                 foreach(var item in STUDENTLISTDTG)
                 {
                     studentList.Add(item.hocsinh);
-                }    
+                }
 
                 CLASS new_Class = new CLASS();
                 new_Class.AddNewClass(ClassName,Grade,MaxQuantityStudent,SchoolYear,SelectedTeacher.giaovien, studentList);
@@ -194,7 +194,9 @@ namespace StudentManagement.ViewModel.Class_Manage__ViewModel
             {
                 TeacherList_WD teacherList_WD = new TeacherList_WD();
                 var teacherList_WD_DT = teacherList_WD.DataContext as Teacher_UC_ViewModel;
+
                 teacherList_WD_DT.LoadTeacherListNotHomeroomTeacher();
+
                 teacherList_WD.ShowDialog();
                 teacherList_WD.Close();
                 if (teacherList_WD_DT.SelectedTeacher == null)
@@ -286,7 +288,7 @@ namespace StudentManagement.ViewModel.Class_Manage__ViewModel
             MaxQuantityStudent = Convert.ToInt32(selectedClass.lop.SI_SO_TOI_DA);
             SchoolYear = selectedClass.lop.NAM_HOC.TEN_NAM_HOC;
             Grade = selectedClass.lop.KHOI_LOP.TEN_KHOI_LOP;
-            if (selectedClass.lop.GIAO_VIEN1 == null)
+            if (selectedClass.lop.MA_GVCN == null)
             {
                 HomeroomTeacherName = "";
             }

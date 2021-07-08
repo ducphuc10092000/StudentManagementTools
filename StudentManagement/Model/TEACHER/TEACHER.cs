@@ -31,6 +31,7 @@ namespace StudentManagement.Model.TEACHER
             giaovien.QUOC_TICH = DataProvider.Ins.DB.QUOC_TICH.Where(x => x.TEN_QUOC_TICH == quoc_tich).SingleOrDefault();
             giaovien.BO_MON = DataProvider.Ins.DB.BO_MON.Where(x => x.TEN_BO_MON == bo_mon).SingleOrDefault();
             giaovien.AVATAR = avatar;
+            giaovien.DA_CHU_NHIEM = false;
             giaovien.TRINH_DO_HOC_VAN = DataProvider.Ins.DB.TRINH_DO_HOC_VAN.Where(x=>x.TEN_TDHV == trinh_do).SingleOrDefault();
 
             DataProvider.Ins.DB.GIAO_VIEN.Add(giaovien);

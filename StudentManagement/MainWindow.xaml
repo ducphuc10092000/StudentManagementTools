@@ -12,7 +12,7 @@
         xmlns:viewClass="clr-namespace:StudentManagement.View.Class_Manage"
         xmlns:viewSchoolYear="clr-namespace:StudentManagement.View.SchoolYear_Manage"
         xmlns:viewMark="clr-namespace:StudentManagement.View.Mark_Manage"
-        xmlns:viewTuition="clr-namespace:StudentManagement.View.Tuition_Manage"
+        xmlns:viewSummary="clr-namespace:StudentManagement.View.Summary_Manage"
         xmlns:viewReport="clr-namespace:StudentManagement.View.Report_Manage"
         xmlns:viewSubject="clr-namespace:StudentManagement.View.Subject_Manage"
         mc:Ignorable="d"
@@ -21,7 +21,8 @@
         DataContext="{StaticResource MainVM}"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="900" Width="1600">
+        Title="MainWindow" Height="900" Width="1600"
+        Icon="school1.png">
     <Window.Resources>
         <Style x:Key="tblButtonFeature"
                TargetType="TextBlock">
@@ -551,21 +552,21 @@
                             </Style>
                         </Button.Style>
                     </Button>
-                    <!--Btn FEE-->
+                    <!--Btn Summary-->
                     <Button Height="auto"
                             Width="auto"
                             materialDesign:ShadowAssist.ShadowDepth="Depth0"
-                            Command="{Binding BtnManageFeeCommand}">
+                            Command="{Binding BtnManageSummaryCommand}">
                         <StackPanel Orientation="Horizontal"
                                     Width="230">
                             <!--Icon để tại đây-->
-                            <Image Source="Photo/fees.png"
+                            <Image Source="Photo/stats.png"
                                    HorizontalAlignment="Left"
                                    VerticalAlignment="Center"
                                    Height="40"
                                    Width="40" />
                             <!--Content-->
-                            <TextBlock Text="Học phí"
+                            <TextBlock Text="Tổng kết"
                                        Margin="20,0,0,0"
                                        FontSize="20"
                                        VerticalAlignment="Center"
@@ -856,7 +857,7 @@
                         </Grid.Style>
                         <viewSchoolYear:SchoolYear_UC></viewSchoolYear:SchoolYear_UC>
                     </Grid>
-                    <!--View Fee-->
+                    <!--View Summary-->
                     <Grid>
                         <Grid.Style>
                             <Style TargetType="Grid">
@@ -871,7 +872,7 @@
                                 </Style.Triggers>
                             </Style>
                         </Grid.Style>
-                        <viewTuition:Tuition_UC></viewTuition:Tuition_UC>
+                        <viewSummary:Summary_UC></viewSummary:Summary_UC>
                     </Grid>
                     <!--View Report-->
                     <Grid>

@@ -136,7 +136,7 @@ namespace StudentManagement.ViewModel.Teacher_Manage_ViewModel
         }
         public void LoadTeacherListNotHomeroomTeacher()
         {
-            TEACHERLIST = new ObservableCollection<GIAO_VIEN>(DataProvider.Ins.DB.GIAO_VIEN.Where(x=>x.DA_CHU_NHIEM == false));
+            TEACHERLIST = new ObservableCollection<GIAO_VIEN>(DataProvider.Ins.DB.GIAO_VIEN.Where(x=>x.DA_CHU_NHIEM == false || x.MA_LOP_CHU_NHIEM == null));
             TEACHERLISTDTG = new ObservableCollection<TEACHER>();
 
             foreach (var item in TEACHERLIST)

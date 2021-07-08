@@ -44,6 +44,12 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="MaterialDesignColors, Version=2.0.1.2556, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.2.0.1\lib\net452\MaterialDesignColors.dll</HintPath>
     </Reference>
@@ -157,6 +163,7 @@
     <Compile Include="Model\QUOC_TICH.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\SEMESTER_PROCESS\SEMESTER_PROCESS.cs" />
     <Compile Include="Model\STUDENT\STUDENT.cs" />
     <Compile Include="Model\sysdiagram.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -177,13 +184,17 @@
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\Class_Manage _ViewModel\AddNewClass_WD_ViewModel.cs" />
     <Compile Include="ViewModel\Class_Manage _ViewModel\Class_UC_ViewModel.cs" />
+    <Compile Include="ViewModel\Dashboard_Manage_ViewModel\Dashboard_UC_ViewModel.cs" />
     <Compile Include="ViewModel\ImageProvider.cs" />
     <Compile Include="ViewModel\Login_ViewModel\Login_WD_ViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\Mark_Manage_ViewModel\EditMark_WD_ViewModel.cs" />
     <Compile Include="ViewModel\Mark_Manage_ViewModel\Mark_UC_ViewModel.cs" />
+    <Compile Include="ViewModel\SchoolYear_Manage_ViewModel\AddNewSchoolYear_WD_ViewModel.cs" />
+    <Compile Include="ViewModel\SchoolYear_Manage_ViewModel\SchoolYear_UC_ViewModel.cs" />
     <Compile Include="ViewModel\Student_Manage_ViewModel\AddNewStudent_WD_ViewModel.cs" />
     <Compile Include="ViewModel\Student_Manage_ViewModel\Student_UC_ViewModel.cs" />
+    <Compile Include="ViewModel\Summary_Manage_ViewModel\Summary_UC_ViewModel.cs" />
     <Compile Include="ViewModel\Teacher_Manage_ViewModel\AddNewTeacher_WD_ViewModel.cs" />
     <Compile Include="ViewModel\Teacher_Manage_ViewModel\Teacher_UC_ViewModel.cs" />
     <Compile Include="View\Account_Manage\Account_UC.xaml.cs">
@@ -234,6 +245,12 @@
     <Compile Include="View\Subject_Manage\Subject_UC.xaml.cs">
       <DependentUpon>Subject_UC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Summary_Manage\EditSummary_WD.xaml.cs">
+      <DependentUpon>EditSummary_WD.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Summary_Manage\Summary_UC.xaml.cs">
+      <DependentUpon>Summary_UC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Teacher_Manage\AddNewTeacher_WD.xaml.cs">
       <DependentUpon>AddNewTeacher_WD.xaml</DependentUpon>
     </Compile>
@@ -245,9 +262,6 @@
     </Compile>
     <Compile Include="View\Teacher_Manage\Teacher_UC.xaml.cs">
       <DependentUpon>Teacher_UC.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Tuition_Manage\Tuition_UC.xaml.cs">
-      <DependentUpon>Tuition_UC.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -329,6 +343,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Summary_Manage\EditSummary_WD.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Summary_Manage\Summary_UC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Teacher_Manage\AddNewTeacher_WD.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -342,10 +364,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Teacher_Manage\Teacher_UC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Tuition_Manage\Tuition_UC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -431,6 +449,13 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Photo\DASHBOARD\semester.png" />
+    <Resource Include="Photo\DASHBOARD\clock.png" />
+    <Resource Include="Photo\DASHBOARD\teacher.png" />
+    <Resource Include="Photo\DASHBOARD\class.png" />
+    <Resource Include="Photo\DASHBOARD\student.png" />
+    <Resource Include="school1.png" />
+    <Resource Include="Photo\stats.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.1.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.1.0\build\MaterialDesignThemes.targets')" />

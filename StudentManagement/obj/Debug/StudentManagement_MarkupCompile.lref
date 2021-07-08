@@ -8,6 +8,7 @@ FD:\StudentManagement\StudentManagement\StudentManagement\View\Class_Manage\Clas
 FD:\StudentManagement\StudentManagement\StudentManagement\View\Class_Manage\EditClass_WD.xaml;;
 FD:\StudentManagement\StudentManagement\StudentManagement\View\Dashboard\Dashboard_UC.xaml;;
 FD:\StudentManagement\StudentManagement\StudentManagement\View\Login\Login_WD.xaml;;
+FD:\StudentManagement\StudentManagement\StudentManagement\View\Mark_Manage\EditMark_WD.xaml;;
 FD:\StudentManagement\StudentManagement\StudentManagement\View\Mark_Manage\Mark_UC.xaml;;
 FD:\StudentManagement\StudentManagement\StudentManagement\View\Report_Manage\Report_UC.xaml;;
 FD:\StudentManagement\StudentManagement\StudentManagement\View\SchoolYear_Manage\AddNewSchoolYear_WD.xaml;;
@@ -17,10 +18,10 @@ FD:\StudentManagement\StudentManagement\StudentManagement\View\Student_Manage\Ed
 FD:\StudentManagement\StudentManagement\StudentManagement\View\Student_Manage\StudentList_WD.xaml;;
 FD:\StudentManagement\StudentManagement\StudentManagement\View\Student_Manage\Student_UC.xaml;;
 FD:\StudentManagement\StudentManagement\StudentManagement\View\Subject_Manage\Subject_UC.xaml;;
+FD:\StudentManagement\StudentManagement\StudentManagement\View\Summary_Manage\EditSummary_WD.xaml;;
+FD:\StudentManagement\StudentManagement\StudentManagement\View\Summary_Manage\Summary_UC.xaml;;
 FD:\StudentManagement\StudentManagement\StudentManagement\View\Teacher_Manage\AddNewTeacher_WD.xaml;;
 FD:\StudentManagement\StudentManagement\StudentManagement\View\Teacher_Manage\EditTeacher_WD.xaml;;
 FD:\StudentManagement\StudentManagement\StudentManagement\View\Teacher_Manage\TeacherList_WD.xaml;;
 FD:\StudentManagement\StudentManagement\StudentManagement\View\Teacher_Manage\Teacher_UC.xaml;;
-FD:\StudentManagement\StudentManagement\StudentManagement\View\Tuition_Manage\Tuition_UC.xaml;;
-FD:\StudentManagement\StudentManagement\StudentManagement\View\Mark_Manage\EditMark_WD.xaml;;
 

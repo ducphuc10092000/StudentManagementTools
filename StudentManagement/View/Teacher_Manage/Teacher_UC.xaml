@@ -1,14 +1,19 @@
 ﻿<UserControl x:Class="StudentManagement.View.Teacher_Manage.Teacher_UC"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:StudentManagement.View.Teacher_Manage"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+<<<<<<< HEAD
              mc:Ignorable="d" 
+=======
+             mc:Ignorable="d"
+>>>>>>> origin/student
              DataContext="{StaticResource Teacher_UC_VM}"
              Background="White"
-             d:DesignHeight="850" d:DesignWidth="1350">
+             d:DesignHeight="850"
+             d:DesignWidth="1350">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"></RowDefinition>
@@ -19,6 +24,10 @@
             <StackPanel Orientation="Horizontal">
                 <Border Margin="5"
                         CornerRadius="10"
+<<<<<<< HEAD
+=======
+                        Width="270"
+>>>>>>> origin/student
                         Background="WhiteSmoke"
                         BorderBrush="#FF52B6B0"
                         BorderThickness="1">
@@ -32,11 +41,20 @@
                                                      Width="30"></materialDesign:PackIcon>
                             <TextBox Text="{Binding TeacherNameFind,UpdateSourceTrigger=PropertyChanged,NotifyOnSourceUpdated=True}"
                                      FontSize="17"
+<<<<<<< HEAD
                                      Margin="5"
                                      VerticalContentAlignment="Center"
                                      HorizontalContentAlignment="Left"
                                      materialDesign:HintAssist.Hint="Nhập tên giáo viên"
                                      Width="250">
+=======
+                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                     VerticalContentAlignment="Center"
+                                     HorizontalContentAlignment="Left"
+                                     materialDesign:HintAssist.Hint="Nhập tên giáo viên"
+                                     Width="220"
+                                     Margin="0,0,0,-1">
+>>>>>>> origin/student
                             </TextBox>
                         </StackPanel>
                     </Grid>
@@ -50,6 +68,7 @@
                         BorderBrush="#FF52B6B0"
                         BorderThickness="1">
                     <ComboBox materialDesign:HintAssist.Hint="Tên ban"
+<<<<<<< HEAD
                               Margin="5"
                               Padding="0,0,0,-10"
                               Width="140"
@@ -66,6 +85,16 @@
                             Ban Thể chất
                         </ComboBoxItem>
                     </ComboBox>
+=======
+                              FontSize="17"
+                              IsEditable="True"
+                              ItemsSource="{Binding GroupSubjectListCbb}"
+                              Text="{Binding SelectedGroupSubject,UpdateSourceTrigger=PropertyChanged,NotifyOnSourceUpdated=True, Mode=TwoWay}"
+                              Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                              Height="50"
+                              Margin="9,-1"
+                              VerticalAlignment="Top" />
+>>>>>>> origin/student
                 </Border>
                 <!--Btn Tìm Kiếm-->
                 <Button Content="Tìm kiếm"
@@ -232,13 +261,18 @@
                         <!--Tỉnh thành-->
                         <DataGridTextColumn Header="Email"
                                             Binding="{Binding giaovien.EMAIL}"
+<<<<<<< HEAD
                                             Width="200"></DataGridTextColumn>
+=======
+                                            Width="250"></DataGridTextColumn>
+>>>>>>> origin/student
 
                         <!--Trạng thái-->
                         <DataGridTextColumn Header="SĐT"
                                             Width="150"
                                             Binding="{Binding giaovien.SO_DIEN_THOAI}">
                         </DataGridTextColumn>
+<<<<<<< HEAD
                       
                         <!--Mô tả-->
                         <DataGridTextColumn Header="Địa chỉ"
@@ -252,6 +286,20 @@
                                             Width="150">
                             
                         </DataGridTextColumn>
+=======
+                        <DataGridTextColumn Header="Tên bộ môn"
+                                            Binding="{Binding giaovien.BO_MON.TEN_BO_MON}"
+                                            Width="200">
+
+                        </DataGridTextColumn>
+                        <!--Mô tả-->
+                        <DataGridTextColumn Header="Chủ nhiệm"
+                                            Binding="{Binding giaovien.LOP.TEN_LOP}"
+                                            Width="250">
+                        </DataGridTextColumn>
+
+
+>>>>>>> origin/student
                     </DataGrid.Columns>
                 </DataGrid>
             </ScrollViewer>

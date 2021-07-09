@@ -86,13 +86,8 @@ namespace StudentManagement.ViewModel.Login_ViewModel
 
                 login_WD.Hide();
                 MainWindow mainWindow = new MainWindow();
-
-                if (mainWindow.DataContext == null)
-                    return;
-
-                var mainVM = mainWindow.DataContext as MainViewModel;
                 mainWindow.ShowDialog();
-
+                mainWindow.Close();
 
                 login_WD.Close();
             }

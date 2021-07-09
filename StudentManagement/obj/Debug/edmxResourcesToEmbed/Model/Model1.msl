@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="STUDENTMANAGEMENTModelStoreContainer" CdmEntityContainer="STUDENTMANAGEMENTEntities1">
@@ -203,4 +204,268 @@
       </EntityTypeMapping>
     </EntitySetMapping>
   </EntityContainerMapping>
+=======
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="STUDENTMANAGEMENTModelStoreContainer" CdmEntityContainer="STUDENTMANAGEMENTEntities1">
+    <EntitySetMapping Name="BO_MON">
+      <EntityTypeMapping TypeName="STUDENTMANAGEMENTModel.BO_MON">
+        <MappingFragment StoreEntitySet="BO_MON">
+          <ScalarProperty Name="TEN_BO_MON" ColumnName="TEN_BO_MON" />
+          <ScalarProperty Name="MA_BO_MON" ColumnName="MA_BO_MON" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CT_LOP_HOC_SINH">
+      <EntityTypeMapping TypeName="STUDENTMANAGEMENTModel.CT_LOP_HOC_SINH">
+        <MappingFragment StoreEntitySet="CT_LOP_HOC_SINH">
+          <ScalarProperty Name="GHI_CHU" ColumnName="GHI_CHU" />
+          <ScalarProperty Name="MA_HOC_SINH" ColumnName="MA_HOC_SINH" />
+          <ScalarProperty Name="MA_LOP" ColumnName="MA_LOP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DAN_TOC">
+      <EntityTypeMapping TypeName="STUDENTMANAGEMENTModel.DAN_TOC">
+        <MappingFragment StoreEntitySet="DAN_TOC">
+          <ScalarProperty Name="TEN_DAN_TOC" ColumnName="TEN_DAN_TOC" />
+          <ScalarProperty Name="MA_DAN_TOC" ColumnName="MA_DAN_TOC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DIEMs">
+      <EntityTypeMapping TypeName="STUDENTMANAGEMENTModel.DIEM">
+        <MappingFragment StoreEntitySet="DIEM">
+          <ScalarProperty Name="MA_LOAI_DIEM" ColumnName="MA_LOAI_DIEM" />
+          <ScalarProperty Name="MA_MON_HOC" ColumnName="MA_MON_HOC" />
+          <ScalarProperty Name="MA_QTMH" ColumnName="MA_QTMH" />
+          <ScalarProperty Name="DIEM_SO" ColumnName="DIEM_SO" />
+          <ScalarProperty Name="MA_DIEM" ColumnName="MA_DIEM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GIANG_DAY">
+      <EntityTypeMapping TypeName="STUDENTMANAGEMENTModel.GIANG_DAY">
+        <MappingFragment StoreEntitySet="GIANG_DAY">
+          <ScalarProperty Name="MA_MON_HOC" ColumnName="MA_MON_HOC" />
+          <ScalarProperty Name="MA_LOP" ColumnName="MA_LOP" />
+          <ScalarProperty Name="MA_GIAO_VIEN" ColumnName="MA_GIAO_VIEN" />
+          <ScalarProperty Name="MA_GIANG_DAY" ColumnName="MA_GIANG_DAY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GIAO_VIEN">
+      <EntityTypeMapping TypeName="STUDENTMANAGEMENTModel.GIAO_VIEN">
+        <MappingFragment StoreEntitySet="GIAO_VIEN">
+          <ScalarProperty Name="MA_LOP_CHU_NHIEM" ColumnName="MA_LOP_CHU_NHIEM" />
+          <ScalarProperty Name="SO_CMND" ColumnName="SO_CMND" />
+          <ScalarProperty Name="DA_CHU_NHIEM" ColumnName="DA_CHU_NHIEM" />
+          <ScalarProperty Name="MA_QUOC_TICH" ColumnName="MA_QUOC_TICH" />
+          <ScalarProperty Name="MA_TDHV" ColumnName="MA_TDHV" />
+          <ScalarProperty Name="NGAY_SINH" ColumnName="NGAY_SINH" />
+          <ScalarProperty Name="DIA_CHI" ColumnName="DIA_CHI" />
+          <ScalarProperty Name="GIOI_TINH" ColumnName="GIOI_TINH" />
+          <ScalarProperty Name="AVATAR" ColumnName="AVATAR" />
+          <ScalarProperty Name="MA_TAI_KHOAN" ColumnName="MA_TAI_KHOAN" />
+          <ScalarProperty Name="MA_BO_MON" ColumnName="MA_BO_MON" />
+          <ScalarProperty Name="MA_DAN_TOC" ColumnName="MA_DAN_TOC" />
+          <ScalarProperty Name="MA_TON_GIAO" ColumnName="MA_TON_GIAO" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="SO_DIEN_THOAI" ColumnName="SO_DIEN_THOAI" />
+          <ScalarProperty Name="HO_TEN" ColumnName="HO_TEN" />
+          <ScalarProperty Name="MA_GIAO_VIEN" ColumnName="MA_GIAO_VIEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HANH_KIEM">
+      <EntityTypeMapping TypeName="STUDENTMANAGEMENTModel.HANH_KIEM">
+        <MappingFragment StoreEntitySet="HANH_KIEM">
+          <ScalarProperty Name="TEN_HANH_KIEM" ColumnName="TEN_HANH_KIEM" />
+          <ScalarProperty Name="MA_HANH_KIEM" ColumnName="MA_HANH_KIEM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HOC_KY">
+      <EntityTypeMapping TypeName="STUDENTMANAGEMENTModel.HOC_KY">
+        <MappingFragment StoreEntitySet="HOC_KY">
+          <ScalarProperty Name="NGAY_KET_THUC" ColumnName="NGAY_KET_THUC" />
+          <ScalarProperty Name="NGAY_BAT_DAU" ColumnName="NGAY_BAT_DAU" />
+          <ScalarProperty Name="MA_NAM_HOC" ColumnName="MA_NAM_HOC" />
+          <ScalarProperty Name="TEN_HOC_KY" ColumnName="TEN_HOC_KY" />
+          <ScalarProperty Name="MA_HOC_KY" ColumnName="MA_HOC_KY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HOC_SINH">
+      <EntityTypeMapping TypeName="STUDENTMANAGEMENTModel.HOC_SINH">
+        <MappingFragment StoreEntitySet="HOC_SINH">
+          <ScalarProperty Name="MA_LOP_DANG_HOC" ColumnName="MA_LOP_DANG_HOC" />
+          <ScalarProperty Name="DA_CO_LOP_HOC" ColumnName="DA_CO_LOP_HOC" />
+          <ScalarProperty Name="NGAY_SINH" ColumnName="NGAY_SINH" />
+          <ScalarProperty Name="GIOI_TINH" ColumnName="GIOI_TINH" />
+          <ScalarProperty Name="MA_QUOC_TICH" ColumnName="MA_QUOC_TICH" />
+          <ScalarProperty Name="AVATAR" ColumnName="AVATAR" />
+          <ScalarProperty Name="SDT_PHU_HUYNH" ColumnName="SDT_PHU_HUYNH" />
+          <ScalarProperty Name="MA_DAN_TOC" ColumnName="MA_DAN_TOC" />
+          <ScalarProperty Name="MA_TON_GIAO" ColumnName="MA_TON_GIAO" />
+          <ScalarProperty Name="HO_TEN_ME" ColumnName="HO_TEN_ME" />
+          <ScalarProperty Name="HO_TEN_CHA" ColumnName="HO_TEN_CHA" />
+          <ScalarProperty Name="DIA_CHI" ColumnName="DIA_CHI" />
+          <ScalarProperty Name="SO_DIEN_THOAI" ColumnName="SO_DIEN_THOAI" />
+          <ScalarProperty Name="HO_TEN" ColumnName="HO_TEN" />
+          <ScalarProperty Name="MA_HOC_SINH" ColumnName="MA_HOC_SINH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KHOI_LOP">
+      <EntityTypeMapping TypeName="STUDENTMANAGEMENTModel.KHOI_LOP">
+        <MappingFragment StoreEntitySet="KHOI_LOP">
+          <ScalarProperty Name="TEN_KHOI_LOP" ColumnName="TEN_KHOI_LOP" />
+          <ScalarProperty Name="MA_KHOI_LOP" ColumnName="MA_KHOI_LOP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOAI_DIEM">
+      <EntityTypeMapping TypeName="STUDENTMANAGEMENTModel.LOAI_DIEM">
+        <MappingFragment StoreEntitySet="LOAI_DIEM">
+          <ScalarProperty Name="HESO" ColumnName="HESO" />
+          <ScalarProperty Name="TEN_LOAI_DIEM" ColumnName="TEN_LOAI_DIEM" />
+          <ScalarProperty Name="MA_LOAI_DIEM" ColumnName="MA_LOAI_DIEM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOAI_TAI_KHOAN">
+      <EntityTypeMapping TypeName="STUDENTMANAGEMENTModel.LOAI_TAI_KHOAN">
+        <MappingFragment StoreEntitySet="LOAI_TAI_KHOAN">
+          <ScalarProperty Name="TEN_LOAI_TAI_KHOAN" ColumnName="TEN_LOAI_TAI_KHOAN" />
+          <ScalarProperty Name="MA_LOAI_TAI_KHOAN" ColumnName="MA_LOAI_TAI_KHOAN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOPs">
+      <EntityTypeMapping TypeName="STUDENTMANAGEMENTModel.LOP">
+        <MappingFragment StoreEntitySet="LOP">
+          <ScalarProperty Name="MA_GVCN" ColumnName="MA_GVCN" />
+          <ScalarProperty Name="MA_NAM_HOC" ColumnName="MA_NAM_HOC" />
+          <ScalarProperty Name="SI_SO_TOI_DA" ColumnName="SI_SO_TOI_DA" />
+          <ScalarProperty Name="MA_KHOI_LOP" ColumnName="MA_KHOI_LOP" />
+          <ScalarProperty Name="SI_SO" ColumnName="SI_SO" />
+          <ScalarProperty Name="TEN_LOP" ColumnName="TEN_LOP" />
+          <ScalarProperty Name="MA_LOP" ColumnName="MA_LOP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MON_HOC">
+      <EntityTypeMapping TypeName="STUDENTMANAGEMENTModel.MON_HOC">
+        <MappingFragment StoreEntitySet="MON_HOC">
+          <ScalarProperty Name="MA_KHOI_LOP" ColumnName="MA_KHOI_LOP" />
+          <ScalarProperty Name="MA_BO_MON" ColumnName="MA_BO_MON" />
+          <ScalarProperty Name="TEN_MON_HOC" ColumnName="TEN_MON_HOC" />
+          <ScalarProperty Name="MA_MON_HOC" ColumnName="MA_MON_HOC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NAM_HOC">
+      <EntityTypeMapping TypeName="STUDENTMANAGEMENTModel.NAM_HOC">
+        <MappingFragment StoreEntitySet="NAM_HOC">
+          <ScalarProperty Name="NAM_KET_THUC" ColumnName="NAM_KET_THUC" />
+          <ScalarProperty Name="NAM_BAT_DAU" ColumnName="NAM_BAT_DAU" />
+          <ScalarProperty Name="TEN_NAM_HOC" ColumnName="TEN_NAM_HOC" />
+          <ScalarProperty Name="MA_NAM_HOC" ColumnName="MA_NAM_HOC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QUA_TRINH_HOC_MON_HOC">
+      <EntityTypeMapping TypeName="STUDENTMANAGEMENTModel.QUA_TRINH_HOC_MON_HOC">
+        <MappingFragment StoreEntitySet="QUA_TRINH_HOC_MON_HOC">
+          <ScalarProperty Name="MA_MON_HOC" ColumnName="MA_MON_HOC" />
+          <ScalarProperty Name="MA_QTHK" ColumnName="MA_QTHK" />
+          <ScalarProperty Name="DIEM_TB_MON_HOC" ColumnName="DIEM_TB_MON_HOC" />
+          <ScalarProperty Name="MA_QTMH" ColumnName="MA_QTMH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QUOC_TICH">
+      <EntityTypeMapping TypeName="STUDENTMANAGEMENTModel.QUOC_TICH">
+        <MappingFragment StoreEntitySet="QUOC_TICH">
+          <ScalarProperty Name="TEN_QUOC_TICH" ColumnName="TEN_QUOC_TICH" />
+          <ScalarProperty Name="MA_QUOC_TICH" ColumnName="MA_QUOC_TICH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="STUDENTMANAGEMENTModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TAI_KHOAN">
+      <EntityTypeMapping TypeName="STUDENTMANAGEMENTModel.TAI_KHOAN">
+        <MappingFragment StoreEntitySet="TAI_KHOAN">
+          <ScalarProperty Name="MA_LOAI_TAI_KHOAN" ColumnName="MA_LOAI_TAI_KHOAN" />
+          <ScalarProperty Name="MAT_KHAU" ColumnName="MAT_KHAU" />
+          <ScalarProperty Name="TEN_TAI_KHOAN" ColumnName="TEN_TAI_KHOAN" />
+          <ScalarProperty Name="MA_TAI_KHOAN" ColumnName="MA_TAI_KHOAN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TON_GIAO">
+      <EntityTypeMapping TypeName="STUDENTMANAGEMENTModel.TON_GIAO">
+        <MappingFragment StoreEntitySet="TON_GIAO">
+          <ScalarProperty Name="TEN_TON_GIAO" ColumnName="TEN_TON_GIAO" />
+          <ScalarProperty Name="MA_TON_GIAO" ColumnName="MA_TON_GIAO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TRINH_DO_HOC_VAN">
+      <EntityTypeMapping TypeName="STUDENTMANAGEMENTModel.TRINH_DO_HOC_VAN">
+        <MappingFragment StoreEntitySet="TRINH_DO_HOC_VAN">
+          <ScalarProperty Name="TEN_TDHV" ColumnName="TEN_TDHV" />
+          <ScalarProperty Name="MA_TDHV" ColumnName="MA_TDHV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="XEP_LOAI">
+      <EntityTypeMapping TypeName="STUDENTMANAGEMENTModel.XEP_LOAI">
+        <MappingFragment StoreEntitySet="XEP_LOAI">
+          <ScalarProperty Name="TEN_XEP_LOAI" ColumnName="TEN_XEP_LOAI" />
+          <ScalarProperty Name="MA_XEP_LOAI" ColumnName="MA_XEP_LOAI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QUA_TRINH_HOC_HOC_KY">
+      <EntityTypeMapping TypeName="STUDENTMANAGEMENTModel.QUA_TRINH_HOC_HOC_KY">
+        <MappingFragment StoreEntitySet="QUA_TRINH_HOC_HOC_KY">
+          <ScalarProperty Name="MA_QTNH" ColumnName="MA_QTNH" />
+          <ScalarProperty Name="HOC_LUC" ColumnName="HOC_LUC" />
+          <ScalarProperty Name="MA_HOC_KY" ColumnName="MA_HOC_KY" />
+          <ScalarProperty Name="MA_XEP_LOAI" ColumnName="MA_XEP_LOAI" />
+          <ScalarProperty Name="MA_HANH_KIEM" ColumnName="MA_HANH_KIEM" />
+          <ScalarProperty Name="MA_HOC_SINH" ColumnName="MA_HOC_SINH" />
+          <ScalarProperty Name="MA_LOP" ColumnName="MA_LOP" />
+          <ScalarProperty Name="DIEM_TB" ColumnName="DIEM_TB" />
+          <ScalarProperty Name="MA_QTHK" ColumnName="MA_QTHK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QUA_TRINH_HOC_NAM_HOC">
+      <EntityTypeMapping TypeName="STUDENTMANAGEMENTModel.QUA_TRINH_HOC_NAM_HOC">
+        <MappingFragment StoreEntitySet="QUA_TRINH_HOC_NAM_HOC">
+          <ScalarProperty Name="DIEM_TB" ColumnName="DIEM_TB" />
+          <ScalarProperty Name="HOC_LUC" ColumnName="HOC_LUC" />
+          <ScalarProperty Name="MA_XEP_LOAI" ColumnName="MA_XEP_LOAI" />
+          <ScalarProperty Name="MA_HANH_KIEM" ColumnName="MA_HANH_KIEM" />
+          <ScalarProperty Name="MA_HOC_SINH" ColumnName="MA_HOC_SINH" />
+          <ScalarProperty Name="MA_LOP" ColumnName="MA_LOP" />
+          <ScalarProperty Name="MA_QTNH" ColumnName="MA_QTNH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+>>>>>>> origin/student
 </Mapping>

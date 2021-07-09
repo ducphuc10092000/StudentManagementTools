@@ -1,0 +1,163 @@
+﻿<Window x:Class="StudentManagement.View.Mark_Manage.EditMark_WD"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudentManagement.View.Mark_Manage"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Language="vi-VN"
+        x:Name="editMark_WD"
+        Background="Transparent"
+        DataContext="{StaticResource EditMark_WD_VM}"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Title="EditMark_WD"
+        Height="610"
+        Width="500">
+    <Grid>
+        <Border BorderBrush="#FF41A27A"
+                Background="#FF41A27A"
+                BorderThickness="10"
+                CornerRadius="20">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <materialDesign:ColorZone Background="#FF41A27A"
+                                          Grid.Row="0"
+                                          CornerRadius="10">
+                    <DockPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock VerticalAlignment="Center"
+                                       FontSize="25"
+                                       Foreground="White"
+                                       FontWeight="Bold"
+                                       Margin="10,0,0,0">
+                        Chỉnh sửa điểm
+                            </TextBlock>
+                        </StackPanel>
+                    </DockPanel>
+                </materialDesign:ColorZone>
+                <Border Grid.Row="1"
+                        Margin="5"
+                        BorderBrush="White"
+                        BorderThickness="5"
+                        CornerRadius="10">
+                    <materialDesign:Card Background="#FFFBFBFB"
+                                         materialDesign:ShadowAssist.ShadowDepth="Depth5">
+                        <Grid>
+                            <StackPanel Orientation="Vertical"
+                                        Grid.Column="0">
+                                <TextBox materialDesign:HintAssist.Hint="Tên học sinh"
+                                         Background="White"
+                                         materialDesign:ValidationAssist.HasError="True"
+                                         Height="50"
+                                         Width="400"
+                                         IsReadOnly="True"
+                                         Text="{Binding StudentName}"
+                                         Padding="5,-5,0,0"
+                                         Margin="0,10,0,0"
+                                         FontSize="20"
+                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                <TextBox materialDesign:HintAssist.Hint="Môn học"
+                                         Background="White"
+                                         materialDesign:ValidationAssist.HasError="True"
+                                         Height="50"
+                                         Width="400"
+                                         IsReadOnly="True"
+                                         Text="{Binding SubjectName}"
+                                         Padding="5,-5,0,0"
+                                         Margin="0,20,0,0"
+                                         FontSize="20"
+                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                <StackPanel Orientation="Horizontal"
+                                            HorizontalAlignment="Center">
+                                    <TextBox materialDesign:HintAssist.Hint="Học kỳ"
+                                             Background="White"
+                                             materialDesign:ValidationAssist.HasError="True"
+                                             Height="50"
+                                             IsReadOnly="True"
+                                             Width="190"
+                                             Text="{Binding SemesterName}"
+                                             Padding="5,-5,0,0"
+                                             Margin="0,30,0,0"
+                                             FontSize="20"
+                                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                    <TextBox materialDesign:HintAssist.Hint="Năm học"
+                                             Background="White"
+                                             materialDesign:ValidationAssist.HasError="True"
+                                             Height="50"
+                                             IsReadOnly="True"
+                                             Width="190"
+                                             Text="{Binding SchoolYear}"
+                                             Padding="5,-5,0,0"
+                                             Margin="20,30,0,0"
+                                             FontSize="20"
+                                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                </StackPanel>
+                                <TextBox materialDesign:HintAssist.Hint="Điểm đánh giá thường xuyên"
+                                         Background="White"
+                                         materialDesign:ValidationAssist.HasError="True"
+                                         Height="50"
+                                         Width="400"
+                                         Text="{Binding regularReviewScore}"
+                                         Padding="5,-5,0,0"
+                                         Margin="0,30,0,0"
+                                         FontSize="20"
+                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                <TextBox materialDesign:HintAssist.Hint="Điểm giữa kỳ"
+                                         Background="White"
+                                         materialDesign:ValidationAssist.HasError="True"
+                                         Height="50"
+                                         Width="400"
+                                         Text="{Binding midTermScore}"
+                                         Padding="5,-5,0,0"
+                                         Margin="0,30,0,0"
+                                         FontSize="20"
+                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                <TextBox materialDesign:HintAssist.Hint="Điểm cuối kỳ"
+                                         Background="White"
+                                         materialDesign:ValidationAssist.HasError="True"
+                                         Height="50"
+                                         Width="400"
+                                         Text="{Binding endTermScore}"
+                                         Padding="5,-5,0,0"
+                                         Margin="0,30,0,0"
+                                         FontSize="20"
+                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                <StackPanel Orientation="Horizontal"
+                                            Margin="0,20,0,0"
+                                            HorizontalAlignment="Center">
+                                    <Button Height="40"
+                                            Width="150"
+                                            Margin="0,0,0,0"
+                                            Background="#FFADD8E6"
+                                            Command="{Binding ConfirmEditStudentMarkCommand}"
+                                            CommandParameter="{Binding ElementName=editMark_WD}"
+                                            Style="{DynamicResource MaterialDesignRaisedButton}"
+                                            materialDesign:ShadowAssist.ShadowDepth="Depth3">
+                                        Chỉnh sửa
+                                    </Button>
+                                    <Button Height="auto"
+                                            Width="150"
+                                            Command="{Binding QuitCommand}"
+                                            CommandParameter="{Binding ElementName=editMark_WD}"
+                                            Style="{DynamicResource MaterialDesignRaisedButton}"
+                                            Margin="100,0,0,0"
+                                            Background="#FFF3A2A2"
+                                            materialDesign:ShadowAssist.ShadowDepth="Depth3">
+                                        Thoát
+                                    </Button>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+                    </materialDesign:Card>
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

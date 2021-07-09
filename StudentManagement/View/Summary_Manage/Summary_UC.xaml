@@ -1,0 +1,269 @@
+﻿<UserControl x:Class="StudentManagement.View.Summary_Manage.Summary_UC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:StudentManagement.View.Summary_Manage"
+             mc:Ignorable="d"
+             DataContext="{StaticResource Summary_UC_VM}"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             Background="White"
+             d:DesignHeight="850" d:DesignWidth="1350">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0"
+                    Orientation="Horizontal">
+            <!--Combobox năm học-->
+            <Border Height="50"
+                    Width="170"
+                    Margin="20,0,0,0"
+                    CornerRadius="10"
+                    Background="WhiteSmoke"
+                    BorderBrush="#FF52B6B0"
+                    BorderThickness="1">
+                <ComboBox materialDesign:HintAssist.Hint="Năm học"
+                          FontSize="17"
+                          IsEditable="True"
+                          ItemsSource="{Binding SchoolYearListCbb}"
+                          Text="{Binding SelectedSchoolYear}"
+                          Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                          Height="50"
+                          Margin="9,-1"
+                          VerticalAlignment="Top" />
+            </Border>
+            <!--Combobox năm học-->
+            <Border Height="50"
+                    Width="170"
+                    Margin="20,0,0,0"
+                    CornerRadius="10"
+                    Background="WhiteSmoke"
+                    BorderBrush="#FF52B6B0"
+                    BorderThickness="1">
+                <ComboBox materialDesign:HintAssist.Hint="Học kỳ"
+                          FontSize="17"
+                          IsEditable="False"
+                          Text="{Binding SelectedSemester}"
+                          Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                          Height="50"
+                          Margin="9,-1"
+                          VerticalAlignment="Top">
+                    <ComboBoxItem>
+                        Học kỳ 1
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        Học kỳ 2
+                    </ComboBoxItem>
+                </ComboBox>
+            </Border>
+            <!--Combobox Lớp-->
+            <!--<Border Height="50"
+                    Width="170"
+                    Margin="20,0,0,0"
+                    CornerRadius="10"
+                    Background="WhiteSmoke"
+                    BorderBrush="#FF52B6B0"
+                    BorderThickness="1">
+                <ComboBox materialDesign:HintAssist.Hint="Khối lớp"
+                          FontSize="17"
+                          IsEditable="True"
+                          Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                          Height="50"
+                          Text="{Binding SelectedGradeClass, UpdateSourceTrigger=PropertyChanged,NotifyOnSourceUpdated=True}"
+                          Margin="9,-1"
+                          VerticalAlignment="Top">
+                    <ComboBoxItem>
+                        10
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        11
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        12
+                    </ComboBoxItem>
+                </ComboBox>
+            </Border>-->
+            <!--Combobox Lớp-->
+            <Border Height="50"
+                    Width="170"
+                    Margin="20,0,0,0"
+                    CornerRadius="10"
+                    Background="WhiteSmoke"
+                    BorderBrush="#FF52B6B0"
+                    BorderThickness="1">
+                <ComboBox materialDesign:HintAssist.Hint="Lớp"
+                          FontSize="17"
+                          IsEditable="True"
+                          Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                          Height="50"
+                          ItemsSource="{Binding ClassListCbb,UpdateSourceTrigger=PropertyChanged,NotifyOnSourceUpdated=True}"
+                          Text="{Binding SelectedClassName}"
+                          Margin="9,-1"
+                          VerticalAlignment="Top">
+
+                </ComboBox>
+            </Border>
+            <!--Btn Tìm Kiếm-->
+            <Button Content="Tìm kiếm"
+                    Command="{Binding FindCommand,UpdateSourceTrigger=PropertyChanged,NotifyOnSourceUpdated=True}"
+                    Style="{DynamicResource MaterialDesignRaisedButton}"
+                    materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                    Foreground="White"
+                    Height="Auto"
+                    Width="120"
+                    BorderThickness="0"
+                    HorizontalContentAlignment="Center"
+                    Background="#FF52B6B0"
+                    Margin="20,13,0,13" />
+
+            <!--Btn Mặc định-->
+            <Button Content="Mặc định"
+                    Command="{Binding DefaultCommand,UpdateSourceTrigger=PropertyChanged,NotifyOnSourceUpdated=True}"
+                    Style="{DynamicResource MaterialDesignRaisedButton}"
+                    materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                    Foreground="White"
+                    Height="Auto"
+                    Width="120"
+                    BorderThickness="0"
+                    HorizontalContentAlignment="Center"
+                    Background="#FF52B6B0"
+                    Margin="20,13,0,13" />
+
+            <!--Btn Mặc định-->
+            <Button Content="Xuất excel"
+                    Command="{Binding ExportExcelFileCommand,UpdateSourceTrigger=PropertyChanged,NotifyOnSourceUpdated=True}"
+                    Style="{DynamicResource MaterialDesignRaisedButton}"
+                    materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                    Foreground="White"
+                    Height="Auto"
+                    Width="120"
+                    BorderThickness="0"
+                    HorizontalContentAlignment="Center"
+                    Background="#FF52B6B0"
+                    Margin="20,13,0,13" />
+        </StackPanel>
+        <Border Grid.Row="1"
+                Margin="5"
+                BorderBrush="#FF52B6B0"
+                BorderThickness="2"
+                CornerRadius="10">
+            <ScrollViewer Margin="5">
+                <DataGrid ItemsSource="{Binding Path=SEMESTER_PROCESS_LIST_DTG,NotifyOnSourceUpdated=True,UpdateSourceTrigger=PropertyChanged}"
+                          AlternatingRowBackground="#6c757d"
+                          IsReadOnly="True"
+                          SelectedItem="{Binding SelectedStudent_Semester_Process,UpdateSourceTrigger=PropertyChanged,
+                            NotifyOnSourceUpdated=True}"
+                          ScrollViewer.VerticalScrollBarVisibility="Auto"
+                          AutoGenerateColumns="False"
+                          CanUserResizeColumns="False"
+                          CanUserReorderColumns="False">
+                    <DataGrid.Resources>
+                        <Style TargetType="DataGridRow">
+                            <Setter Property="Height"
+                                    Value="35"></Setter>
+                            <Setter Property="FontSize"
+                                    Value="13"></Setter>
+                            <Setter Property="FontFamily"
+                                    Value="Arial"></Setter>
+                        </Style>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Height"
+                                    Value="30"></Setter>
+                            <Setter Property="FontFamily"
+                                    Value="Times New Roman"></Setter>
+                            <Setter Property="FontSize"
+                                    Value="15"></Setter>
+                            <Setter Property="FontWeight"
+                                    Value="Bold"></Setter>
+                            <Setter Property="HorizontalContentAlignment"
+                                    Value="Center"></Setter>
+                            <Setter Property="VerticalContentAlignment"
+                                    Value="Center"></Setter>
+                            <Setter Property="Background"
+                                    Value="White"></Setter>
+                            <Setter Property="BorderBrush"
+                                    Value="#6c757d"></Setter>
+                            <Setter Property="BorderThickness"
+                                    Value="1,1,0,1"></Setter>
+                        </Style>
+                    </DataGrid.Resources>
+                    <DataGrid.Columns>
+                        <!--Cột Mã DTQ-->
+                        <DataGridTextColumn Header="Mã HS"
+                                            Width="70"
+                                            Binding="{Binding MA_HOC_SINH}">
+                        </DataGridTextColumn>
+                        <!--Cột THAO TÁC-->
+                        <DataGridTemplateColumn Header="Điểm chi tiết"
+                                                Width="150">
+                            <!--Mỗi dòng của cột chứa 2 button-->
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Grid Margin="0,0,12,0">
+                                        <Button Background="{x:Null}"
+                                                BorderThickness="0"
+                                                Command="{Binding Path=DataContext.Open_StudentDetailMark_WD_Command,
+                                                RelativeSource= {RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}"
+                                                CommandParameter="{Binding Path= MA_HOC_SINH}"
+                                                Height="Auto"
+                                                Width="20"
+                                                Margin="6,0,5,0">
+                                            <!--Button EDIT-->
+                                            <!--Ảnh hình EDIT-->
+                                            <Grid>
+                                                <Image Source="..\..\Photo\edit_icon.png"
+                                                       Margin="-17,-4,1,-4"
+                                                       RenderTransformOrigin="0.5,0.5">
+                                                    <Image.RenderTransform>
+                                                        <TransformGroup>
+                                                            <ScaleTransform ScaleX="-1" />
+                                                            <SkewTransform />
+                                                            <RotateTransform />
+                                                            <TranslateTransform />
+                                                        </TransformGroup>
+                                                    </Image.RenderTransform>
+                                                </Image>
+                                            </Grid>
+                                        </Button>
+                                    </Grid>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <!--Cột TÊN điểm tham quan-->
+                        <DataGridTextColumn Header="Tên học sinh"
+                                            Binding="{Binding HOC_SINH.HO_TEN}"
+                                            Width="250"></DataGridTextColumn>
+                        <!--Tỉnh thành-->
+                        <DataGridTextColumn Header="Ngày sinh"
+                                            Binding="{Binding HOC_SINH.NGAY_SINH}"
+                                            Width="150"></DataGridTextColumn>
+                        <!--Trạng thái-->
+                        <DataGridTextColumn Header="Lớp"
+                                            Width="100"
+                                            Binding="{Binding LOP.TEN_LOP}">
+                        </DataGridTextColumn>
+
+                        <!--Trạng thái-->
+                        <DataGridTextColumn Header="Hạnh kiểm"
+                                            Width="150"
+                                            Binding="{Binding HANH_KIEM.TEN_HANH_KIEM}">
+                        </DataGridTextColumn>
+                       
+                        <!--Mô tả-->
+                        <DataGridTextColumn Header="Điểm TB"
+                                            Binding="{Binding DIEM_TB}"
+                                            Width="150"></DataGridTextColumn>
+
+                        <!--Trạng thái-->
+                        <DataGridTextColumn Header="Xếp loại"
+                                            Width="200"
+                                            Binding="{Binding XEP_LOAI.TEN_XEP_LOAI}">
+                        </DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </ScrollViewer>
+        </Border>
+    </Grid>
+</UserControl>

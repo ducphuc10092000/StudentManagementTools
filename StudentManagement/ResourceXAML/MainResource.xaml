@@ -2,10 +2,27 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:viewmodel="clr-namespace:StudentManagement.ViewModel"
                     xmlns:viewmodel_Login="clr-namespace:StudentManagement.ViewModel.Login_ViewModel"
-                    xmlns:viewmodel_Student="clr-namespace:StudentManagement.ViewModel.Student_Manage_ViewModel">
+                    xmlns:viewmodel_Student="clr-namespace:StudentManagement.ViewModel.Student_Manage_ViewModel"
+                    xmlns:viewmodel_Teacher="clr-namespace:StudentManagement.ViewModel.Teacher_Manage_ViewModel"
+                    xmlns:viewmodel_Class="clr-namespace:StudentManagement.ViewModel.Class_Manage__ViewModel"
+                    xmlns:viewmodel_Mark="clr-namespace:StudentManagement.ViewModel.Mark_Manage_ViewModel"
+                    xmlns:viewmodel_SchoolYear="clr-namespace:StudentManagement.ViewModel.SchoolYear_Manage_ViewModel"
+                    xmlns:viewmodel_Dashboard="clr-namespace:StudentManagement.ViewModel.Dashboard_Manage_ViewModel"
+                    xmlns:viewmodel_Summary="clr-namespace:StudentManagement.ViewModel.Summary_Manage_ViewModel">
     <viewmodel:MainViewModel x:Key="MainVM"></viewmodel:MainViewModel>
     <viewmodel_Login:Login_WD_ViewModel x:Key="Login_WD_VM"></viewmodel_Login:Login_WD_ViewModel>
+    
     <viewmodel_Student:Student_UC_ViewModel x:Key="Student_UC_VM"></viewmodel_Student:Student_UC_ViewModel>
+    
     <viewmodel_Student:AddNewStudent_WD_ViewModel x:Key="AddNewStudent_WD_VM"></viewmodel_Student:AddNewStudent_WD_ViewModel>
-    <viewmodel_Student:EditStudent_WD_ViewModel x:Key="EditStudent_WD_VM"></viewmodel_Student:EditStudent_WD_ViewModel>
+    <viewmodel_Teacher:Teacher_UC_ViewModel x:Key="Teacher_UC_VM"></viewmodel_Teacher:Teacher_UC_ViewModel>
+    <viewmodel_Teacher:AddNewTeacher_WD_ViewModel x:Key="AddNewTeacher_WD_VM"></viewmodel_Teacher:AddNewTeacher_WD_ViewModel>
+    <viewmodel_Class:Class_UC_ViewModel x:Key="Class_UC_VM"></viewmodel_Class:Class_UC_ViewModel>
+    <viewmodel_Class:AddNewClass_WD_ViewModel x:Key="AddNewClass_WD_VM"></viewmodel_Class:AddNewClass_WD_ViewModel>
+    <viewmodel_Mark:Mark_UC_ViewModel x:Key="Mark_UC_VM"></viewmodel_Mark:Mark_UC_ViewModel>
+    <viewmodel_Mark:EditMark_WD_ViewModel x:Key="EditMark_WD_VM"></viewmodel_Mark:EditMark_WD_ViewModel>
+    <viewmodel_SchoolYear:SchoolYear_UC_ViewModel x:Key="SchoolYear_UC_VM"></viewmodel_SchoolYear:SchoolYear_UC_ViewModel>
+    <viewmodel_SchoolYear:AddNewSchoolYear_WD_ViewModel x:Key="AddNewSchoolYear_WD_VM"></viewmodel_SchoolYear:AddNewSchoolYear_WD_ViewModel>
+    <viewmodel_Dashboard:Dashboard_UC_ViewModel x:Key="Dashboard_UC_VM"></viewmodel_Dashboard:Dashboard_UC_ViewModel>
+    <viewmodel_Summary:Summary_UC_ViewModel x:Key="Summary_UC_VM"></viewmodel_Summary:Summary_UC_ViewModel>
 </ResourceDictionary>

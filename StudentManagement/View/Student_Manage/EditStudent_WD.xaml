@@ -7,8 +7,9 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
+        Language="vi-VN"
         x:Name="editStudent_WD"
-        DataContext="{StaticResource EditStudent_WD_VM}"
+        DataContext="{StaticResource AddNewStudent_WD_VM}"
         Background="Transparent"
         WindowStyle="None"
         AllowsTransparency="True"
@@ -90,33 +91,13 @@
                                                     FontSize="20"
                                                     Margin="25,20,0,0"
                                                     Padding="0,0,0,-10"
+                                                    SelectedDate="{Binding SelectedStudentBirthday}"
                                                     Text="{Binding StudentBirthday, StringFormat=dd/MM/yyyy, Mode=TwoWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=Default}"
                                                     materialDesign:HintAssist.Hint="Ngày sinh"
                                                     Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
                                     </StackPanel>
                                 </Grid>
-                                <Grid>
-                                    <StackPanel Orientation="Horizontal">
-                                        <ComboBox materialDesign:HintAssist.Hint="Dân tộc"
-                                                  Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                                                  ItemsSource="{Binding ProductUnitList,UpdateSourceTrigger=Default,NotifyOnSourceUpdated=True,Mode=TwoWay}"
-                                                  Width="190"
-                                                  IsEditable="True"
-                                                  Text="{Binding StudentEthnicity}"
-                                                  FontSize="20"
-                                                  Height="50"
-                                                  Padding="0,0,0,-10"
-                                                  Margin="25,10,0,20">
-                                        </ComboBox>
-                                        <Button Height="40"
-                                                Width="100"
-                                                Command="{Binding Open_AddNewProductUnit_WD_Command,UpdateSourceTrigger=PropertyChanged,NotifyOnSourceUpdated=True}"
-                                                Background="#FFADD8E6"
-                                                Margin="10,0,0,0">
-                                            Thêm
-                                        </Button>
-                                    </StackPanel>
-                                </Grid>
+
                                 <Grid>
                                     <StackPanel Orientation="Horizontal">
                                         <ComboBox materialDesign:HintAssist.Hint="Quốc tịch"
@@ -137,6 +118,32 @@
                                                 Margin="10,0,0,0">
                                             Thêm
                                         </Button>
+                                    </StackPanel>
+                                </Grid>
+                                <Grid>
+                                    <StackPanel Orientation="Horizontal">
+                                        <ComboBox materialDesign:HintAssist.Hint="Dân tộc"
+                                                  Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                                  ItemsSource="{Binding EthnicityList,UpdateSourceTrigger=Default,NotifyOnSourceUpdated=True,Mode=TwoWay}"
+                                                  Width="190"
+                                                  IsEditable="True"
+                                                  Text="{Binding StudentEthnicity}"
+                                                  FontSize="20"
+                                                  Height="50"
+                                                  Padding="0,0,0,-10"
+                                                  Margin="25,10,0,20">
+                                        </ComboBox>
+                                        <ComboBox materialDesign:HintAssist.Hint="Tôn giáo"
+                                                  Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                                  ItemsSource="{Binding ReligionList,UpdateSourceTrigger=Default,NotifyOnSourceUpdated=True,Mode=TwoWay}"
+                                                  Width="190"
+                                                  IsEditable="True"
+                                                  Text="{Binding StudentReligion}"
+                                                  FontSize="20"
+                                                  Height="50"
+                                                  Padding="0,0,0,-10"
+                                                  Margin="25,10,0,20">
+                                        </ComboBox>
                                     </StackPanel>
                                 </Grid>
                                 <StackPanel Orientation="Horizontal">

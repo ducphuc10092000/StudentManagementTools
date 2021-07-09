@@ -62,6 +62,7 @@ namespace StudentManagement.ViewModel.SchoolYear_Manage_ViewModel
                 addNewSchoolYear_WD_VM.ResetTextbox();
                 addNewSchoolYear_WD.ShowDialog();
                 addNewSchoolYear_WD.Close();
+                LoadSchoolYearList();
             });
         }
 

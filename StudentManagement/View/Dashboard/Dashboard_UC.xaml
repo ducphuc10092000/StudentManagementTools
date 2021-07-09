@@ -176,7 +176,7 @@
                         Width="200"
                         FontSize="20"
                         Foreground="White"
-                        Background="#FF4C7DD6"
+                        Background="#FF68CBF9"
                         Margin="0,2,0,4">
                     Làm mới dữ liệu
                 </Button>

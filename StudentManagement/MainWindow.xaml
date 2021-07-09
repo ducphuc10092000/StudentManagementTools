@@ -671,19 +671,19 @@
                         </Button.Style>
                     </Button>
                     <!--Btn ACCOUNT-->
-                    <Button Height="auto"
+                    <!--<Button Height="auto"
                             Width="auto"
                             materialDesign:ShadowAssist.ShadowDepth="Depth0"
                             Command="{Binding BtnManageAccountCommand}">
                         <StackPanel Orientation="Horizontal"
                                     Width="230">
-                            <!--Icon để tại đây-->
+                            --><!--Icon để tại đây--><!--
                             <Image Source="Photo/account.png"
                                    HorizontalAlignment="Left"
                                    VerticalAlignment="Center"
                                    Height="40"
                                    Width="40" />
-                            <!--Content-->
+                            --><!--Content--><!--
                             <TextBlock Text="Tài khoản"
                                        Margin="20,0,0,0"
                                        FontSize="20"
@@ -728,7 +728,7 @@
                                 </Style.Triggers>
                             </Style>
                         </Button.Style>
-                    </Button>
+                    </Button>-->
                 </StackPanel>
             </Border>
             
